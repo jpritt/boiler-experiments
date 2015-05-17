@@ -71,7 +71,7 @@ def run(cmd):
 
 def run_tophat():
     if os.path.exists(os.path.join(args.output, 'tophat')):
-        print('TopHat directory exists, skilling...', file=sys.stderr)
+        print('TopHat directory exists, skipping...', file=sys.stderr)
         return
 
     sam_exe = exe('samtools', args.samtools_exe)
@@ -118,7 +118,7 @@ def run_tophat():
 
 def run_hisat():
     if os.path.exists(os.path.join(args.output, 'hisat')):
-        print('HISAT directory exists, skilling...', file=sys.stderr)
+        print('HISAT directory exists, skipping...', file=sys.stderr)
         return
 
     print('Running HISAT...', file=sys.stderr)
@@ -169,7 +169,7 @@ def run_aligners():
 
 def run_cufflinks(aligner):
     if os.path.exists(os.path.join(args.output, 'cufflinks_' + aligner)):
-        print('Cufflinks+%s directory exists, skilling...' % aligner, file=sys.stderr)
+        print('Cufflinks+%s directory exists, skipping...' % aligner, file=sys.stderr)
         return
 
     for comp in ['uncompressed', 'compressed']:
@@ -188,7 +188,7 @@ def run_cufflinks(aligner):
 
 def run_stringtie(aligner):
     if os.path.exists(os.path.join(args.output, 'stringtie_' + aligner)):
-        print('StringTie+%s directory exists, skilling...' % aligner, file=sys.stderr)
+        print('StringTie+%s directory exists, skipping...' % aligner, file=sys.stderr)
         return
 
     for comp in ['uncompressed', 'compressed']:
