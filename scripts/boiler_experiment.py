@@ -87,11 +87,17 @@ def run_tophat():
         cmd += (' ' + ','.join(args.m2))
     run(cmd)
 
+    print('Making TopHat version file...', file=sys.stderr)
+    run('tophat --version > %s' % os.path.join(args.output, 'tophat'))
+
     print('Running samtools...', file=sys.stderr)
     bam_out = os.path.join(odir, 'accepted_hits.bam')
     al_out = os.path.join(odir, 'accepted_hits.sam')
     cmd = '%s view -h %s > %s' % (sam_exe, bam_out, al_out)
     run(cmd)
+
+    print('Making samtools version file...', file=sys.stderr)
+    run('%s 2> %s' % (sam_exe, os.path.join(args.output, 'tophat')))
 
     print('Compressing with Boiler...', file=sys.stderr)
     odir = os.path.join(args.output, 'tophat', 'compressed')
@@ -102,11 +108,14 @@ def run_tophat():
           (python_exe, args.compress, al_out, boiler_out, os.path.join(odir, 'accepted_hits.sam'))
     run(cmd)
 
+    print('Making Boiler version file...', file=sys.stderr)
+    run('%s %s --version > %s' % (python_exe, args.compress, os.path.join(args.output, 'tophat')))
+
 
 def run_hisat():
     print('Running HISAT...', file=sys.stderr)
     mkdir_p(os.path.join(args.output, 'hisat'))
-    cmd = exe('hisat', args.hisat_exe)
+    cmd = ex = exe('hisat', args.hisat_exe)
     cmd += ' -x %s' % hisat_index()
     if args.num_threads > 1:
         cmd += ' -p %d' % args.num_threads
@@ -121,6 +130,9 @@ def run_hisat():
         cmd += (' -2 ' + ','.join(args.m2))
     run(cmd)
 
+    print('Making HISAT version file...', file=sys.stderr)
+    run('%s --version > %s' % (ex, os.path.join(args.output, 'tophat')))
+
     print('Compressing with Boiler...', file=sys.stderr)
     odir = os.path.join(args.output, 'hisat', 'compressed')
     mkdir_p(odir)
@@ -129,6 +141,9 @@ def run_hisat():
     cmd = '%s %s --alignments %s --out %s --binary --expand-to %s' %\
           (python_exe, args.compress, al_out, boiler_out, os.path.join(odir, 'accepted_hits.sam'))
     run(cmd)
+
+    print('Making Boiler version file...', file=sys.stderr)
+    run('%s %s --version > %s' % (python_exe, args.compress, os.path.join(args.output, 'tophat')))
 
 
 def run_aligners():
@@ -147,7 +162,7 @@ def run_aligners():
 def run_cufflinks(aligner):
     for comp in ['uncompressed', 'compressed']:
         print('Running cufflinks on %s %s...' % (aligner, comp), file=sys.stderr)
-        cmd = exe('cufflinks', args.cufflinks_exe)
+        cmd = ex = exe('cufflinks', args.cufflinks_exe)
         odir = os.path.join(args.output, 'cufflinks_' + aligner, comp)
         cmd += ' -o ' + odir
         if args.num_threads > 1:
@@ -155,11 +170,14 @@ def run_cufflinks(aligner):
         cmd += ' ' + os.path.join(args.output, aligner, comp, 'accepted_hits.sam')
         run(cmd)
 
+        print('Making Cufflinks version file...', file=sys.stderr)
+        run('%s 2> %s' % (ex, odir))
+
 
 def run_stringtie(aligner):
     for comp in ['uncompressed', 'compressed']:
         print('Running stringtie on %s %s...' % (aligner, comp), file=sys.stderr)
-        cmd = exe('stringtie', args.stringtie_exe)
+        cmd = ex = exe('stringtie', args.stringtie_exe)
         odir = os.path.join(args.output, 'stringtie_' + aligner, comp)
         cmd += ' ' + os.path.join(args.output, aligner, comp, 'accepted_hits.sam')
         mkdir_p(odir)
@@ -167,6 +185,9 @@ def run_stringtie(aligner):
             cmd += ' -p %d' % args.num_threads
         cmd += ' -o ' + os.path.join(odir, 'stringtie.gtf')
         run(cmd)
+
+        print('Making StringTie version file...', file=sys.stderr)
+        run('%s 2> %s' % (ex, odir))
 
 
 def run_assemblers():
