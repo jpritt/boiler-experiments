@@ -88,7 +88,7 @@ def run_tophat():
     run(cmd)
 
     print('Making TopHat version file...', file=sys.stderr)
-    run('tophat --version > %s' % os.path.join(args.output, 'tophat'))
+    run('tophat --version > %s' % os.path.join(args.output, 'tophat', 'tophat_version.txt'))
 
     print('Running samtools...', file=sys.stderr)
     bam_out = os.path.join(odir, 'accepted_hits.bam')
@@ -97,7 +97,7 @@ def run_tophat():
     run(cmd)
 
     print('Making samtools version file...', file=sys.stderr)
-    run('%s 2> %s' % (sam_exe, os.path.join(args.output, 'tophat')))
+    run('%s 2> %s' % (sam_exe, os.path.join(args.output, 'tophat', 'samtools_version.txt')))
 
     print('Compressing with Boiler...', file=sys.stderr)
     odir = os.path.join(args.output, 'tophat', 'compressed')
@@ -109,7 +109,7 @@ def run_tophat():
     run(cmd)
 
     print('Making Boiler version file...', file=sys.stderr)
-    run('%s %s --version > %s' % (python_exe, args.compress, os.path.join(args.output, 'tophat')))
+    run('%s %s --version > %s' % (python_exe, args.compress, os.path.join(args.output, 'tophat', 'boiler_version.txt')))
 
 
 def run_hisat():
@@ -131,7 +131,7 @@ def run_hisat():
     run(cmd)
 
     print('Making HISAT version file...', file=sys.stderr)
-    run('%s --version > %s' % (ex, os.path.join(args.output, 'tophat')))
+    run('%s --version > %s' % (ex, os.path.join(args.output, 'tophat', 'hisat_version.txt')))
 
     print('Compressing with Boiler...', file=sys.stderr)
     odir = os.path.join(args.output, 'hisat', 'compressed')
@@ -143,7 +143,7 @@ def run_hisat():
     run(cmd)
 
     print('Making Boiler version file...', file=sys.stderr)
-    run('%s %s --version > %s' % (python_exe, args.compress, os.path.join(args.output, 'tophat')))
+    run('%s %s --version > %s' % (python_exe, args.compress, os.path.join(args.output, 'tophat', 'boiler_version.txt')))
 
 
 def run_aligners():
@@ -171,7 +171,7 @@ def run_cufflinks(aligner):
         run(cmd)
 
         print('Making Cufflinks version file...', file=sys.stderr)
-        run('%s 2> %s' % (ex, odir))
+        run('%s 2> %s' % (ex, os.path.join(odir, 'cufflinks_version.txt')))
 
 
 def run_stringtie(aligner):
@@ -187,7 +187,7 @@ def run_stringtie(aligner):
         run(cmd)
 
         print('Making StringTie version file...', file=sys.stderr)
-        run('%s 2> %s' % (ex, odir))
+        run('%s 2> %s' % (ex, os.path.join(odir, 'stringtie_version.txt')))
 
 
 def run_assemblers():
