@@ -69,6 +69,35 @@ def run(cmd):
     os.system(cmd)
 
 
+def run_boiler(odir):
+    uncomp_dir = os.path.join(odir, 'uncompressed')
+    al_out = os.path.join(uncomp_dir, 'accepted_hits.sam')
+    comp_dir = os.path.join(odir, 'compressed')
+    mkdir_p(comp_dir)
+
+    print('Compressing with Boiler...', file=sys.stderr)
+    boiler_out = os.path.join(comp_dir, 'accepted_hits.boiled')
+    python_exe = exe('python3', args.python3_exe)
+    out_sam = os.path.join(comp_dir, 'accepted_hits.sam')
+    cmd = '%s %s --alignments %s --out %s --binary --expand-to %s' %\
+          (python_exe, args.compress, al_out, boiler_out, out_sam)
+    run(cmd)
+
+    print('Making Boiler version file...', file=sys.stderr)
+    run('%s %s --version > %s' % (python_exe, args.compress, os.path.join(args.output, 'tophat', 'boiler_version.txt')))
+
+    print('Expanded sam to bam...', file=sys.stderr)
+    sam_exe = exe('samtools', args.samtools_exe)
+    unsort_bam = os.path.join(comp_dir, 'accepted_hits_unsorted.bam')
+    cmd = '%s view -Sb %s > %s' % (sam_exe, out_sam, unsort_bam)
+    run(cmd)
+
+    print('Sorting bam...', file=sys.stderr)
+    sort_bam_prefix = os.path.join(comp_dir, 'accepted_hits')
+    cmd = '%s sort %s %s' % (sam_exe, unsort_bam, sort_bam_prefix)
+    run(cmd)
+
+
 def run_tophat():
     if os.path.exists(os.path.join(args.output, 'tophat')):
         print('TopHat directory exists, skipping...', file=sys.stderr)
@@ -103,17 +132,7 @@ def run_tophat():
     print('Making samtools version file...', file=sys.stderr)
     run('%s 2> %s' % (sam_exe, os.path.join(args.output, 'tophat', 'samtools_version.txt')))
 
-    print('Compressing with Boiler...', file=sys.stderr)
-    odir = os.path.join(args.output, 'tophat', 'compressed')
-    mkdir_p(odir)
-    boiler_out = os.path.join(odir, 'accepted_hits.boiled')
-    python_exe = exe('python3', args.python3_exe)
-    cmd = '%s %s --alignments %s --out %s --binary --expand-to %s' %\
-          (python_exe, args.compress, al_out, boiler_out, os.path.join(odir, 'accepted_hits.sam'))
-    run(cmd)
-
-    print('Making Boiler version file...', file=sys.stderr)
-    run('%s %s --version > %s' % (python_exe, args.compress, os.path.join(args.output, 'tophat', 'boiler_version.txt')))
+    run_boiler(os.path.join(args.output, 'tophat'))
 
 
 def run_hisat():
@@ -141,17 +160,7 @@ def run_hisat():
     print('Making HISAT version file...', file=sys.stderr)
     run('%s --version > %s' % (ex, os.path.join(args.output, 'tophat', 'hisat_version.txt')))
 
-    print('Compressing with Boiler...', file=sys.stderr)
-    odir = os.path.join(args.output, 'hisat', 'compressed')
-    mkdir_p(odir)
-    boiler_out = os.path.join(odir, 'accepted_hits.boiled')
-    python_exe = exe('python3', args.python3_exe)
-    cmd = '%s %s --alignments %s --out %s --binary --expand-to %s' %\
-          (python_exe, args.compress, al_out, boiler_out, os.path.join(odir, 'accepted_hits.sam'))
-    run(cmd)
-
-    print('Making Boiler version file...', file=sys.stderr)
-    run('%s %s --version > %s' % (python_exe, args.compress, os.path.join(args.output, 'tophat', 'boiler_version.txt')))
+    run_boiler(os.path.join(args.output, 'hisat'))
 
 
 def run_aligners():
@@ -179,7 +188,7 @@ def run_cufflinks(aligner):
         cmd += ' -o ' + odir
         if args.num_threads > 1:
             cmd += ' -p %d' % args.num_threads
-        cmd += ' ' + os.path.join(args.output, aligner, comp, 'accepted_hits.sam')
+        cmd += ' ' + os.path.join(args.output, aligner, comp, 'accepted_hits.bam')
         run(cmd)
 
         print('Making Cufflinks version file...', file=sys.stderr)
@@ -195,7 +204,7 @@ def run_stringtie(aligner):
         print('Running stringtie on %s %s...' % (aligner, comp), file=sys.stderr)
         cmd = ex = exe('stringtie', args.stringtie_exe)
         odir = os.path.join(args.output, 'stringtie_' + aligner, comp)
-        cmd += ' ' + os.path.join(args.output, aligner, comp, 'accepted_hits.sam')
+        cmd += ' ' + os.path.join(args.output, aligner, comp, 'accepted_hits.bam')
         mkdir_p(odir)
         if args.num_threads > 1:
             cmd += ' -p %d' % args.num_threads
