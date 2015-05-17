@@ -42,7 +42,7 @@ def run_compare_to_truth(pro, gtf, other_gtf, odir, ofile):
     cmd = ['python %s/compareToTruth.py' % args.boiler_dir]
     cmd.extend([pro, gtf, other_gtf])
     mkdir_p(odir)
-    cmd += ' >' + os.path.join(odir, ofile)
+    cmd.append(' >' + os.path.join(odir, ofile))
     run(' '.join(cmd))
 
 
@@ -51,7 +51,7 @@ def run_tripartite(pro, gtf, before_gtf, after_gtf, odir, ofile, strict=True):
     cmd = ['python %s/compareTripartite.py' % args.boiler_dir]
     cmd.extend([pro, gtf, before_gtf, after_gtf, '1' if strict else '0'])
     mkdir_p(odir)
-    cmd += ' >' + os.path.join(odir, ofile)
+    cmd.append(' >' + os.path.join(odir, ofile))
     run(' '.join(cmd))
 
 
@@ -63,7 +63,7 @@ if __name__ == "__main__":
     for aligner in ['tophat', 'hisat']:
         for assembler in ['cufflinks', 'stringtie']:
             dr = j(args.input, assembler + '_' + aligner)
-            if os.path.exists(dir):
+            if os.path.exists(dr):
                 before_gtf = glob.glob(os.path.join(dr, 'uncompressed', '*.gtf'))[0]
                 after_gtf = glob.glob(os.path.join(dr, 'compressed', '*.gtf'))[0]
                 run_tripartite(pro, gtf, before_gtf, after_gtf, dr, 'tripartite_nonstrict.txt', strict=False)
