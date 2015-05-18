@@ -142,3 +142,41 @@ $ tree $HOME/compress-alignments-test/sim1000000 | head -20
 |-- featurecounts_tophat
 |   |-- compressed
 ```
+
+### featureCounts plots
+
+If you're trying to diagnose compressed/uncompressed differences, the isoform assembly and quantitation results can be frustratingly hard to interpret.  A nice, easy-to-interpret plot is a scatter plot showing how many reads (or fragments, in the case of paired-end) overlap annotated genes in the uncompressed versus compressed outputs.  The `featureCounts` tool compiles these counts as part of the `boiler-experiment.py` script (if you specify `--featurecounts`).  To make this plot, change to the `$OUT/featurecounts_tophat` directory and run `Rscript /path/to/compress-alignments/scripts/featurecount_plot.R`:
+
+```
+$ cd $OUT/featurecounts_tophat
+$ tree
+.
+|-- compressed
+|   |-- counts_exon.tsv
+|   |-- counts_exon.tsv.summary
+|   |-- counts_gene.tsv
+|   |-- counts_gene.tsv.summary
+|   `-- featurecounts_version.txt
+`-- uncompressed
+    |-- counts_exon.tsv
+    |-- counts_exon.tsv.summary
+    |-- counts_gene.tsv
+    |-- counts_gene.tsv.summary
+    `-- featurecounts_version.txt
+
+2 directories, 10 files
+$ Rscript $FS1_HOME/git/compress-alignments/scripts/featurecount_plot.R
+null device 
+          1 
+null device 
+          1 
+$ tree
+$ ls -l
+total 1244
+drwxrwxr-x 2 langmead langmead    4096 May 18 09:59 compressed
+-rw-rw-r-- 1 langmead langmead 1043708 May 18 10:07 exon.pdf
+-rw-rw-r-- 1 langmead langmead  219514 May 18 10:07 gene.pdf
+drwxrwxr-x 2 langmead langmead    4096 May 18 09:59 uncompressed
+```
+
+Take a look at `gene.pdf`.
