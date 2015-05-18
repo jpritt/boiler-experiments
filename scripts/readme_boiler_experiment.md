@@ -29,7 +29,7 @@ export PYPY_HOME=$SHARED_DIR/pypy3-2.4-linux_x86_64-portable
 export PATH=$PATH:$PYPY_HOME/bin
 ```
 
-From the `compress-alignments` directory, run something like this (substituting for `INPUT`, `OUTPUT`, and `NTHREADS`):
+From the `compress-alignments` directory, run something like this (substituting for `IN`, `OUTPUT`, and `NTHREADS`):
 
 ```
 IN=/scratch0/langmead-fs1/user/jacob/compress-alignments-test/paired/sim1000000
@@ -56,7 +56,7 @@ python scripts/boiler_experiment.py \
 Results are now in subdirectories of `$OUT`.  (Also, the input GTF and PRO files have been copied there.  The reference genome and the input reads have not been copied, but perhaps should.  They would be helpful for running `kc.py`.) 
 
 ```
-[langmead@login compress-alignments-test]$ tree ~/compress-alignments-test/sim1000000 | head -20
+$ tree ~/compress-alignments-test/sim1000000 | head -20
 /home/langmead/compress-alignments-test/sim1000000
 |-- cufflinks_tophat
 |   |-- compressed
@@ -91,7 +91,7 @@ python scripts/boiler_eval.py \
 The results have been added to the directory structure of `$OUT`:
 
 ```
-[langmead@login compress-alignments]$ tree ~/compress-alignments-test/sim1000000 | head -20
+$ tree $HOME/compress-alignments-test/sim1000000 | head -20
 /home/langmead/compress-alignments-test/sim1000000
 |-- cufflinks_tophat
 |   |-- compressed
