@@ -22,6 +22,7 @@ parser.add_argument('--stringtie', action='store_true', help='Run StringTie')
 parser.add_argument('--tophat', action='store_true', help='Run TopHat')
 parser.add_argument('--hisat', action='store_true', help='Run HISAT')
 parser.add_argument('--htseq', action='store_true', help='Run htseq-count')
+parser.add_argument('--featurecounts', action='store_true', help='Run featureCounts')
 parser.add_argument('--compress', metavar='path', type=str, help='Path to compress.py', required=True)
 parser.add_argument('--samtools-exe', metavar='path', type=str, help='Path to samtools')
 parser.add_argument('--python3-exe', metavar='path', type=str, help='Path to python3')
@@ -30,6 +31,7 @@ parser.add_argument('--stringtie-exe', metavar='path', type=str, help='Path to s
 parser.add_argument('--tophat-exe', metavar='path', type=str, help='Path to tophat')
 parser.add_argument('--hisat-exe', metavar='path', type=str, help='Path to hisat')
 parser.add_argument('--htseq-exe', metavar='path', type=str, help='Path to htseq-count')
+parser.add_argument('--featurecounts-exe', metavar='path', type=str, help='Path to featureCounts')
 args = parser.parse_args()
 
 
@@ -90,7 +92,7 @@ def run_boiler(odir):
 
     print('Expanded sam to bam...', file=sys.stderr)
     sam_exe = exe('samtools', args.samtools_exe)
-    unsort_bam = os.path.join(comp_dir, 'accepted_hits_unsorted.bam')
+    unsort_bam = os.path.join(comp_dir, 'accepted_hits_name_sorted.bam')
     cmd = '%s view -Sb %s > %s' % (sam_exe, out_sam, unsort_bam)
     run(cmd)
 
@@ -131,6 +133,10 @@ def run_tophat():
     cmd = '%s view -h %s > %s' % (sam_exe, bam_out, al_out)
     run(cmd)
 
+    print('Name-sorting bam...', file=sys.stderr)
+    cmd = '%s sort -n %s %s' % (sam_exe, bam_out, os.path.join(odir, 'accepted_hits_name_sorted'))
+    run(cmd)
+
     print('Making samtools version file...', file=sys.stderr)
     run('%s 2> %s' % (sam_exe, os.path.join(args.output, 'tophat', 'samtools_version.txt')))
 
@@ -141,6 +147,8 @@ def run_hisat():
     if os.path.exists(os.path.join(args.output, 'hisat')):
         print('HISAT directory exists, skipping...', file=sys.stderr)
         return
+
+    sam_exe = exe('samtools', args.samtools_exe)
 
     print('Running HISAT...', file=sys.stderr)
     mkdir_p(os.path.join(args.output, 'hisat'))
@@ -161,6 +169,18 @@ def run_hisat():
 
     print('Making HISAT version file...', file=sys.stderr)
     run('%s --version > %s' % (ex, os.path.join(args.output, 'tophat', 'hisat_version.txt')))
+
+    print('Running samtools...', file=sys.stderr)
+    bam_out = os.path.join(odir, 'accepted_hits.bam')
+    cmd = '%s view -h %s > %s' % (sam_exe, bam_out, al_out)
+    run(cmd)
+
+    print('Name-sorting bam...', file=sys.stderr)
+    cmd = '%s sort -n %s %s' % (sam_exe, bam_out, os.path.join(odir, 'accepted_hits_name_sorted'))
+    run(cmd)
+
+    print('Making samtools version file...', file=sys.stderr)
+    run('%s 2> %s' % (sam_exe, os.path.join(args.output, 'tophat', 'samtools_version.txt')))
 
     run_boiler(os.path.join(args.output, 'hisat'))
 
@@ -188,14 +208,33 @@ def run_htseq(gtf, aligner):
         cmd = ex = exe('htseq-count', args.htseq_exe)
         odir = os.path.join(args.output, 'htseq_' + aligner, comp)
         mkdir_p(odir)
-        cmd += ' -f sam -s no -m union'
-        cmd += ' ' + os.path.join(args.output, aligner, comp, 'accepted_hits.sam')
+        cmd += ' -f bam -s no -m union'
+        cmd += ' ' + os.path.join(args.output, aligner, comp, 'accepted_hits_name_sorted.bam')
         cmd += ' ' + gtf
         cmd += ' > ' + os.path.join(odir, 'counts.tsv')
         run(cmd)
 
         print('Making HTSeq version file...', file=sys.stderr)
-        run('%s 2> %s' % (ex, os.path.join(odir, 'htseq_version.txt')))
+        run('%s > %s' % (ex, os.path.join(odir, 'htseq_version.txt')))
+
+
+def run_featurecounts(gtf, aligner):
+    if os.path.exists(os.path.join(args.output, 'featurecounts_' + aligner)):
+        print('featureCounts+%s directory exists, skipping...' % aligner, file=sys.stderr)
+        return
+
+    ex = exe('featureCounts', args.featurecounts_exe)
+    for comp in ['uncompressed', 'compressed']:
+        in_bam = os.path.join(args.output, aligner, comp, 'accepted_hits_name_sorted.bam')
+        odir = os.path.join(args.output, 'featurecounts_' + aligner, comp)
+        mkdir_p(odir)
+        for feat_arg, feat_name in zip(['', '-f'], ['gene', 'exon']):
+            print('Running featureCounts on %s level on %s %s...' % (feat_name, aligner, comp), file=sys.stderr)
+            out_tsv = os.path.join(odir, 'counts_%s.tsv' % feat_name)
+            run('%s -M -O -p %s -a %s -o %s %s' % (ex, feat_arg, gtf, out_tsv, in_bam))
+
+        print('Making featureCounts version file...', file=sys.stderr)
+        run('%s -v 2> %s' % (ex, os.path.join(odir, 'featurecounts_version.txt')))
 
 
 def run_cufflinks(aligner):
@@ -243,6 +282,11 @@ def run_counters(gtf):
             run_htseq(gtf, 'tophat')
         if args.hisat:
             run_htseq(gtf, 'hisat')
+    if args.featurecounts:
+        if args.tophat:
+            run_featurecounts(gtf, 'tophat')
+        if args.hisat:
+            run_featurecounts(gtf, 'hisat')
 
 
 def run_assemblers():
