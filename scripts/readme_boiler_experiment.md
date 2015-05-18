@@ -29,11 +29,13 @@ export PYPY_HOME=$SHARED_DIR/pypy3-2.4-linux_x86_64-portable
 export PATH=$PATH:$PYPY_HOME/bin
 ```
 
+### Paired-end
+
 From the `compress-alignments` directory, run something like this (substituting for `IN`, `OUTPUT`, and `NTHREADS`):
 
 ```
 IN=/scratch0/langmead-fs1/user/jacob/compress-alignments-test/paired/sim1000000
-OUT=$HOME/compress-alignments-test/sim1000000
+OUT=$HOME/compress-alignments-test/paired/sim1000000
 NTHREADS=12
 SHARED_DIR=/scratch0/langmead-fs1/shared
 mkdir -p $OUT
@@ -53,11 +55,38 @@ python scripts/boiler_experiment.py \
     --featurecounts
 ```
 
-Results are now in subdirectories of `$OUT`.  (Also, the input GTF and PRO files have been copied there.  The reference genome and the input reads have not been copied, but perhaps should.  They would be helpful for running `kc.py`.) 
+### Unpaired
+
+From the `compress-alignments` directory, run something like this (substituting for `IN`, `OUTPUT`, and `NTHREADS`):
 
 ```
-$ tree ~/compress-alignments-test/sim1000000 | head -20
-/home/langmead/compress-alignments-test/sim1000000
+IN=/scratch0/langmead-fs1/user/jacob/compress-alignments-test/single/sim1000000
+OUT=$HOME/compress-alignments-test/single/sim1000000
+NTHREADS=12
+SHARED_DIR=/scratch0/langmead-fs1/shared
+mkdir -p $OUT
+python scripts/boiler_experiment.py \
+    --gtf $IN/genes_fixed_sorted.gtf \
+    --pro $IN/simulation.pro \
+    --output $OUT \
+    --bt2-index $SHARED_DIR/igenomes/Drosophila_melanogaster/Ensembl/BDGP5/Sequence/Bowtie2Index/genome \
+    --unpaired $IN/simulation.fastq \
+    --compress boiler.py \
+    --python3-exe $PYPY_HOME/bin/pypy3 \
+    --num-threads $NTHREADS \
+    --tophat \
+    --cufflinks \
+    --stringtie \
+    --featurecounts
+```
+
+### Results
+
+Results are now in subdirectories of `$OUT`.  (Also, the input GTF and PRO files have been copied there.  The reference genome and the input reads have not been copied, but perhaps should.  They would be helpful for running `kc.py`.)  Here's what some of the directory structure looks like for an unpaired experiment:
+
+```
+$ tree $HOME/compress-alignments-test/paired/sim1000000 | head -20
+/home/langmead/compress-alignments-test/paired/sim1000000
 |-- cufflinks_tophat
 |   |-- compressed
 |   |   |-- cufflinks_version.txt
