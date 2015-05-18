@@ -187,9 +187,11 @@ def run_htseq(gtf, aligner):
         print('Running htseq-count on %s %s...' % (aligner, comp), file=sys.stderr)
         cmd = ex = exe('htseq-count', args.htseq_exe)
         odir = os.path.join(args.output, 'htseq_' + aligner, comp)
-        cmd += ' -f bam -s no -m union'
-        cmd += ' ' + os.path.join(args.output, aligner, comp, 'accepted_hits.bam')
+        mkdir_p(odir)
+        cmd += ' -f sam -s no -m union'
+        cmd += ' ' + os.path.join(args.output, aligner, comp, 'accepted_hits.sam')
         cmd += ' ' + gtf
+        cmd += ' > ' + os.path.join(odir, 'counts.tsv')
         run(cmd)
 
         print('Making HTSeq version file...', file=sys.stderr)
