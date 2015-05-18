@@ -9,13 +9,25 @@ import os
 import sys
 import glob
 import errno
+from distutils.spawn import find_executable
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--input', metavar='path', type=str, help='Directory with boiler_experiment.py results')
 parser.add_argument('--boiler-dir', metavar='path', type=str, help='Directory with boiler and associated scripts')
+parser.add_argument('--python3-exe', metavar='path', type=str, help='Path to python3')
 args = parser.parse_args()
 
 j = os.path.join
+
+
+def exe(st, st_arg):
+    if st_arg:
+        assert os.path.exists(st_arg)
+        return st_arg
+    ex = find_executable(st)
+    if not ex:
+        raise RuntimeError("Could not find '%s'; please specify --%s-exe")
+    return ex
 
 
 def mkdir_p(path):
@@ -39,7 +51,8 @@ def run_kc(pro, gtf, ref, other_gtf, fastq, kmer):
 
 def run_compare_to_truth(pro, gtf, other_gtf, odir, ofile):
     print('Running compare_to_truth for %s...' % odir, file=sys.stderr)
-    cmd = ['python %s/compareToTruth.py' % args.boiler_dir]
+    python_exe = exe('python3', args.python3_exe)
+    cmd = ['%s %s/compareToTruth.py' % (python_exe, args.boiler_dir)]
     cmd.extend([pro, gtf, other_gtf])
     mkdir_p(odir)
     cmd.append(' >' + os.path.join(odir, ofile))
@@ -48,7 +61,8 @@ def run_compare_to_truth(pro, gtf, other_gtf, odir, ofile):
 
 def run_tripartite(pro, gtf, before_gtf, after_gtf, odir, ofile, strict=True):
     print('Running tripartite for %s...' % odir, file=sys.stderr)
-    cmd = ['python %s/compareTripartite.py' % args.boiler_dir]
+    python_exe = exe('python3', args.python3_exe)
+    cmd = ['%s %s/compareTripartite.py' % (python_exe, args.boiler_dir)]
     cmd.extend([pro, gtf, before_gtf, after_gtf, '1' if strict else '0'])
     mkdir_p(odir)
     cmd.append(' >' + os.path.join(odir, ofile))
