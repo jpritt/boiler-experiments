@@ -21,6 +21,7 @@ parser.add_argument('--cufflinks', action='store_true', help='Run Cufflinks')
 parser.add_argument('--stringtie', action='store_true', help='Run StringTie')
 parser.add_argument('--tophat', action='store_true', help='Run TopHat')
 parser.add_argument('--hisat', action='store_true', help='Run HISAT')
+parser.add_argument('--htseq', metavar='path', type=str, help='Run htseq-count')
 parser.add_argument('--compress', metavar='path', type=str, help='Path to compress.py', required=True)
 parser.add_argument('--samtools-exe', metavar='path', type=str, help='Path to samtools')
 parser.add_argument('--python3-exe', metavar='path', type=str, help='Path to python3')
@@ -28,6 +29,7 @@ parser.add_argument('--cufflinks-exe', metavar='path', type=str, help='Path to c
 parser.add_argument('--stringtie-exe', metavar='path', type=str, help='Path to stringtie')
 parser.add_argument('--tophat-exe', metavar='path', type=str, help='Path to tophat')
 parser.add_argument('--hisat-exe', metavar='path', type=str, help='Path to hisat')
+parser.add_argument('--htseq-exe', metavar='path', type=str, help='Path to htseq-count')
 args = parser.parse_args()
 
 
@@ -176,6 +178,24 @@ def run_aligners():
         run_hisat()
 
 
+def run_htseq(gtf, aligner):
+    if os.path.exists(os.path.join(args.output, 'htseq_' + aligner)):
+        print('HTSeq+%s directory exists, skipping...' % aligner, file=sys.stderr)
+        return
+
+    for comp in ['uncompressed', 'compressed']:
+        print('Running htseq-count on %s %s...' % (aligner, comp), file=sys.stderr)
+        cmd = ex = exe('htseq-count', args.htseq_exe)
+        odir = os.path.join(args.output, 'htseq_' + aligner, comp)
+        cmd += ' -f bam -s no -m union'
+        cmd += ' ' + os.path.join(args.output, aligner, comp, 'accepted_hits.bam')
+        cmd += ' ' + gtf
+        run(cmd)
+
+        print('Making HTSeq version file...', file=sys.stderr)
+        run('%s 2> %s' % (ex, os.path.join(odir, 'htseq_version.txt')))
+
+
 def run_cufflinks(aligner):
     if os.path.exists(os.path.join(args.output, 'cufflinks_' + aligner)):
         print('Cufflinks+%s directory exists, skipping...' % aligner, file=sys.stderr)
@@ -215,6 +235,14 @@ def run_stringtie(aligner):
         run('%s 2> %s' % (ex, os.path.join(odir, 'stringtie_version.txt')))
 
 
+def run_counters(gtf):
+    if args.htseq:
+        if args.tophat:
+            run_htseq(gtf, 'tophat')
+        if args.hisat:
+            run_htseq(gtf, 'hisat')
+
+
 def run_assemblers():
     if args.cufflinks:
         if args.tophat:
@@ -243,4 +271,5 @@ if __name__ == "__main__":
     shutil.copy(args.gtf, args.output)
     shutil.copy(args.pro, args.output)
     run_aligners()
+    run_counters(args.gtf)
     run_assemblers()
