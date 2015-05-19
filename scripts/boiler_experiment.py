@@ -79,7 +79,7 @@ def run_boiler(odir):
     comp_dir = os.path.join(odir, 'compressed')
     mkdir_p(comp_dir)
     imed_dir = os.path.join(odir, 'intermediate')
-    imed_out = os.path.join(uncomp_dir, 'accepted_hits.sam')
+    imed_out = os.path.join(imed_dir, 'accepted_hits.sam')
     mkdir_p(imed_dir)
 
     print('Compressing with Boiler...', file=sys.stderr)
