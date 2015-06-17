@@ -78,28 +78,33 @@ def run_boiler(odir):
     al_out = os.path.join(uncomp_dir, 'accepted_hits.sam')
     comp_dir = os.path.join(odir, 'compressed')
     mkdir_p(comp_dir)
+    imed_dir = os.path.join(odir, 'intermediate')
+    imed_out = os.path.join(imed_dir, 'accepted_hits.sam')
+    mkdir_p(imed_dir)
 
     print('Compressing with Boiler...', file=sys.stderr)
     boiler_out = os.path.join(comp_dir, 'accepted_hits.boiled')
     python_exe = exe('python3', args.python3_exe)
     out_sam = os.path.join(comp_dir, 'accepted_hits.sam')
-    cmd = '%s %s --alignments %s --out %s --binary --expand-to %s' %\
-          (python_exe, args.compress, al_out, boiler_out, out_sam)
+    cmd = '%s %s --alignments %s --intermediate %s --out %s --binary --expand-to %s' %\
+          (python_exe, args.compress, al_out, imed_out, boiler_out, out_sam)
     run(cmd)
 
     print('Making Boiler version file...', file=sys.stderr)
     run('%s %s --version > %s' % (python_exe, args.compress, os.path.join(args.output, 'tophat', 'boiler_version.txt')))
 
-    print('Expanded sam to bam...', file=sys.stderr)
     sam_exe = exe('samtools', args.samtools_exe)
-    unsort_bam = os.path.join(comp_dir, 'accepted_hits_name_sorted.bam')
-    cmd = '%s view -Sb %s > %s' % (sam_exe, out_sam, unsort_bam)
-    run(cmd)
 
-    print('Sorting bam...', file=sys.stderr)
-    sort_bam_prefix = os.path.join(comp_dir, 'accepted_hits')
-    cmd = '%s sort %s %s' % (sam_exe, unsort_bam, sort_bam_prefix)
-    run(cmd)
+    for dr in [comp_dir, imed_dir]:
+        print('Expanded sam to bam...', file=sys.stderr)
+        unsort_bam = os.path.join(dr, 'accepted_hits_name_sorted.bam')
+        cmd = '%s view -Sb %s > %s' % (sam_exe, out_sam, unsort_bam)
+        run(cmd)
+
+        print('Sorting bam...', file=sys.stderr)
+        sort_bam_prefix = os.path.join(dr, 'accepted_hits')
+        cmd = '%s sort %s %s' % (sam_exe, unsort_bam, sort_bam_prefix)
+        run(cmd)
 
 
 def run_tophat():
@@ -203,7 +208,7 @@ def run_htseq(gtf, aligner):
         print('HTSeq+%s directory exists, skipping...' % aligner, file=sys.stderr)
         return
 
-    for comp in ['uncompressed', 'compressed']:
+    for comp in ['uncompressed', 'intermediate', 'compressed']:
         print('Running htseq-count on %s %s...' % (aligner, comp), file=sys.stderr)
         cmd = ex = exe('htseq-count', args.htseq_exe)
         odir = os.path.join(args.output, 'htseq_' + aligner, comp)
@@ -224,7 +229,7 @@ def run_featurecounts(gtf, aligner):
         return
 
     ex = exe('featureCounts', args.featurecounts_exe)
-    for comp in ['uncompressed', 'compressed']:
+    for comp in ['uncompressed', 'intermediate', 'compressed']:
         in_bam = os.path.join(args.output, aligner, comp, 'accepted_hits_name_sorted.bam')
         odir = os.path.join(args.output, 'featurecounts_' + aligner, comp)
         mkdir_p(odir)
@@ -242,7 +247,7 @@ def run_cufflinks(aligner):
         print('Cufflinks+%s directory exists, skipping...' % aligner, file=sys.stderr)
         return
 
-    for comp in ['uncompressed', 'compressed']:
+    for comp in ['uncompressed', 'intermediate', 'compressed']:
         print('Running cufflinks on %s %s...' % (aligner, comp), file=sys.stderr)
         cmd = ex = exe('cufflinks', args.cufflinks_exe)
         odir = os.path.join(args.output, 'cufflinks_' + aligner, comp)
@@ -261,7 +266,7 @@ def run_stringtie(aligner):
         print('StringTie+%s directory exists, skipping...' % aligner, file=sys.stderr)
         return
 
-    for comp in ['uncompressed', 'compressed']:
+    for comp in ['uncompressed', 'intermediate', 'compressed']:
         print('Running stringtie on %s %s...' % (aligner, comp), file=sys.stderr)
         cmd = ex = exe('stringtie', args.stringtie_exe)
         odir = os.path.join(args.output, 'stringtie_' + aligner, comp)
