@@ -86,7 +86,7 @@ def run_boiler(odir):
     boiler_out = os.path.join(comp_dir, 'accepted_hits.boiled')
     python_exe = exe('python3', args.python3_exe)
     out_sam = os.path.join(comp_dir, 'accepted_hits.sam')
-    cmd = '%s %s --alignments %s --intermediate %s --out %s --binary --expand-to %s' %\
+    cmd = '%s --compress --decompress --compress-to %s --alignments %s --intermediate %s --out %s --binary --expand-to %s' %\
           (python_exe, args.compress, al_out, imed_out, boiler_out, out_sam)
     run(cmd)
 
