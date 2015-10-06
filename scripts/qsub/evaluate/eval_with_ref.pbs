@@ -1,0 +1,32 @@
+#PBS -q batch
+#PBS -l walltime=120:00
+#PBS -j n
+#PBS -l pmem=8gb
+#PBS -l vmem=8gb
+#PBS -l pvmem=8gb
+#PBS -l mem=8gb
+#PBS -m ae
+#PBS -M mpritt4@jhu.edu
+echo 'Results for '$DIR
+cd $DIR
+mkdir -p results
+
+echo '=== Weighted Kmer Recall ==='
+echo 'Original:'
+/scratch0/langmead-fs1/user/jacob/compress-alignments/kc.py --refGTF genes_fixed_sorted.gtf --refPRO simulation.pro --sequence /scratch0/langmead-fs1/user/jacob/genomes/Drosophila_melanogaster/Ensembl/BDGP5/Sequence/WholeGenomeFasta/genome.fa --assembly cufflinks/orig/transcripts.gtf --data simulation.fastq --kmer 15 
+echo 'Intermediate:'
+/scratch0/langmead-fs1/user/jacob/compress-alignments/kc.py --refGTF genes_fixed_sorted.gtf --refPRO simulation.pro --sequence /scratch0/langmead-fs1/user/jacob/genomes/Drosophila_melanogaster/Ensembl/BDGP5/Sequence/WholeGenomeFasta/genome.fa --assembly cufflinks/inter/transcripts.gtf --data simulation.fastq --kmer 15 
+echo 'Compressed:'
+/scratch0/langmead-fs1/user/jacob/compress-alignments/kc.py --refGTF genes_fixed_sorted.gtf --refPRO simulation.pro --sequence /scratch0/langmead-fs1/user/jacob/genomes/Drosophila_melanogaster/Ensembl/BDGP5/Sequence/WholeGenomeFasta/genome.fa --assembly cufflinks/comp/transcripts.gtf --data simulation.fastq --kmer 15 
+
+echo '=== Precision/Recall Compared to Truth ==='
+echo 'Original:'
+/scratch0/langmead-fs1/user/jacob/compress-alignments/compareToTruth.py simulation.pro genes_fixed_sorted.gtf cufflinks/orig/transcripts.gtf
+echo 'Intermediate:'
+/scratch0/langmead-fs1/user/jacob/compress-alignments/compareToTruth.py simulation.pro genes_fixed_sorted.gtf cufflinks/inter/transcripts.gtf
+echo 'Compressed:'
+/scratch0/langmead-fs1/user/jacob/compress-alignments/compareToTruth.py simulation.pro genes_fixed_sorted.gtf cufflinks/comp/transcripts.gtf
+
+echo '=== Tripartite Score ==='
+/scratch0/langmead-fs1/user/jacob/compress-alignments/compareTripartite.py simulation.pro genes_fixed_sorted.gtf cufflinks/orig/transcripts.gtf cufflinks/comp/transcripts.gtf 1
+/scratch0/langmead-fs1/user/jacob/compress-alignments/compareTripartite.py simulation.pro genes_fixed_sorted.gtf cufflinks/orig/transcripts.gtf cufflinks/comp/transcripts.gtf 0

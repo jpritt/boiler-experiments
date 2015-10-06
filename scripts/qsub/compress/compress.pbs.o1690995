@@ -1,0 +1,12 @@
+Compressing to compressed/compressed.bin
+{'2L': 0, 'X': 97978236, '3R': 68701809, '4': 96606862, 'M': 97958719, '3L': 44158252, '2R': 23011544}
+1900829
+359554
+0
+
+Compression time: 203.961 s
+Decompressing from compressed/compressed.bin
+{'2L': 0, 'X': 97978236, '3R': 68701809, '4': 96606862, 'M': 97958719, '3L': 44158252, '2R': 23011544}
+31949 clusters
+Max cluster size: 276417
+Decompression time: 199.727 s

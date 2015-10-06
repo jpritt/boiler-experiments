@@ -1,0 +1,24 @@
+Timing results for /scratch0/langmead-fs1/user/jacob/compress-alignments-test/paired/sim500000
+Boiler
+Compressing to compressed/compressed.bin
+{'2R': 23011544, '3R': 68701809, 'M': 97958719, '4': 96606862, '3L': 44158252, '2L': 0, 'X': 97978236}
+354859
+176543
+380635
+
+Compression time: 60.244 s
+Goby
+Trying to set RJAVA_HOME environment variable
+
+RJAVA_HOME=
+java -ea -Xmx4g -Dlog4j.configuration=file:///scratch0/langmead-fs1/shared/goby/config/log4j-sample.properties -Djava.library.path= -jar /scratch0/langmead-fs1/shared/goby/goby.jar --mode sam-to-compact -i tophat_out/accepted_hits.bam -o compressed/compressed.goby
+Store read origin: true
+WARN  MessageChunksWriter  - Using chunk-size=10000
+INFO  SAMToCompactMode     - 647,168 items, 10s, 64,478.23 items/s, 15.51 ?s/item; used/avail/free/total/max mem: 742.93M/3.07G/603.44M/1.35G/3.82G
+Total logical entries written: 1024330
+Total bytes written: 13077094
+Average bytes/logical entry: 12.766485
+Min query index: 0
+Max query index: 516111
+Number of queries: 912037
+Number of targets: 7

@@ -1,0 +1,971 @@
+Timing results for /scratch0/langmead-fs1/user/jacob/compress-alignments-test/human/HG00100
+Boiler
+Compressing to compressed/compressed.bin
+{'chrY': 3036320417, 'chrX': 2881049857, 'chr13': 653643779, 'chr12': 519791884, 'chr11': 384785368, 'chr10': 249250621, 'chr17': 1069049342, 'chr16': 978694589, 'chr15': 876163197, 'chr14': 768813657, 'chr19': 1228321800, 'chr18': 1150244552, 'chrM': 2881033286, 'chr22': 1641805571, 'chr20': 1530650156, 'chr21': 1593675676, 'chr7': 2434317170, 'chr6': 2263202103, 'chr5': 2082286843, 'chr4': 1891132567, 'chr3': 1693110137, 'chr2': 1287450783, 'chr1': 0, 'chr9': 2739819855, 'chr8': 2593455833}
+10054614
+13294326
+20532408
+
+Compression time: 4020.009 s
+Goby
+Trying to set RJAVA_HOME environment variable
+
+RJAVA_HOME=
+java -ea -Xmx4g -Dlog4j.configuration=file:///scratch0/langmead-fs1/shared/goby/config/log4j-sample.properties -Djava.library.path= -jar /scratch0/langmead-fs1/shared/goby/goby.jar --mode sam-to-compact -i HG00100_accepted_hits.bam -o compressed/compressed.goby
+Store read origin: true
+WARN  MessageChunksWriter  - Using chunk-size=10000
+INFO  SAMToCompactMode     - 653,312 items, 10s, 65,272.45 items/s, 15.32 ?s/item; used/avail/free/total/max mem: 86.66M/3.73G/872.26M/958.92M/3.82G
+INFO  SAMToCompactMode     - 1,323,008 items, 20s, 65,988.73 items/s, 15.15 ?s/item; used/avail/free/total/max mem: 57.82M/3.76G/765.84M/823.66M/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (51M1D1004N1D25M, deletion 1 length) with an unequal ref insertion in MD (51^TC25, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 1,904,640 items, 30s, 63,367.60 items/s, 15.78 ?s/item; used/avail/free/total/max mem: 118.20M/3.70G/804.02M/922.22M/3.82G
+INFO  SAMToCompactMode     - 2,552,832 items, 40s, 63,722.03 items/s, 15.69 ?s/item; used/avail/free/total/max mem: 523.40M/3.29G/719.68M/1.24G/3.82G
+INFO  SAMToCompactMode     - 3,210,240 items, 50s, 64,111.20 items/s, 15.60 ?s/item; used/avail/free/total/max mem: 596.35M/3.22G/637.82M/1.23G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (36M1D350N1D40M, deletion 1 length) with an unequal ref insertion in MD (36^TC40, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 3,851,264 items, 1m 0s, 64,100.13 items/s, 15.60 ?s/item; used/avail/free/total/max mem: 341.44M/3.48G/886.44M/1.23G/3.82G
+INFO  SAMToCompactMode     - 4,429,824 items, 1m 10s, 63,203.74 items/s, 15.82 ?s/item; used/avail/free/total/max mem: 682.77M/3.14G/535.15M/1.22G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (46M1D118N1D30M, deletion 1 length) with an unequal ref insertion in MD (46^GA30, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (65M1D2097N1D11M, deletion 1 length) with an unequal ref insertion in MD (65^CA11, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (10M1D2097N1D66M, deletion 1 length) with an unequal ref insertion in MD (10^CA66, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 5,072,896 items, 1m 20s, 63,316.23 items/s, 15.79 ?s/item; used/avail/free/total/max mem: 980.03M/2.84G/697.17M/1.68G/3.82G
+INFO  SAMToCompactMode     - 5,731,328 items, 1m 30s, 63,593.80 items/s, 15.72 ?s/item; used/avail/free/total/max mem: 1.40G/2.42G/503.26M/1.90G/3.82G
+INFO  SAMToCompactMode     - 6,354,944 items, 1m 40s, 63,467.57 items/s, 15.76 ?s/item; used/avail/free/total/max mem: 1.13G/2.69G/819.19M/1.95G/3.82G
+INFO  SAMToCompactMode     - 7,016,448 items, 1m 50s, 63,709.44 items/s, 15.70 ?s/item; used/avail/free/total/max mem: 949.88M/2.87G/820.64M/1.77G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (53M1D8775N1D23M, deletion 1 length) with an unequal ref insertion in MD (53^CA23, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 7,642,112 items, 2m 0s, 63,604.23 items/s, 15.72 ?s/item; used/avail/free/total/max mem: 1.08G/2.74G/810.59M/1.89G/3.82G
+INFO  SAMToCompactMode     - 8,317,952 items, 2m 10s, 63,884.98 items/s, 15.65 ?s/item; used/avail/free/total/max mem: 883.78M/2.93G/1.02G/1.91G/3.82G
+INFO  SAMToCompactMode     - 8,936,448 items, 2m 20s, 63,739.35 items/s, 15.69 ?s/item; used/avail/free/total/max mem: 992.84M/2.83G/951.22M/1.94G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (46M1D194N1D30M, deletion 1 length) with an unequal ref insertion in MD (46^CA30, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 9,574,400 items, 2m 30s, 63,726.95 items/s, 15.69 ?s/item; used/avail/free/total/max mem: 728.34M/3.09G/1.22G/1.94G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (20M1D3159N1D56M, deletion 1 length) with an unequal ref insertion in MD (20^TC56, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (13M1D1104N1D63M, deletion 1 length) with an unequal ref insertion in MD (13^GT63, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 10,126,336 items, 2m 40s, 63,194.02 items/s, 15.82 ?s/item; used/avail/free/total/max mem: 908.24M/2.91G/1.04G/1.95G/3.82G
+INFO  SAMToCompactMode     - 10,766,336 items, 2m 50s, 63,240.99 items/s, 15.81 ?s/item; used/avail/free/total/max mem: 1.68G/2.14G/266.92M/1.95G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (39M1D3090N1D37M, deletion 1 length) with an unequal ref insertion in MD (39^TT37, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (39M1D3090N1D37M, deletion 1 length) with an unequal ref insertion in MD (39^TT37, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (4M832N36M1D674N1D36M, deletion 1 length) with an unequal ref insertion in MD (40^CC36, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 11,359,232 items, 3m 0s, 63,016.87 items/s, 15.87 ?s/item; used/avail/free/total/max mem: 1.75G/2.07G/196.01M/1.95G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (16M1D235N1D60M, deletion 1 length) with an unequal ref insertion in MD (16^AC60, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (61M1D1674N1D15M, deletion 1 length) with an unequal ref insertion in MD (61^TC15, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 11,968,512 items, 3m 10s, 62,905.76 items/s, 15.90 ?s/item; used/avail/free/total/max mem: 1.79G/2.03G/156.03M/1.95G/3.82G
+INFO  SAMToCompactMode     - 12,462,080 items, 3m 20s, 62,076.37 items/s, 16.11 ?s/item; used/avail/free/total/max mem: 415.18M/3.40G/1.67G/2.09G/3.82G
+INFO  SAMToCompactMode     - 12,948,480 items, 3m 30s, 61,418.14 items/s, 16.28 ?s/item; used/avail/free/total/max mem: 686.03M/3.13G/1.40G/2.09G/3.82G
+INFO  SAMToCompactMode     - 13,511,680 items, 3m 40s, 61,181.46 items/s, 16.34 ?s/item; used/avail/free/total/max mem: 1.03G/2.79G/1.06G/2.09G/3.82G
+INFO  SAMToCompactMode     - 14,144,512 items, 3m 50s, 61,270.64 items/s, 16.32 ?s/item; used/avail/free/total/max mem: 855.21M/2.96G/1.23G/2.09G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (72M1D309N1D4M, deletion 1 length) with an unequal ref insertion in MD (72^TC4, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (29M1D1969N1D47M, deletion 1 length) with an unequal ref insertion in MD (29^GA47, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (17M1D1199N1D59M, deletion 1 length) with an unequal ref insertion in MD (17^GA59, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (17M1D1199N1D59M, deletion 1 length) with an unequal ref insertion in MD (17^GA59, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (59M1D104N1D17M, deletion 1 length) with an unequal ref insertion in MD (59^GT17, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 14,767,104 items, 4m 0s, 61,311.43 items/s, 16.31 ?s/item; used/avail/free/total/max mem: 472.19M/3.35G/1.62G/2.09G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (49M1D1032N1D27M, deletion 1 length) with an unequal ref insertion in MD (49^TC27, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (21M1D86N1D55M, deletion 1 length) with an unequal ref insertion in MD (21^TC55, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (45M1D3778N1D31M, deletion 1 length) with an unequal ref insertion in MD (45^GA31, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (51M1D3860N1D25M, deletion 1 length) with an unequal ref insertion in MD (51^GT25, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (24M1D457N1D52M, deletion 1 length) with an unequal ref insertion in MD (24^GA52, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (13M1D457N1D63M, deletion 1 length) with an unequal ref insertion in MD (13^GA63, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 15,363,072 items, 4m 10s, 61,241.13 items/s, 16.33 ?s/item; used/avail/free/total/max mem: 1.76G/2.06G/332.76M/2.09G/3.82G
+INFO  SAMToCompactMode     - 15,951,872 items, 4m 20s, 61,149.21 items/s, 16.35 ?s/item; used/avail/free/total/max mem: 747.80M/3.07G/1.34G/2.09G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (54M1D617N1D22M, deletion 1 length) with an unequal ref insertion in MD (54^CC22, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 16,525,312 items, 4m 30s, 61,007.60 items/s, 16.39 ?s/item; used/avail/free/total/max mem: 1.38G/2.44G/708.50M/2.09G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (40M1D524N1D36M, deletion 1 length) with an unequal ref insertion in MD (40^GA36, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 17,085,440 items, 4m 40s, 60,829.34 items/s, 16.44 ?s/item; used/avail/free/total/max mem: 1.76G/2.06G/328.87M/2.09G/3.82G
+INFO  SAMToCompactMode     - 17,638,400 items, 4m 50s, 60,634.52 items/s, 16.49 ?s/item; used/avail/free/total/max mem: 1.00G/2.81G/1.09G/2.09G/3.82G
+INFO  SAMToCompactMode     - 18,223,104 items, 5m 0s, 60,561.39 items/s, 16.51 ?s/item; used/avail/free/total/max mem: 621.78M/3.20G/1.46G/2.08G/3.82G
+INFO  SAMToCompactMode     - 18,852,864 items, 5m 10s, 60,633.20 items/s, 16.49 ?s/item; used/avail/free/total/max mem: 1.11G/2.70G/976.18M/2.09G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (52M1D1541N1D24M, deletion 1 length) with an unequal ref insertion in MD (52^TC24, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (56M1D235N1D20M, deletion 1 length) with an unequal ref insertion in MD (56^CG20, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (71M1D1474N1D5M, deletion 1 length) with an unequal ref insertion in MD (71^GA5, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 19,390,464 items, 5m 20s, 60,413.02 items/s, 16.55 ?s/item; used/avail/free/total/max mem: 1.74G/2.07G/345.73M/2.09G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (62M1D2985N1D14M, deletion 1 length) with an unequal ref insertion in MD (62^CT14, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (11M1D2985N1D65M, deletion 1 length) with an unequal ref insertion in MD (11^CT65, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (17M1D909N1D27M897N32M, deletion 1 length) with an unequal ref insertion in MD (17^TC59, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 19,984,384 items, 5m 30s, 60,382.17 items/s, 16.56 ?s/item; used/avail/free/total/max mem: 743.40M/3.07G/1.35G/2.09G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (67M1D6773N1D9M, deletion 1 length) with an unequal ref insertion in MD (67^CA9, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (58M1D6773N1D18M, deletion 1 length) with an unequal ref insertion in MD (58^CA18, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (57M1D6773N1D19M, deletion 1 length) with an unequal ref insertion in MD (57^CA19, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (47M1D6773N1D29M, deletion 1 length) with an unequal ref insertion in MD (47^CA29, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (61M1D483N1D15M, deletion 1 length) with an unequal ref insertion in MD (61^CA15, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (60M1D483N1D16M, deletion 1 length) with an unequal ref insertion in MD (60^CA16, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (56M1D483N1D20M, deletion 1 length) with an unequal ref insertion in MD (56^CA20, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (46M1D483N1D30M, deletion 1 length) with an unequal ref insertion in MD (46^CA30, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (40M1D483N1D36M, deletion 1 length) with an unequal ref insertion in MD (40^CA36, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (37M1D483N1D39M, deletion 1 length) with an unequal ref insertion in MD (37^CA39, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (28M1D483N1D48M, deletion 1 length) with an unequal ref insertion in MD (28^CA48, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (28M1D483N1D48M, deletion 1 length) with an unequal ref insertion in MD (28^CA48, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (19M1D483N1D57M, deletion 1 length) with an unequal ref insertion in MD (19^CA57, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (16M1D483N1D60M, deletion 1 length) with an unequal ref insertion in MD (16^CA60, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (16M1D483N1D60M, deletion 1 length) with an unequal ref insertion in MD (16^CA60, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (47M1D430N1D29M, deletion 1 length) with an unequal ref insertion in MD (47^GA29, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 20,573,184 items, 5m 40s, 60,337.93 items/s, 16.57 ?s/item; used/avail/free/total/max mem: 1.44G/2.38G/653.94M/2.09G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (32M1D301N1D44M, deletion 1 length) with an unequal ref insertion in MD (32^GA44, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (38M1D352N1D38M, deletion 1 length) with an unequal ref insertion in MD (38^CA38, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (2M1255N69M1D409N1D5M, deletion 1 length) with an unequal ref insertion in MD (71^CG5, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (71M1D181N1D5M, deletion 1 length) with an unequal ref insertion in MD (71^GA5, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (64M1D181N1D12M, deletion 1 length) with an unequal ref insertion in MD (64^GA12, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (54M1D181N1D22M, deletion 1 length) with an unequal ref insertion in MD (54^GA22, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (44M1D181N1D32M, deletion 1 length) with an unequal ref insertion in MD (44^GA32, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (44M1D181N1D32M, deletion 1 length) with an unequal ref insertion in MD (44^GA32, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (40M1D181N1D36M, deletion 1 length) with an unequal ref insertion in MD (40^GA36, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (40M1D181N1D36M, deletion 1 length) with an unequal ref insertion in MD (40^GA36, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (36M1D181N1D40M, deletion 1 length) with an unequal ref insertion in MD (36^GA40, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (32M1D181N1D44M, deletion 1 length) with an unequal ref insertion in MD (32^GA44, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (23M1D181N1D53M, deletion 1 length) with an unequal ref insertion in MD (23^GA53, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (14M1D181N1D62M, deletion 1 length) with an unequal ref insertion in MD (14^GA62, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (12M1D181N1D64M, deletion 1 length) with an unequal ref insertion in MD (12^GA64, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (12M1D181N1D64M, deletion 1 length) with an unequal ref insertion in MD (12^GA64, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (11M1D181N1D65M, deletion 1 length) with an unequal ref insertion in MD (11^GA65, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (5M1D181N1D71M, deletion 1 length) with an unequal ref insertion in MD (5^GA71, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (5M1D181N1D71M, deletion 1 length) with an unequal ref insertion in MD (5^GA71, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 21,148,672 items, 5m 51s, 60,251.08 items/s, 16.60 ?s/item; used/avail/free/total/max mem: 664.71M/3.15G/1.43G/2.09G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (70M1D88N1D6M, deletion 1 length) with an unequal ref insertion in MD (70^AA6, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (72M1D935N1D4M, deletion 1 length) with an unequal ref insertion in MD (72^GG4, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (65M1D98N1D11M, deletion 1 length) with an unequal ref insertion in MD (65^GA11, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (11M1D98N1D65M, deletion 1 length) with an unequal ref insertion in MD (11^GA65, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 21,702,656 items, 6m 1s, 60,114.83 items/s, 16.63 ?s/item; used/avail/free/total/max mem: 1.07G/2.74G/1.02G/2.09G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (70M1D163N1D6M, deletion 1 length) with an unequal ref insertion in MD (70^CG6, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (63M1D163N1D13M, deletion 1 length) with an unequal ref insertion in MD (63^CG13, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (47M1D163N1D29M, deletion 1 length) with an unequal ref insertion in MD (47^CG29, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (44M1D163N1D32M, deletion 1 length) with an unequal ref insertion in MD (44^CG32, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 22,254,592 items, 6m 11s, 59,981.54 items/s, 16.67 ?s/item; used/avail/free/total/max mem: 746.14M/3.07G/1.34G/2.09G/3.82G
+INFO  SAMToCompactMode     - 22,719,488 items, 6m 21s, 59,625.57 items/s, 16.77 ?s/item; used/avail/free/total/max mem: 1.53G/2.28G/818.02M/2.35G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (31M1D1168N1D45M, deletion 1 length) with an unequal ref insertion in MD (31^AG45, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (60M1D2726N1D16M, deletion 1 length) with an unequal ref insertion in MD (60^TC16, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 23,269,376 items, 6m 31s, 59,506.69 items/s, 16.80 ?s/item; used/avail/free/total/max mem: 1.51G/2.31G/841.55M/2.35G/3.82G
+INFO  SAMToCompactMode     - 23,819,264 items, 6m 41s, 59,386.78 items/s, 16.84 ?s/item; used/avail/free/total/max mem: 1.19G/2.63G/1.17G/2.35G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (7M1D1754N1D69M, deletion 1 length) with an unequal ref insertion in MD (7^GT69, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 24,386,560 items, 6m 51s, 59,321.56 items/s, 16.86 ?s/item; used/avail/free/total/max mem: 1.88G/1.94G/475.49M/2.36G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (56M1D95N1D20M, deletion 1 length) with an unequal ref insertion in MD (56^TC20, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 24,624,128 items, 7m 1s, 58,475.31 items/s, 17.10 ?s/item; used/avail/free/total/max mem: 1.22G/2.60G/1.46G/2.68G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (58M1D281N1D18M, deletion 1 length) with an unequal ref insertion in MD (58^GA18, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 25,207,808 items, 7m 11s, 58,465.77 items/s, 17.10 ?s/item; used/avail/free/total/max mem: 1.97G/1.85G/701.25M/2.67G/3.82G
+INFO  SAMToCompactMode     - 25,493,504 items, 7m 21s, 57,770.80 items/s, 17.31 ?s/item; used/avail/free/total/max mem: 869.32M/2.95G/1.80G/2.67G/3.82G
+INFO  SAMToCompactMode     - 25,896,960 items, 7m 31s, 57,384.55 items/s, 17.43 ?s/item; used/avail/free/total/max mem: 876.54M/2.94G/1.80G/2.67G/3.82G
+INFO  SAMToCompactMode     - 26,515,456 items, 7m 41s, 57,477.24 items/s, 17.40 ?s/item; used/avail/free/total/max mem: 2.09G/1.72G/579.53M/2.67G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (28M1D1400N1D48M, deletion 1 length) with an unequal ref insertion in MD (28^GA48, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (17M1D2888N1D59M, deletion 1 length) with an unequal ref insertion in MD (17^TC59, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 27,079,680 items, 7m 51s, 57,454.12 items/s, 17.41 ?s/item; used/avail/free/total/max mem: 1.54G/2.27G/1.13G/2.67G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (21M1D112N1D55M, deletion 1 length) with an unequal ref insertion in MD (21^CA55, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 27,578,368 items, 8m 1s, 57,293.20 items/s, 17.45 ?s/item; used/avail/free/total/max mem: 1.97G/1.85G/696.41M/2.67G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (50M1D277N1D26M, deletion 1 length) with an unequal ref insertion in MD (50^GA26, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (68M1D351N1D8M, deletion 1 length) with an unequal ref insertion in MD (68^GC8, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 28,129,280 items, 8m 11s, 57,247.80 items/s, 17.47 ?s/item; used/avail/free/total/max mem: 1.42G/2.40G/1.24G/2.67G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (24M1D1153N1D52M, deletion 1 length) with an unequal ref insertion in MD (24^CA52, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 28,676,096 items, 8m 21s, 57,194.22 items/s, 17.48 ?s/item; used/avail/free/total/max mem: 1.12G/2.69G/1.53G/2.66G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (8M1D823N1D68M, deletion 1 length) with an unequal ref insertion in MD (8^GA68, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 29,234,176 items, 8m 31s, 57,165.88 items/s, 17.49 ?s/item; used/avail/free/total/max mem: 1.95G/1.87G/698.29M/2.65G/3.82G
+INFO  SAMToCompactMode     - 29,728,768 items, 8m 41s, 57,015.56 items/s, 17.54 ?s/item; used/avail/free/total/max mem: 1.22G/2.60G/1.42G/2.64G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (52M1D386N1D24M, deletion 1 length) with an unequal ref insertion in MD (52^AA24, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (19M1D386N1D57M, deletion 1 length) with an unequal ref insertion in MD (19^AA57, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (18M1D386N1D58M, deletion 1 length) with an unequal ref insertion in MD (18^AA58, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 30,317,568 items, 8m 51s, 57,050.54 items/s, 17.53 ?s/item; used/avail/free/total/max mem: 1.33G/2.49G/1.30G/2.63G/3.82G
+INFO  SAMToCompactMode     - 30,896,128 items, 9m 1s, 57,063.52 items/s, 17.52 ?s/item; used/avail/free/total/max mem: 1.74G/2.08G/869.30M/2.61G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (64M1D81N1D12M, deletion 1 length) with an unequal ref insertion in MD (64^TC12, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 31,490,048 items, 9m 11s, 57,105.54 items/s, 17.51 ?s/item; used/avail/free/total/max mem: 1.83G/1.99G/799.06M/2.63G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (24M1D56N1D52M, deletion 1 length) with an unequal ref insertion in MD (24^TC52, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 32,003,072 items, 9m 21s, 57,001.87 items/s, 17.54 ?s/item; used/avail/free/total/max mem: 1.53G/2.29G/1.11G/2.63G/3.82G
+INFO  SAMToCompactMode     - 32,435,200 items, 9m 31s, 56,756.89 items/s, 17.62 ?s/item; used/avail/free/total/max mem: 2.02G/1.80G/618.81M/2.64G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (45M1D107N1D31M, deletion 1 length) with an unequal ref insertion in MD (45^CA31, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (8M182N47M1D106N1D21M, deletion 1 length) with an unequal ref insertion in MD (55^CA21, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 32,866,304 items, 9m 41s, 56,520.36 items/s, 17.69 ?s/item; used/avail/free/total/max mem: 1.82G/2.00G/819.98M/2.64G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (61M1D173N1D15M, deletion 1 length) with an unequal ref insertion in MD (61^CA15, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (8M1D173N1D68M, deletion 1 length) with an unequal ref insertion in MD (8^CA68, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 33,391,616 items, 9m 51s, 56,450.81 items/s, 17.71 ?s/item; used/avail/free/total/max mem: 1.71G/2.11G/933.94M/2.64G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (72M1D2459N1D4M, deletion 1 length) with an unequal ref insertion in MD (72^CC4, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 33,977,344 items, 10m 1s, 56,485.90 items/s, 17.70 ?s/item; used/avail/free/total/max mem: 2.24G/1.58G/405.95M/2.65G/3.82G
+INFO  SAMToCompactMode     - 34,658,304 items, 10m 11s, 56,675.20 items/s, 17.64 ?s/item; used/avail/free/total/max mem: 2.26G/1.56G/397.41M/2.65G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (49M1D2773N1D27M, deletion 1 length) with an unequal ref insertion in MD (49^TT27, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 35,219,456 items, 10m 21s, 56,665.74 items/s, 17.65 ?s/item; used/avail/free/total/max mem: 2.15G/1.67G/486.02M/2.64G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (31M1D2311N1D45M, deletion 1 length) with an unequal ref insertion in MD (31^AA45, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 35,793,920 items, 10m 31s, 56,677.38 items/s, 17.64 ?s/item; used/avail/free/total/max mem: 2.30G/1.52G/307.03M/2.60G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (45M1D2708N1D31M, deletion 1 length) with an unequal ref insertion in MD (45^TC31, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 36,333,568 items, 10m 41s, 56,634.75 items/s, 17.66 ?s/item; used/avail/free/total/max mem: 1.90G/1.92G/708.07M/2.61G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (6M1D305N1D70M, deletion 1 length) with an unequal ref insertion in MD (6^TC70, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 36,897,792 items, 10m 51s, 56,631.23 items/s, 17.66 ?s/item; used/avail/free/total/max mem: 1.73G/2.08G/877.51M/2.61G/3.82G
+INFO  SAMToCompactMode     - 37,435,392 items, 11m 1s, 56,586.80 items/s, 17.67 ?s/item; used/avail/free/total/max mem: 2.27G/1.55G/343.69M/2.62G/3.82G
+INFO  SAMToCompactMode     - 38,014,976 items, 11m 11s, 56,606.04 items/s, 17.67 ?s/item; used/avail/free/total/max mem: 2.06G/1.76G/565.95M/2.62G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (57M1D1376N1D19M, deletion 1 length) with an unequal ref insertion in MD (57^GA19, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 38,498,304 items, 11m 21s, 56,483.83 items/s, 17.70 ?s/item; used/avail/free/total/max mem: 1.65G/2.16G/978.07M/2.63G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (29M1D1230N1D47M, deletion 1 length) with an unequal ref insertion in MD (29^AA47, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 39,068,672 items, 11m 31s, 56,491.74 items/s, 17.70 ?s/item; used/avail/free/total/max mem: 1.40G/2.42G/1.24G/2.64G/3.82G
+INFO  SAMToCompactMode     - 39,638,016 items, 11m 41s, 56,494.51 items/s, 17.70 ?s/item; used/avail/free/total/max mem: 1.28G/2.54G/1.37G/2.65G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (19M1D211N1D57M, deletion 1 length) with an unequal ref insertion in MD (19^GC57, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 40,343,552 items, 11m 51s, 56,691.67 items/s, 17.64 ?s/item; used/avail/free/total/max mem: 1.37G/2.45G/1.28G/2.65G/3.82G
+INFO  SAMToCompactMode     - 41,056,256 items, 12m 1s, 56,893.22 items/s, 17.58 ?s/item; used/avail/free/total/max mem: 2.45G/1.37G/204.39M/2.65G/3.82G
+INFO  SAMToCompactMode     - 41,745,408 items, 12m 11s, 57,057.15 items/s, 17.53 ?s/item; used/avail/free/total/max mem: 2.12G/1.69G/532.43M/2.66G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (27M1D3714N1D49M, deletion 1 length) with an unequal ref insertion in MD (27^GA49, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 42,380,288 items, 12m 21s, 57,143.40 items/s, 17.50 ?s/item; used/avail/free/total/max mem: 2.02G/1.80G/637.10M/2.66G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (8M1D1504N1D68M, deletion 1 length) with an unequal ref insertion in MD (8^GA68, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (67M1D2031N1D9M, deletion 1 length) with an unequal ref insertion in MD (67^TC9, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+INFO  SAMToCompactMode     - 42,947,584 items, 12m 31s, 57,131.59 items/s, 17.50 ?s/item; used/avail/free/total/max mem: 2.58G/1.24G/81.54M/2.66G/3.82G
+INFO  SAMToCompactMode     - 43,485,184 items, 12m 41s, 57,087.02 items/s, 17.52 ?s/item; used/avail/free/total/max mem: 1.62G/2.19G/1.03G/2.65G/3.82G
+ERROR SamRecordParser      - Error detected calling samtools code: SequenceUtil.makeReferenceFromAlignment(samRecord)
+net.sf.samtools.SAMException: Got a deletion in CIGAR (27M1D3714N1D49M, deletion 1 length) with an unequal ref insertion in MD (27^GA49, md 2 length
+	at net.sf.samtools.util.SequenceUtil.makeReferenceFromAlignment(SequenceUtil.java:699)
+	at edu.cornell.med.icb.goby.readers.sam.SamRecordParser.processRead(SamRecordParser.java:119)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.scan(SAMToCompactMode.java:327)
+	at edu.cornell.med.icb.goby.modes.SAMToCompactMode.execute(SAMToCompactMode.java:237)
+	at edu.cornell.med.icb.goby.modes.GenericToolsDriver.execute(GenericToolsDriver.java:219)
+	at edu.cornell.med.icb.goby.modes.GobyDriver.main(GobyDriver.java:55)
+Total logical entries written: 57248210
+Total bytes written: 620158219
+Average bytes/logical entry: 10.832797
+Min query index: 0
+Max query index: 22423820
+Number of queries: 43881348
+Number of targets: 25
