@@ -1,0 +1,3 @@
+usage: split_replicates.py [-h] --input-prefix INPUT_PREFIX --output-dir
+                           OUTPUT_DIR --n N [--random]
+split_replicates.py: error: argument --input-prefix is required

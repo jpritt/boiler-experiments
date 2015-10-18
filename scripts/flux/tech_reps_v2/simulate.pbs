@@ -1,0 +1,14 @@
+#PBS -q batch
+#PBS -l walltime=1440:00
+#PBS -j n
+#PBS -l pmem=16gb
+#PBS -l vmem=16gb
+#PBS -l pvmem=16gb
+#PBS -l mem=16gb
+#PBS -m ae
+#PBS -M mpritt4@jhu.edu
+mkdir -p /scratch0/langmead-fs1/user/jacob/compress-alignments-test/human/tech_reps_v2/all_reps
+cp /scratch0/langmead-fs1/user/jacob/compress-alignments/scripts/flux/tech_reps_v2/simulation.par /scratch0/langmead-fs1/user/jacob/compress-alignments-test/human/tech_reps_v2/all_reps/
+cd /scratch0/langmead-fs1/user/jacob/compress-alignments-test/human/tech_reps_v2/all_reps
+
+/scratch0/langmead-fs1/shared/flux-simulator-1.2.1/bin/flux-simulator -x -l -s -p simulation.par

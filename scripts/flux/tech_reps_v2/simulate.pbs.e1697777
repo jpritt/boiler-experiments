@@ -1,0 +1,94 @@
+[INFO] I am collecting information on the run.
+[INFO] Reading error model 76 bases model
+
+[INFO] Checking GTF file
+	Checking GTF *[WARN] Unsorted in line 101 - chr/strand chr1 + already read.
+[GTF FILE] The GTF reference file given is not sorted, sorting it right now...
+	sorting GTF file  OK (00:02:11)
+[GTF FILE] The Simulator will use /scratch0/langmead-fs1/user/jacob/compress-alignments-test/human/tech_reps_v2/all_reps/gencode.v12.annotation_sorted.gtf
+[GTF FILE] You might want to update your parameters file
+[PROFILING] I am assigning the expression profile
+	Checking GTF ********** OK (00:00:13)
+	Reading reference annotation [WARN] Merging exon (1221330,1221658) with exon (1221306,1221328) in transcript ENST00000379110.4 because intervening intron has 4 or less nt.
+[WARN] Further merged exons are sent at debug verbosity level.
+********** OK (00:01:12)
+	found 183049 transcripts
+
+[PROFILING] Parameters
+	NB_MOLECULES	25000000
+	EXPRESSION_K	-0.6
+	EXPRESSION_X0	9500.0
+	EXPRESSION_X1	9.025E7
+	PRO_FILE_NAME	/scratch0/langmead-fs1/user/jacob/compress-alignments-test/human/tech_reps_v2/all_reps/simulation.pro
+
+	profiling ********** OK (00:00:00)
+	Updating .pro file  ********** OK (00:00:00)
+	molecules	24999429
+
+[LIBRARY] creating the cDNA libary
+	Initializing Fragmentation File ********** OK (00:00:11)
+	24999429 mol initialized
+[LIBRARY] Fragmentation UR
+[LIBRARY] Configuration
+		D0: 1.0
+		Delta:  Not specified, depends on sequence length
+		Eta: 350.0
+
+	Processing Fragments ********** OK (00:02:48)
+		118522894 mol: in 24999429, new 93523465, out 118522894
+		avg Len 312.95926, maxLen 1047
+[LIBRARY] Reverse Transcription
+[LIBRARY] Configuration
+		Mode: RH
+		PWM: No
+		RT MIN: 500
+		RT MAX: 5500
+
+	Processing Fragments ********** OK (00:05:44)
+		118522894 mol: in 118522894, new 0, out 118507373
+		avg Len 304.1031, maxLen 1039
+		start amplification
+[INFO] Loading default PCR distribution
+	preparing transcript sequences ********** OK (00:02:01)
+[LIBRARY] Amplification
+[LIBRARY] Configuration
+		Rounds: 15 
+		PCR Probability: 0.05 
+
+
+	Processing Fragments ********** OK (00:03:07)
+	Amplification done.
+	In: 118507373 Out: 3195738525
+
+
+		118507373 mol: in 118507373, new 0, out 3195738525
+		avg Len 304.1071, maxLen 1039
+**********	Copied results to /scratch0/langmead-fs1/user/jacob/compress-alignments-test/human/tech_reps_v2/all_reps/simulation.lib
+	Updating .pro file  ********** OK (00:00:00)
+
+[SEQUENCING] getting the reads
+	Initializing Fragment Index
+	Indexing ********** OK (00:00:34)
+	63602194 lines indexed (3195738525 fragments, 21299 entries)
+	sequencing ********** OK (01:36:48)
+
+	3195738525 fragments found (63602194 without PCR duplicates)
+	100004240 reads sequenced
+	0 reads fall in poly-A tail
+	892810 truncated reads
+
+	Quality stats: 
+	0.02491317 % average mutations per sequence
+	35.08 average quality 
+
+	Moving temporary BED file
+**********
+
+	Copying Fasta file
+**********
+	Updating .pro file  ********** OK (00:00:00)
+	Updating .pro file  ********** OK (00:00:00)
+	Updating .pro file  ********** OK (00:00:00)
+	Updating .pro file  ********** OK (00:00:00)
+
+[END] I finished, took me 7382 sec.
