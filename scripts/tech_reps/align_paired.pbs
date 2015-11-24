@@ -1,0 +1,22 @@
+#PBS -q batch
+#PBS -l walltime=2880:00
+#PBS -j n
+#PBS -l pmem=16gb
+#PBS -l vmem=16gb
+#PBS -l pvmem=16gb
+#PBS -l mem=16gb
+#PBS -m ae
+#PBS -M mpritt4@jhu.edu
+echo $DIR
+cd $DIR
+
+echo 'Running Tophat'
+tophat /scratch0/langmead-fs1/user/jacob/genomes/Drosophila_melanogaster/Ensembl/BDGP5/Sequence/Bowtie2Index/genome reads1.fastq reads2.fastq
+
+echo 'Running Cufflinks'
+mkdir -p cufflinks/orig
+cufflinks --no-effective-length-correction -o cufflinks/orig tophat_out/accepted_hits.bam
+
+echo 'Running StringTie'
+mkdir -p stringtie/orig
+stringtie tophat_out/accepted_hits.bam > stringtie/orig/transcripts.gtf

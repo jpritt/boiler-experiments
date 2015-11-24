@@ -1,0 +1,15 @@
+#PBS -q batch
+#PBS -l walltime=240:00
+#PBS -j n
+#PBS -l pmem=8gb
+#PBS -l vmem=8gb
+#PBS -l pvmem=8gb
+#PBS -l mem=8gb
+#PBS -m ae
+#PBS -M mpritt4@jhu.edu
+
+#cd /scratch0/langmead-fs1/user/jacob/compress-alignments-test/human/HG00100
+cd /scratch0/langmead-fs1/user/jacob/compress-alignments-test/human/tech_reps/sim0
+
+#goby 4g sam-to-compact -i HG00100_accepted_hits.bam -g /scratch0/langmead-fs1/shared/references/hg19/fasta/hg19.fa -o compressed/compressed.goby
+goby 4g sam-to-compact -i tophat_out/accepted_hits.bam -g /scratch0/langmead-fs1/shared/references/hg19/fasta/hg19.fa -o compressed/compressed.goby

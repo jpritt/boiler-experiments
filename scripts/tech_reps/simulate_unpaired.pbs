@@ -1,0 +1,26 @@
+#PBS -q batch
+#PBS -l walltime=1440:00
+#PBS -j n
+#PBS -l pmem=16gb
+#PBS -l vmem=16gb
+#PBS -l pvmem=16gb
+#PBS -l mem=16gb
+#PBS -m ae
+#PBS -M mpritt4@jhu.edu
+echo $DIR
+cd $DIR
+
+#export FLUX_MEM="12G"
+
+echo 'Simulating'
+/scratch0/langmead-fs1/shared/flux-simulator-1.2.1/bin/flux-simulator -x -l -s -p simulation.par
+
+echo 'Splitting'
+cd ../
+mkdir -p sim0
+mkdir -p sim1
+mkdir -p sim2
+mkdir -p sim3
+mkdir -p sim4
+/scratch0/langmead-fs1/user/jacob/compress-alignments/scripts/tech_reps/split_replicates_unpaired.py --input-fastq all_reps/simulation.fastq --output-dir sim --n 5
+

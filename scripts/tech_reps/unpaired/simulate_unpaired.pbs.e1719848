@@ -1,0 +1,94 @@
+[INFO] I am collecting information on the run.
+[INFO] Reading error model 76 bases model
+
+[INFO] Checking GTF file
+	Checking GTF *[WARN] Unsorted in line 4 transcript id FBtr0300689 used twice, on: 2L,2L
+[GTF FILE] The GTF reference file given is not sorted, sorting it right now...
+	sorting GTF file  OK (00:00:20)
+[GTF FILE] The Simulator will use /scratch0/langmead-fs1/user/jacob/compress-alignments-test/drosophila/tech_reps/single10/all_reps/genes_fixed_sorted.gtf
+[GTF FILE] You might want to update your parameters file
+[PROFILING] I am assigning the expression profile
+	Checking GTF ********** OK (00:00:01)
+	Reading reference annotation ******[WARN] Merging exon (21094700,21095435) with exon (21094383,21094697) in transcript FBtr0084817 because intervening intron has 4 or less nt.
+[WARN] Further merged exons are sent at debug verbosity level.
+**** OK (00:00:08)
+	found 28763 transcripts
+
+[PROFILING] Parameters
+	NB_MOLECULES	5000000
+	EXPRESSION_K	-0.6
+	EXPRESSION_X0	9500.0
+	EXPRESSION_X1	9.025E7
+	PRO_FILE_NAME	/scratch0/langmead-fs1/user/jacob/compress-alignments-test/drosophila/tech_reps/single10/all_reps/simulation.pro
+
+	profiling ********** OK (00:00:00)
+	Updating .pro file  ********** OK (00:00:00)
+	molecules	4999413
+
+[LIBRARY] creating the cDNA libary
+	Initializing Fragmentation File ********** OK (00:00:02)
+	4999413 mol initialized
+[LIBRARY] Fragmentation UR
+[LIBRARY] Configuration
+		D0: 1.0
+		Delta:  Not specified, depends on sequence length
+		Eta: 350.0
+
+	Processing Fragments ********** OK (00:00:40)
+		41932420 mol: in 4999413, new 36933007, out 41932420
+		avg Len 315.00525, maxLen 1125
+[LIBRARY] Reverse Transcription
+[LIBRARY] Configuration
+		Mode: RH
+		PWM: No
+		RT MIN: 500
+		RT MAX: 5500
+
+	Processing Fragments ********** OK (00:01:47)
+		41932420 mol: in 41932420, new 0, out 41929749
+		avg Len 306.1455, maxLen 1025
+		start amplification
+[INFO] Loading default PCR distribution
+	preparing transcript sequences ********** OK (00:00:14)
+[LIBRARY] Amplification
+[LIBRARY] Configuration
+		Rounds: 15 
+		PCR Probability: 0.05 
+
+
+	Processing Fragments ********** OK (00:00:56)
+	Amplification done.
+	In: 41929749 Out: 1131245050
+
+
+		41929749 mol: in 41929749, new 0, out 1131245050
+		avg Len 306.11304, maxLen 958
+**********	Copied results to /scratch0/langmead-fs1/user/jacob/compress-alignments-test/drosophila/tech_reps/single10/all_reps/simulation.lib
+	Updating .pro file  ********** OK (00:00:00)
+
+[SEQUENCING] getting the reads
+	Initializing Fragment Index
+	Indexing ********** OK (00:00:11)
+	22507057 lines indexed (1131245050 fragments, 19054 entries)
+	sequencing ********** OK (00:12:11)
+
+	1131245050 fragments found (22507057 without PCR duplicates)
+	5003484 reads sequenced
+	0 reads fall in poly-A tail
+	40611 truncated reads
+
+	Quality stats: 
+	0.02494520 % average mutations per sequence
+	35.08 average quality 
+
+	Moving temporary BED file
+**********
+
+	Copying Fasta file
+**********
+	Updating .pro file  ********** OK (00:00:00)
+	Updating .pro file  ********** OK (00:00:00)
+	Updating .pro file  ********** OK (00:00:00)
+	Updating .pro file  ********** OK (00:00:00)
+
+[END] I finished, took me 1057 sec.

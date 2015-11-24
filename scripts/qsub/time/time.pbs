@@ -14,3 +14,5 @@ echo 'Boiler'
 time /scratch0/langmead-fs1/shared/pypy3-2.4-linux_x86_64-portable/bin/pypy3 /scratch0/langmead-fs1/user/jacob/compress-alignments/boiler.py --compress --alignments $ALIGNMENTS.sam --binary --output compressed/compressed.bin
 echo 'Goby'
 time goby 4g sam-to-compact -i $ALIGNMENTS.bam -o compressed/compressed.goby
+echo 'CRAM'
+time java -Xmx4g -jar /scratch0/langmead-fs1/shared/cramtools/cramtools-3.0.jar cram -I $ALIGNMENTS.bam -R $FASTA -O compressed/compressed.cram

@@ -1,5 +1,5 @@
 #PBS -q batch
-#PBS -l walltime=120:00
+#PBS -l walltime=480:00
 #PBS -j n
 #PBS -l pmem=8gb
 #PBS -l vmem=8gb
@@ -12,16 +12,16 @@ cd $DIR
 mkdir -p results
 
 echo '=== SAM Comparison ==='
-echo 'Original vs Intermediate:'
-/scratch0/langmead-fs1/user/jacob/compress-alignments/compareSAMs.py --sam1 $ALIGNMENTS.sam --sam2 intermediate.sam --out-frags results/fragments_inter.txt
+#echo 'Original vs Intermediate:'
+#/scratch0/langmead-fs1/user/jacob/compress-alignments/compareSAMs.py --sam1 $ALIGNMENTS.sam --sam2 intermediate.sam --out-frags results/fragments_inter.txt
 echo 'Original vs Compressed SAM:'
 /scratch0/langmead-fs1/user/jacob/compress-alignments/compareSAMs.py --sam1 $ALIGNMENTS.sam --sam2 expanded.sam --out-frags results/fragments_comp.txt
 
 echo '=== Precision/Recall Direct Comparison ==='
-echo 'Original vs Intermediate Transcripts:'
-/scratch0/langmead-fs1/user/jacob/compress-alignments/compareGTFs.py cufflinks/orig/transcripts.gtf cufflinks/inter/transcripts.gtf
+#echo 'Original vs Intermediate Transcripts:'
+#/scratch0/langmead-fs1/user/jacob/compress-alignments/compareGTFs.py cufflinks/orig/transcripts.gtf cufflinks/inter/transcripts.gtf
 echo 'Original vs Compressed Transcripts:'
 /scratch0/langmead-fs1/user/jacob/compress-alignments/compareGTFs.py cufflinks/orig/transcripts.gtf cufflinks/comp/transcripts.gtf
-echo 'Intermediate vs Compressed Transcripts:'
-/scratch0/langmead-fs1/user/jacob/compress-alignments/compareGTFs.py cufflinks/inter/transcripts.gtf cufflinks/comp/transcripts.gtf
+#echo 'Intermediate vs Compressed Transcripts:'
+#/scratch0/langmead-fs1/user/jacob/compress-alignments/compareGTFs.py cufflinks/inter/transcripts.gtf cufflinks/comp/transcripts.gtf
 
