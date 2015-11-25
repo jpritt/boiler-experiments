@@ -1,0 +1,33 @@
+#PBS -q batch
+#PBS -l walltime=120:00
+#PBS -j n
+#PBS -l pmem=8gb
+#PBS -l vmem=8gb
+#PBS -l pvmem=8gb
+#PBS -l mem=8gb
+#PBS -m ae
+#PBS -M mpritt4@jhu.edu
+echo 'Results for '$DIR
+echo $MODE
+cd $DIR
+mkdir -p results
+
+echo '=== Weighted Kmer Recall ==='
+echo 'Original:'
+/scratch0/langmead-fs1/user/jacob/compress-alignments/kc.py --refGTF ../all_reps/genes_fixed_sorted.gtf --refPRO ../all_reps/simulation.pro --sequence /scratch0/langmead-fs1/user/jacob/genomes/Drosophila_melanogaster/Ensembl/BDGP5/Sequence/WholeGenomeFasta/genome.fa --assembly $MODE/orig/transcripts.gtf --data ../all_reps/simulation.fastq --kmer 15 
+#echo 'Intermediate:'
+#/scratch0/langmead-fs1/user/jacob/compress-alignments/kc.py --refGTF genes_fixed_sorted.gtf --refPRO simulation.pro --sequence /scratch0/langmead-fs1/user/jacob/genomes/Drosophila_melanogaster/Ensembl/BDGP5/Sequence/WholeGenomeFasta/genome.fa --assembly $MODE/inter/transcripts.gtf --data simulation.fastq --kmer 15 
+echo 'Compressed:'
+/scratch0/langmead-fs1/user/jacob/compress-alignments/kc.py --refGTF ../all_reps/genes_fixed_sorted.gtf --refPRO ../all_reps/simulation.pro --sequence /scratch0/langmead-fs1/user/jacob/genomes/Drosophila_melanogaster/Ensembl/BDGP5/Sequence/WholeGenomeFasta/genome.fa --assembly $MODE/comp/transcripts.gtf --data ../all_reps/simulation.fastq --kmer 15 
+
+echo '=== Precision/Recall Compared to Truth ==='
+echo 'Original:'
+/scratch0/langmead-fs1/user/jacob/compress-alignments/compareToTruth.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf $MODE/orig/transcripts.gtf
+#echo 'Intermediate:'
+#/scratch0/langmead-fs1/user/jacob/compress-alignments/compareToTruth.py simulation.pro genes_fixed_sorted.gtf $MODE/inter/transcripts.gtf
+echo 'Compressed:'
+/scratch0/langmead-fs1/user/jacob/compress-alignments/compareToTruth.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf $MODE/comp/transcripts.gtf
+
+echo '=== Tripartite Score ==='
+/scratch0/langmead-fs1/user/jacob/compress-alignments/compareTripartite.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf $MODE/orig/transcripts.gtf $MODE/comp/transcripts.gtf 1
+/scratch0/langmead-fs1/user/jacob/compress-alignments/compareTripartite.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf $MODE/orig/transcripts.gtf $MODE/comp/transcripts.gtf 0
