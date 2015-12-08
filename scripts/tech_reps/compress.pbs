@@ -1,17 +1,15 @@
 #PBS -q batch
 #PBS -l walltime=1440:00
 #PBS -j n
-#PBS -l pmem=8gb
-#PBS -l vmem=8gb
-#PBS -l pvmem=4gb
-#PBS -l nodes=1:ppn=2
-#PBS -l mem=8gb
+#PBS -l pmem=16gb
+#PBS -l vmem=16gb
+#PBS -l pvmem=16gb
 #PBS -m ae
 #PBS -M mpritt4@jhu.edu
 echo 'Compressing '$DIR
 cd $DIR
 mkdir -p compressed
-/scratch0/langmead-fs1/user/jacob/compress-alignments/boiler.py --compress --decompress --alignments tophat_out/accepted_hits.sam --binary --expand-to expanded.sam --output compressed/compressed.bin --frag-len-cutoff 1000000
+/scratch0/langmead-fs1/user/jacob/compress-alignments/boiler.py --compress --decompress --alignments tophat_out/accepted_hits.sam --binary --expand-to expanded.sam --output compressed/compressed.bin
 
 #samtools view -bS expanded.sam | samtools sort - expanded
 #mkdir -p cufflinks/comp/
