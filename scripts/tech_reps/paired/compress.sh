@@ -8,7 +8,7 @@ for i in "${sizes[@]}";
 do
     for j in "${ns[@]}";
     do
-        qsub -vDIR=/scratch0/langmead-fs1/user/jacob/compress-alignments-test/drosophila/tech_reps/single$i/sim$j ../compress.pbs
+        qsub -vDIR=/scratch0/langmead-fs1/user/jacob/compress-alignments-test/drosophila/tech_reps/paired$i/sim$j ../compress.pbs
         sleep 2
     done
 done
