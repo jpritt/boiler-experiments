@@ -1,0 +1,40 @@
+Timing results for /scratch0/langmead-fs1/user/jacob/compress-alignments-test/drosophila/tech_reps/paired50/sim0
+Boiler
+Compressing to compressed/compressed.bin
+Set fragment length cutoff to z=0.125000 (41713) based on length distribution
+0.80 % of pairs are longer than the cutoff
+0 cross-bundle reads unmatched
+Minimum bundle length: 12
+Maximum bundle length: 342854
+Average bundle length: 4306
+3177 cross-bundle buckets
+Compressed size: 160357
+Compression time: 456.589 s
+
+Goby
+Trying to set RJAVA_HOME environment variable
+
+RJAVA_HOME=
+java -ea -Xmx4g -Dlog4j.configuration=file:///scratch0/langmead-fs1/shared/goby/config/log4j-sample.properties -Djava.library.path= -jar /scratch0/langmead-fs1/shared/goby/goby.jar --mode sam-to-compact -i tophat_out/accepted_hits.bam -o compressed/compressed.goby
+Store read origin: true
+WARN  MessageChunksWriter  - Using chunk-size=10000
+INFO  SAMToCompactMode     - 616,448 items, 10s, 61,620.15 items/s, 16.23 ?s/item; used/avail/free/total/max mem: 644.61M/3.17G/702.81M/1.35G/3.82G
+INFO  SAMToCompactMode     - 1,341,440 items, 20s, 67,021.73 items/s, 14.92 ?s/item; used/avail/free/total/max mem: 70.32M/3.75G/1.12G/1.19G/3.82G
+INFO  SAMToCompactMode     - 2,094,080 items, 30s, 69,751.52 items/s, 14.34 ?s/item; used/avail/free/total/max mem: 588.37M/3.23G/486.42M/1.07G/3.82G
+INFO  SAMToCompactMode     - 2,804,736 items, 40s, 70,055.35 items/s, 14.27 ?s/item; used/avail/free/total/max mem: 597.81M/3.22G/608.57M/1.21G/3.82G
+INFO  SAMToCompactMode     - 3,577,856 items, 50s, 71,434.25 items/s, 14.00 ?s/item; used/avail/free/total/max mem: 189.91M/3.63G/1.10G/1.29G/3.82G
+INFO  SAMToCompactMode     - 4,326,400 items, 1m 0s, 71,950.77 items/s, 13.90 ?s/item; used/avail/free/total/max mem: 534.13M/3.28G/645.51M/1.18G/3.82G
+INFO  SAMToCompactMode     - 5,055,488 items, 1m 10s, 72,076.08 items/s, 13.87 ?s/item; used/avail/free/total/max mem: 565.87M/3.25G/953.52M/1.52G/3.82G
+INFO  SAMToCompactMode     - 5,769,216 items, 1m 20s, 71,950.61 items/s, 13.90 ?s/item; used/avail/free/total/max mem: 714.85M/3.10G/1.05G/1.76G/3.82G
+INFO  SAMToCompactMode     - 6,509,568 items, 1m 30s, 72,169.76 items/s, 13.86 ?s/item; used/avail/free/total/max mem: 1.27G/2.54G/661.89M/1.94G/3.82G
+INFO  SAMToCompactMode     - 7,255,040 items, 1m 40s, 72,406.31 items/s, 13.81 ?s/item; used/avail/free/total/max mem: 415.04M/3.40G/1.45G/1.87G/3.82G
+INFO  SAMToCompactMode     - 7,955,456 items, 1m 50s, 71,968.37 items/s, 13.89 ?s/item; used/avail/free/total/max mem: 989.00M/2.83G/764.22M/1.75G/3.82G
+INFO  SAMToCompactMode     - 8,679,424 items, 2m 0s, 71,999.14 items/s, 13.89 ?s/item; used/avail/free/total/max mem: 704.19M/3.11G/900.13M/1.60G/3.82G
+Total logical entries written: 10323480
+Total bytes written: 121430737
+Average bytes/logical entry: 11.762578
+Min query index: 0
+Max query index: 5230338
+Number of queries: 9251104
+Number of targets: 7
+CRAM

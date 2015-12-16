@@ -1,0 +1,42 @@
+Results for /scratch0/langmead-fs1/user/jacob/compress-alignments-test/drosophila/tech_reps/single25/sim0
+cufflinks
+=== Weighted Kmer Recall ===
+Original:
+WKR = 0.925045
+Compressed:
+WKR = 0.922740
+=== Precision/Recall Compared to Truth ===
+Original:
+Recall    = 0.790522384484
+Precision = 0.527229161997
+Compressed:
+Recall    = 0.784949968699
+Precision = 0.527077898012
+=== Tripartite Score ===
+2214 / 9288  = 0.2384 transcripts from file 1
+2214 / 9290  = 0.2383 transcripts from file 2
+Score: 0.995447
+3234 / 9288  = 0.3482 transcripts from file 1
+3234 / 9290  = 0.3481 transcripts from file 2
+Score: 0.990904
+Results for /scratch0/langmead-fs1/user/jacob/compress-alignments-test/drosophila/tech_reps/single25/sim0
+cufflinks
+=== Weighted Kmer Recall ===
+Original:
+WKR = 0.925045
+Compressed:
+WKR = 0.922740
+=== Precision/Recall Compared to Truth ===
+Original:
+Recall    = 0.790522384484
+Precision = 0.527229161997
+Compressed:
+Recall    = 0.784949968699
+Precision = 0.527077898012
+=== Tripartite Score ===
+2214 / 9288  = 0.2384 transcripts from file 1
+2214 / 9290  = 0.2383 transcripts from file 2
+Score: 0.995447
+3234 / 9288  = 0.3482 transcripts from file 1
+3234 / 9290  = 0.3481 transcripts from file 2
+Score: 0.990904

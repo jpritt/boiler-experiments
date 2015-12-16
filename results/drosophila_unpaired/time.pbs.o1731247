@@ -1,0 +1,33 @@
+Timing results for /scratch0/langmead-fs1/user/jacob/compress-alignments-test/drosophila/tech_reps/single100/sim0
+Boiler
+Compressing to compressed/compressed.bin
+0 cross-bundle reads unmatched
+Minimum bundle length: 12
+Maximum bundle length: 395442
+Average bundle length: 2003
+Compression time: 276.623 s
+
+Goby
+Trying to set RJAVA_HOME environment variable
+
+RJAVA_HOME=
+java -ea -Xmx4g -Dlog4j.configuration=file:///scratch0/langmead-fs1/shared/goby/config/log4j-sample.properties -Djava.library.path= -jar /scratch0/langmead-fs1/shared/goby/goby.jar --mode sam-to-compact -i tophat_out/accepted_hits.bam -o compressed/compressed.goby
+Store read origin: true
+WARN  MessageChunksWriter  - Using chunk-size=10000
+INFO  SAMToCompactMode     - 788,480 items, 10s, 78,416.71 items/s, 12.75 ?s/item; used/avail/free/total/max mem: 108.58M/3.71G/1.82G/1.93G/3.82G
+INFO  SAMToCompactMode     - 1,770,496 items, 20s, 88,194.07 items/s, 11.34 ?s/item; used/avail/free/total/max mem: 270.54M/3.55G/1.49G/1.76G/3.82G
+INFO  SAMToCompactMode     - 2,736,128 items, 30s, 90,964.73 items/s, 10.99 ?s/item; used/avail/free/total/max mem: 737.34M/3.08G/856.50M/1.59G/3.82G
+INFO  SAMToCompactMode     - 3,608,576 items, 40s, 89,984.94 items/s, 11.11 ?s/item; used/avail/free/total/max mem: 440.73M/3.38G/989.01M/1.43G/3.82G
+INFO  SAMToCompactMode     - 4,636,672 items, 50s, 92,540.95 items/s, 10.81 ?s/item; used/avail/free/total/max mem: 416.14M/3.40G/845.82M/1.26G/3.82G
+INFO  SAMToCompactMode     - 5,602,304 items, 1m 0s, 93,172.96 items/s, 10.73 ?s/item; used/avail/free/total/max mem: 665.93M/3.15G/442.94M/1.11G/3.82G
+INFO  SAMToCompactMode     - 6,462,464 items, 1m 10s, 92,115.63 items/s, 10.86 ?s/item; used/avail/free/total/max mem: 911.74M/2.91G/214.43M/1.13G/3.82G
+INFO  SAMToCompactMode     - 7,393,280 items, 1m 20s, 92,230.39 items/s, 10.84 ?s/item; used/avail/free/total/max mem: 898.13M/2.92G/465.02M/1.36G/3.82G
+INFO  SAMToCompactMode     - 8,369,152 items, 1m 30s, 92,818.35 items/s, 10.77 ?s/item; used/avail/free/total/max mem: 908.10M/2.91G/811.56M/1.72G/3.82G
+Total logical entries written: 10216902
+Total bytes written: 62979046
+Average bytes/logical entry: 6.164202
+Min query index: 0
+Max query index: 9145143
+Number of queries: 9169606
+Number of targets: 7
+CRAM

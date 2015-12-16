@@ -1,0 +1,11 @@
+Querying /scratch0/langmead-fs1/user/jacob/compress-alignments-test/drosophila/tech_reps/paired25/sim0
+Querying coverage
+Getting bundle coverages for chromsome 2R
+Getting bundle coverages for chromsome 3R
+Getting bundle coverages for chromsome M
+Getting bundle coverages for chromsome 4
+Getting bundle coverages for chromsome 3L
+Getting bundle coverages for chromsome 2L
+Getting bundle coverages for chromsome X
+Average SAM query time:    0.797148s
+Average Boiler query time: 0.056261s

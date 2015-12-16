@@ -1,0 +1,21 @@
+Results for /scratch0/langmead-fs1/user/jacob/compress-alignments-test/drosophila/tech_reps/paired5/sim0
+stringtie
+=== Weighted Kmer Recall ===
+Original:
+WKR = 0.784042
+Compressed:
+WKR = 0.784344
+=== Precision/Recall Compared to Truth ===
+Original:
+Recall    = 0.688444633302
+Precision = 0.513436760087
+Compressed:
+Recall    = 0.687095707788
+Precision = 0.512398469733
+=== Tripartite Score ===
+1678 / 4208  = 0.3988 transcripts from file 1
+1678 / 4223  = 0.3973 transcripts from file 2
+Score: 0.996718
+2316 / 4208  = 0.5504 transcripts from file 1
+2316 / 4223  = 0.5484 transcripts from file 2
+Score: 0.988350
