@@ -6,14 +6,15 @@
 #PBS -l pvmem=16gb
 #PBS -m ae
 #PBS -M mpritt4@jhu.edu
+DIR=/scratch0/langmead-fs1/user/jacob/compress-alignments-test/drosophila/tech_reps/paired5/sim0
 echo 'Compressing '$DIR
 cd $DIR
-#mkdir -p compressed
+mkdir -p compressed
 #/scratch0/langmead-fs1/user/jacob/compress-alignments/boiler.py --compress --decompress --alignments tophat_out/accepted_hits.sam --binary --expand-to expanded.sam --output compressed/compressed.bin --frag-len-z-cutoff 0.125
-#/scratch0/langmead-fs1/user/jacob/compress-alignments/boiler.py --compress --alignments tophat_out/accepted_hits.sam --output compressed/compressed.bin --frag-len-z-cutoff 0
+/scratch0/langmead-fs1/user/jacob/compress-alignments/boiler.py --compress --alignments tophat_out/accepted_hits.sam --output compressed/compressed.bin --frag-len-z-cutoff 0.125
 
 #samtools view -bS expanded.sam | samtools sort - expanded
-mkdir -p cufflinks/comp/
-cufflinks --no-effective-length-correction -o cufflinks/comp expanded.bam
+#mkdir -p cufflinks/comp/
+#cufflinks --no-effective-length-correction -o cufflinks/comp expanded.bam
 #mkdir -p stringtie/comp/
 #stringtie expanded.bam > stringtie/comp/transcripts.gtf

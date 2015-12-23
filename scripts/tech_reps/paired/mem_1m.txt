@@ -1,0 +1,69 @@
+	Command being timed: "/scratch0/langmead-fs1/shared/pypy3-2.4-linux_x86_64-portable/bin/pypy3 /scratch0/langmead-fs1/user/jacob/compress-alignments/boiler.py --compress --alignments tophat_out/accepted_hits.sam --binary --output compressed/compressed.bin --frag-len-z-cutoff 0.125"
+	User time (seconds): 71.96
+	System time (seconds): 1.62
+	Percent of CPU this job got: 88%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:23.41
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1172976
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 5
+	Minor (reclaiming a frame) page faults: 151286
+	Voluntary context switches: 49185
+	Involuntary context switches: 4063
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+	Command being timed: "goby 4g sam-to-compact -i tophat_out/accepted_hits.bam -o compressed/compressed.goby"
+	User time (seconds): 31.14
+	System time (seconds): 0.59
+	Percent of CPU this job got: 114%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:27.73
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 3574208
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 17
+	Minor (reclaiming a frame) page faults: 279206
+	Voluntary context switches: 7340
+	Involuntary context switches: 3435
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+	Command being timed: "java -Xmx4g -jar /scratch0/langmead-fs1/shared/cramtools/cramtools-3.0.jar cram -I tophat_out/accepted_hits.bam -R /scratch0/langmead-fs1/user/jacob/genomes/Drosophila_melanogaster/Ensembl/BDGP5/Sequence/WholeGenomeFasta/genome.fa -O compressed/compressed.cram"
+	User time (seconds): 38.99
+	System time (seconds): 1.01
+	Percent of CPU this job got: 132%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:30.10
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 6451088
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2
+	Minor (reclaiming a frame) page faults: 426376
+	Voluntary context switches: 3315
+	Involuntary context switches: 4777
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
