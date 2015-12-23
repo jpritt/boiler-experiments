@@ -1,0 +1,11 @@
+#PBS -q batch
+#PBS -l walltime=480:00
+#PBS -j n
+#PBS -l pmem=16gb
+#PBS -l vmem=16gb
+#PBS -l pvmem=16gb
+#PBS -l mem=16gb
+#PBS -m ae
+#PBS -M mpritt4@jhu.edu
+cd /scratch0/langmead-fs1/user/jacob/compress-alignments-test/drosophila/tech_reps/single5/sim0
+time goby 4g sam-to-compact -i tophat_out/accepted_hits.bam -o compressed/compressed.goby
