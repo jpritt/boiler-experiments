@@ -1,0 +1,81 @@
+
+real	15m45.506s
+user	7m44.874s
+sys	0m5.063s
+	Command being timed: "/scratch0/langmead-fs1/shared/pypy3-2.4-linux_x86_64-portable/bin/pypy3 /scratch0/langmead-fs1/user/jacob/compress-alignments/boiler.py --compress --alignments tophat_out/accepted_hits.sam --binary --output compressed/compressed.bin --frag-len-z-cutoff 0.125"
+	User time (seconds): 463.12
+	System time (seconds): 4.85
+	Percent of CPU this job got: 97%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 8:02.14
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 3091376
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 382460
+	Voluntary context switches: 48352
+	Involuntary context switches: 24773
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+
+real	4m6.885s
+user	4m30.466s
+sys	0m1.896s
+	Command being timed: "goby 4g sam-to-compact -i tophat_out/accepted_hits.bam -o compressed/compressed.goby"
+	User time (seconds): 275.09
+	System time (seconds): 1.95
+	Percent of CPU this job got: 109%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 4:12.79
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 9040528
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 765152
+	Voluntary context switches: 18414
+	Involuntary context switches: 15295
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+
+real	4m5.985s
+user	4m25.446s
+sys	0m1.706s
+	Command being timed: "java -Xmx4g -jar /scratch0/langmead-fs1/shared/cramtools/cramtools-3.0.jar cram -I tophat_out/accepted_hits.bam -R /scratch0/langmead-fs1/user/jacob/genomes/Drosophila_melanogaster/Ensembl/BDGP5/Sequence/WholeGenomeFasta/genome.fa -O compressed/compressed.cram"
+	User time (seconds): 265.35
+	System time (seconds): 1.61
+	Percent of CPU this job got: 106%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 4:11.02
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 4055200
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 558743
+	Voluntary context switches: 29914
+	Involuntary context switches: 16310
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
