@@ -9,7 +9,7 @@
 echo 'Compressing '$DIR
 cd $DIR
 mkdir -p compressed
-/scratch0/langmead-fs1/user/jacob/compress-alignments/boiler.py --compress --decompress --alignments tophat_out/accepted_hits.sam --binary --expand-to expanded.sam --output compressed/compressed.bin --frag-len-z-cutoff 0.125
+/scratch0/langmead-fs1/user/jacob/compress-alignments/boiler.py --compress --decompress --alignments tophat_out/accepted_hits.sam --expand-to expanded.sam --output compressed/compressed.bin --frag-len-z-cutoff 0.125 --split-discordant --split-diff-strands
 #/scratch0/langmead-fs1/user/jacob/compress-alignments/boiler.py --compress --alignments tophat_out/accepted_hits.sam --output compressed/compressed.bin --frag-len-z-cutoff 0.125
 
 samtools view -bS expanded.sam | samtools sort - expanded

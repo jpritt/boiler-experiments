@@ -21,6 +21,8 @@ mkdir -p results
 echo '=== Precision/Recall Compared to Truth ==='
 echo 'Original:'
 /scratch0/langmead-fs1/user/jacob/compress-alignments/compareToTruth.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf $MODE/orig/transcripts.gtf
+echo 'Intermediate:'
+/scratch0/langmead-fs1/user/jacob/compress-alignments/compareToTruth.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf $MODE/inter/transcripts.gtf
 echo 'Compressed:'
 /scratch0/langmead-fs1/user/jacob/compress-alignments/compareToTruth.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf $MODE/comp/transcripts.gtf
 
