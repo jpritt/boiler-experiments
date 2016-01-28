@@ -1,0 +1,14 @@
+01/26/16-22:26:56:INFO:Comparing tripartite strict
+01/26/16-22:26:56:INFO:Parsed 3549 transcripts from simulation .pro file
+01/26/16-22:26:57:INFO:Parsed 27137 protein-coding exons from simulation .gtf file
+01/26/16-22:26:57:INFO:Parsed 4712 transcripts from first .gtf file
+01/26/16-22:26:57:INFO:Parsed 4719 transcripts from second .gtf file
+01/26/16-22:27:19:INFO:2807 of 4712 transcripts in set A have near neighbor in true transcript set
+01/26/16-22:27:19:INFO:2799 of 4719 transcripts in set B have near neighbor in true transcript set
+01/26/16-22:27:19:INFO:Comparing tripartite loose
+01/26/16-22:27:19:INFO:Parsed 3549 transcripts from simulation .pro file
+01/26/16-22:27:20:INFO:Parsed 27137 protein-coding exons from simulation .gtf file
+01/26/16-22:27:20:INFO:Parsed 4712 transcripts from first .gtf file
+01/26/16-22:27:21:INFO:Parsed 4719 transcripts from second .gtf file
+01/26/16-22:27:42:INFO:2807 of 4712 transcripts in set A have near neighbor in true transcript set
+01/26/16-22:27:42:INFO:2799 of 4719 transcripts in set B have near neighbor in true transcript set
