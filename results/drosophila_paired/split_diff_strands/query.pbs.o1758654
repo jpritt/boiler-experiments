@@ -1,0 +1,4 @@
+Querying /scratch0/langmead-fs1/user/jacob/compress-alignments-test/drosophila/tech_reps/paired10/sim0
+Querying coverage for all chromsomes
+Average SAM query time:    1.399589s
+Average Boiler query time: 0.050454s

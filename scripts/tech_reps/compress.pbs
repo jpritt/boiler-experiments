@@ -9,11 +9,14 @@
 echo 'Compressing '$DIR
 cd $DIR
 mkdir -p compressed
-/scratch0/langmead-fs1/user/jacob/compress-alignments/boiler.py --compress --decompress --alignments tophat_out/accepted_hits.sam --expand-to expanded.sam --output compressed/compressed.bin --frag-len-z-cutoff 0.125 --split-discordant --split-diff-strands
-#/scratch0/langmead-fs1/user/jacob/compress-alignments/boiler.py --compress --alignments tophat_out/accepted_hits.sam --output compressed/compressed.bin --frag-len-z-cutoff 0.125
+/scratch0/langmead-fs1/user/jacob/compress-alignments/boiler.py --compress --decompress --intermediate intermediate.sam --alignments tophat_out/accepted_hits.sam --expand-to expanded.sam --output compressed/compressed.bin --frag-len-z-cutoff 0.125 --split-discordant --split-diff-strands
 
 samtools view -bS expanded.sam | samtools sort - expanded
-mkdir -p cufflinks/comp/
-cufflinks --no-effective-length-correction -o cufflinks/comp expanded.bam
+#mkdir -p cufflinks/comp/
+#cufflinks --no-effective-length-correction -o cufflinks/comp expanded.bam
 mkdir -p stringtie/comp/
 stringtie expanded.bam > stringtie/comp/transcripts.gtf
+
+samtools view -bS intermediate.sam | samtools sort - intermediate
+mkdir -p stringtie/inter/
+stringtie intermediate.bam > stringtie/inter/transcripts.gtf
