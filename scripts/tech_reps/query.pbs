@@ -11,5 +11,5 @@ echo 'Querying '$DIR
 #samtools index accepted_hits.bam
 #cd ../
 cd $DIR
-/scratch0/langmead-fs1/shared/pypy3-2.4-linux_x86_64-portable/bin/pypy3 /scratch0/langmead-fs1/user/jacob/compress-alignments/testQueries.py --alignments tophat_out/accepted_hits.sam --compressed compressed/compressed.bin --bedtools-path /scratch0/langmead-fs1/user/jacob/bedtools2 --output times.txt --mode $MODE --chrom all --chroms chroms2.all
+/scratch0/langmead-fs1/shared/pypy3-2.4-linux_x86_64-portable/bin/pypy3 /scratch0/langmead-fs1/user/jacob/compress-alignments/testQueries.py --alignments tophat_out/accepted_hits.sam --compressed compressed/compressed.bin --bedtools-path /scratch0/langmead-fs1/user/jacob/bedtools2 --output times.txt --mode $MODE --chrom all --chroms chroms.all
 

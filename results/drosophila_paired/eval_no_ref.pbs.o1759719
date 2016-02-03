@@ -1,0 +1,22 @@
+Results for /scratch0/langmead-fs1/user/jacob/compress-alignments-test/drosophila/tech_reps/paired25/sim0
+=== SAM Comparison ===
+Original vs Compressed SAM:
+No pairing:
+Recall    = TP / TP+FN = 0.971415
+Precision = TP / TP+FP = 0.956743
+
+Pairing:
+Recall    = TP / TP+FN = 0.338005
+Precision = TP / TP+FP = 0.332900
+
+File 1: 673814 unpaired, 4041158 paired, 10658 discordant
+File 2: 756827 unpaired, 4030448 paired, 0 discordant
+
+=== Precision/Recall of Cufflinks Direct Comparison ===
+Original vs Compressed Transcripts:
+Recall    = TP/T = 0.971260859653
+Precision    = TP/P = 0.967253672008
+=== Precision/Recall of Stringtie Direct Comparison ===
+Original vs Compressed Transcripts:
+Recall    = TP/T = 0.993827377604
+Precision    = TP/P = 0.994335235713

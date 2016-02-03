@@ -1,0 +1,33 @@
+Timing results for /scratch0/langmead-fs1/user/jacob/compress-alignments-test/drosophila/tech_reps/paired10/sim0
+Boiler
+Compressing to compressed/compressed2.bin
+Set fragment length cutoff to z=0.125000 (39519) based on length distribution
+0.41 % of pairs are longer than the cutoff
+Using fragment length cutoff of 39519
+Splitting mates on different strands
+Splitting discordant
+0 cross-bundle reads unmatched
+Minimum bundle length: 12
+Maximum bundle length: 210496
+Average bundle length: 3082
+1953 cross-bundle buckets
+Compressed size: 61424
+Compression time: 93.010 s
+
+CRAM
+Goby
+Trying to set RJAVA_HOME environment variable
+
+RJAVA_HOME=
+java -ea -Xmx4g -Dlog4j.configuration=file:///scratch0/langmead-fs1/shared/goby/config/log4j-sample.properties -Djava.library.path= -jar /scratch0/langmead-fs1/shared/goby/goby.jar --mode sam-to-compact -i tophat_out/accepted_hits_fixed.bam -o compressed/compressed.goby
+Store read origin: true
+WARN  MessageChunksWriter  - Using chunk-size=10000
+INFO  SAMToCompactMode     - 712,704 items, 10s, 71,234.78 items/s, 14.04 ?s/item; used/avail/free/total/max mem: 269.13M/3.55G/544.57M/813.69M/3.82G
+INFO  SAMToCompactMode     - 1,542,144 items, 20s, 77,064.81 items/s, 12.98 ?s/item; used/avail/free/total/max mem: 369.43M/3.45G/461.05M/830.47M/3.82G
+Total logical entries written: 2032038
+Total bytes written: 25619229
+Average bytes/logical entry: 12.607652
+Min query index: 0
+Max query index: 1034095
+Number of queries: 1822180
+Number of targets: 7

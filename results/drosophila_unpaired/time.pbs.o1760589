@@ -1,0 +1,37 @@
+Timing results for /scratch0/langmead-fs1/user/jacob/compress-alignments-test/drosophila/tech_reps/single100/sim0
+Boiler
+Compressing to compressed/compressed.bin
+Set fragment length cutoff to z=0.125000 (0) based on length distribution
+0.00 % of pairs are longer than the cutoff
+Using fragment length cutoff of 0
+Splitting mates on different strands
+Splitting discordant
+0 cross-bundle reads unmatched
+Minimum bundle length: 12
+Maximum bundle length: 395442
+Average bundle length: 2003
+Compression time: 224.498 s
+
+CRAM
+Goby
+Trying to set RJAVA_HOME environment variable
+
+RJAVA_HOME=
+java -ea -Xmx4g -Dlog4j.configuration=file:///scratch0/langmead-fs1/shared/goby/config/log4j-sample.properties -Djava.library.path= -jar /scratch0/langmead-fs1/shared/goby/goby.jar --mode sam-to-compact -i tophat_out/accepted_hits.bam -o compressed/compressed.goby
+Store read origin: true
+WARN  MessageChunksWriter  - Using chunk-size=10000
+INFO  SAMToCompactMode     - 915,456 items, 10s, 91,499.85 items/s, 10.93 ?s/item; used/avail/free/total/max mem: 103.96M/3.71G/549.83M/653.79M/3.82G
+INFO  SAMToCompactMode     - 2,014,208 items, 20s, 100,685.23 items/s, 9.93 ?s/item; used/avail/free/total/max mem: 291.33M/3.53G/400.20M/691.54M/3.82G
+INFO  SAMToCompactMode     - 3,127,296 items, 30s, 104,163.34 items/s, 9.60 ?s/item; used/avail/free/total/max mem: 243.41M/3.57G/379.45M/622.85M/3.82G
+INFO  SAMToCompactMode     - 4,119,552 items, 40s, 102,927.04 items/s, 9.72 ?s/item; used/avail/free/total/max mem: 364.46M/3.45G/450.81M/815.27M/3.82G
+INFO  SAMToCompactMode     - 5,213,184 items, 50s, 104,209.49 items/s, 9.60 ?s/item; used/avail/free/total/max mem: 354.19M/3.46G/456.88M/811.07M/3.82G
+INFO  SAMToCompactMode     - 6,294,528 items, 1m 0s, 104,831.92 items/s, 9.54 ?s/item; used/avail/free/total/max mem: 510.65M/3.31G/229.12M/739.77M/3.82G
+INFO  SAMToCompactMode     - 7,263,232 items, 1m 10s, 103,695.28 items/s, 9.64 ?s/item; used/avail/free/total/max mem: 635.38M/3.18G/213.44M/848.82M/3.82G
+INFO  SAMToCompactMode     - 8,246,272 items, 1m 20s, 103,017.88 items/s, 9.71 ?s/item; used/avail/free/total/max mem: 485.74M/3.33G/752.63M/1.24G/3.82G
+Total logical entries written: 10216902
+Total bytes written: 62979046
+Average bytes/logical entry: 6.164202
+Min query index: 0
+Max query index: 9145143
+Number of queries: 9169606
+Number of targets: 7

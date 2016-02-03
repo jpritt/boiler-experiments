@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "/scratch0/langmead-fs1/user/jacob/compress-alignments/testQueries.py", line 332, in <module>
-    go(vars(args), mode)
-  File "/scratch0/langmead-fs1/user/jacob/compress-alignments/testQueries.py", line 277, in go
-    os.remove(args['chroms'])
-OSError: [Errno 2] No such file or directory: 'chroms.all'

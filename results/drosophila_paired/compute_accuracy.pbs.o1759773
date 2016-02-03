@@ -1,0 +1,47 @@
+/scratch0/langmead-fs1/user/jacob/compress-alignments-test/drosophila/tech_reps/paired5
+Comparing cufflinks results
+Comparing simulations 0 and 1
+Recall    = TP/T = 0.432077834527
+Precision    = TP/P = 0.432207370738
+Comparing simulations 0 and 2
+Recall    = TP/T = 0.435820994403
+Precision    = TP/P = 0.440182645101
+Comparing simulations 0 and 3
+Recall    = TP/T = 0.435364428408
+Precision    = TP/P = 0.43015414921
+Comparing simulations 0 and 4
+Recall    = TP/T = 0.435234735972
+Precision    = TP/P = 0.432350710109
+Comparing simulations 1 and 2
+Recall    = TP/T = 0.436320278534
+Precision    = TP/P = 0.440127948658
+Comparing simulations 1 and 3
+Recall    = TP/T = 0.438429996563
+Precision    = TP/P = 0.431884808166
+Comparing simulations 1 and 4
+Recall    = TP/T = 0.436193699223
+Precision    = TP/P = 0.429937788698
+Comparing simulations 2 and 3
+Recall    = TP/T = 0.434893076827
+Precision    = TP/P = 0.425466477029
+Comparing simulations 2 and 4
+Recall    = TP/T = 0.438351045996
+Precision    = TP/P = 0.431216612084
+Comparing simulations 3 and 4
+Recall    = TP/T = 0.429585672054
+Precision    = TP/P = 0.431790217468
+Comparing simulation 0 to truth
+Recall    = 0.731986103078
+Precision = 0.5828749285
+Comparing simulation 1 to truth
+Recall    = 0.735757699237
+Precision = 0.583285333413
+Comparing simulation 2 to truth
+Recall    = 0.739511244503
+Precision = 0.588109398556
+Comparing simulation 3 to truth
+Recall    = 0.735170665253
+Precision = 0.575932419443
+Comparing simulation 4 to truth
+Recall    = 0.731589701453
+Precision = 0.576726970167

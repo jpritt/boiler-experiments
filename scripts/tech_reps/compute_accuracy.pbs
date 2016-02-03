@@ -23,5 +23,5 @@ done
 for (( i=0; i<5; i++ ))
 do
     echo "Comparing simulation $i to truth"
-    /scratch0/langmead-fs1/user/jacob/compress-alignments/compareToTruth.py all_reps/simulation.pro $TRUTH_GTF sim$i/$MODE/orig/transcripts.gtf
+    /scratch0/langmead-fs1/user/jacob/compress-alignments/compareToTruth.py all_reps/simulation.pro all_reps/genes_fixed_sorted.gtf sim$i/$MODE/orig/transcripts.gtf
 done

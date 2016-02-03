@@ -11,11 +11,14 @@ echo 'Timing results for '$DIR
 cd $DIR
 mkdir -p compressed
 echo 'Boiler'
-
-/usr/bin/time -v /scratch0/langmead-fs1/shared/pypy3-2.4-linux_x86_64-portable/bin/pypy3 /scratch0/langmead-fs1/user/jacob/compress-alignments/boiler.py --compress --alignments tophat_out/accepted_hits.sam --binary --output compressed/compressed.bin --frag-len-z-cutoff 0.125
-
-echo 'Goby'
-/usr/bin/time -v goby 4g sam-to-compact -i tophat_out/accepted_hits.bam -o compressed/compressed.goby
+time /scratch0/langmead-fs1/shared/pypy3-2.4-linux_x86_64-portable/bin/pypy3 /scratch0/langmead-fs1/user/jacob/compress-alignments/boiler.py --compress --alignments tophat_out/accepted_hits_fixed.sam --output compressed/compressed2.bin --frag-len-z-cutoff 0.125 --split-discordant --split-diff-strands
+#/usr/bin/time -v /scratch0/langmead-fs1/shared/pypy3-2.4-linux_x86_64-portable/bin/pypy3 /scratch0/langmead-fs1/user/jacob/compress-alignments/boiler.py --compress --alignments tophat_out/accepted_hits.sam --output compressed/compressed.bin --frag-len-z-cutoff 0.125 --split-discordant --split-diff-strands
 
 echo 'CRAM'
-/usr/bin/time -v java -Xmx4g -jar /scratch0/langmead-fs1/shared/cramtools/cramtools-3.0.jar cram -I tophat_out/accepted_hits.bam -R /scratch0/langmead-fs1/user/jacob/genomes/Drosophila_melanogaster/Ensembl/BDGP5/Sequence/WholeGenomeFasta/genome.fa -O compressed/compressed.cram
+time java -Xmx4g -jar /scratch0/langmead-fs1/shared/cramtools/cramtools-3.0.jar cram -I tophat_out/accepted_hits_fixed.bam -R /scratch0/langmead-fs1/user/jacob/genomes/Drosophila_melanogaster/Ensembl/BDGP5/Sequence/WholeGenomeFasta/genome.fa -O compressed/compressed.cram
+#/usr/bin/time -v java -Xmx4g -jar /scratch0/langmead-fs1/shared/cramtools/cramtools-3.0.jar cram -I tophat_out/accepted_hits.bam -R /scratch0/langmead-fs1/user/jacob/genomes/Drosophila_melanogaster/Ensembl/BDGP5/Sequence/WholeGenomeFasta/genome.fa -O compressed/compressed.cram
+
+echo 'Goby'
+time goby 4g sam-to-compact -i tophat_out/accepted_hits_fixed.bam -o compressed/compressed.goby
+#/usr/bin/time -v goby 4g sam-to-compact -i tophat_out/accepted_hits.bam -o compressed/compressed.goby
+
