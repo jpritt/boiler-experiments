@@ -1,0 +1,280 @@
+Testing peak mem for goby in /scratch0/langmead-fs1/user/jacob/compress-alignments-test/drosophila/tech_reps/paired50/sim0
+Trying to set RJAVA_HOME environment variable
+
+RJAVA_HOME=
+java -ea -Xmx8g -Dlog4j.configuration=file:///scratch0/langmead-fs1/shared/goby/config/log4j-sample.properties -Djava.library.path= -jar /scratch0/langmead-fs1/shared/goby/goby.jar --mode sam-to-compact -i tophat_out/accepted_hits_fixed.bam -o compressed/compressed.goby
+Store read origin: true
+WARN  MessageChunksWriter  - Using chunk-size=10000
+INFO  SAMToCompactMode     - 565,248 items, 10s, 56,513.50 items/s, 17.69 ?s/item; used/avail/free/total/max mem: 564.45M/7.07G/790.31M/1.35G/7.64G
+INFO  SAMToCompactMode     - 1,243,136 items, 20s, 62,147.48 items/s, 16.09 ?s/item; used/avail/free/total/max mem: 1.04G/6.59G/1.03G/2.08G/7.64G
+INFO  SAMToCompactMode     - 1,950,720 items, 30s, 64,976.35 items/s, 15.39 ?s/item; used/avail/free/total/max mem: 1.39G/6.25G/572.64M/1.96G/7.64G
+INFO  SAMToCompactMode     - 2,588,672 items, 40s, 64,673.15 items/s, 15.46 ?s/item; used/avail/free/total/max mem: 234.12M/7.40G/1.52G/1.76G/7.64G
+INFO  SAMToCompactMode     - 3,289,088 items, 50s, 65,742.31 items/s, 15.21 ?s/item; used/avail/free/total/max mem: 983.11M/6.65G/667.35M/1.65G/7.64G
+INFO  SAMToCompactMode     - 3,996,672 items, 1m 0s, 66,565.71 items/s, 15.02 ?s/item; used/avail/free/total/max mem: 712.04M/6.92G/802.63M/1.51G/7.64G
+INFO  SAMToCompactMode     - 4,689,920 items, 1m 10s, 66,952.95 items/s, 14.94 ?s/item; used/avail/free/total/max mem: 909.58M/6.73G/502.33M/1.41G/7.64G
+INFO  SAMToCompactMode     - 5,385,216 items, 1m 20s, 67,274.84 items/s, 14.86 ?s/item; used/avail/free/total/max mem: 438.85M/7.20G/1.76G/2.19G/7.64G
+INFO  SAMToCompactMode     - 6,065,152 items, 1m 30s, 67,350.17 items/s, 14.85 ?s/item; used/avail/free/total/max mem: 1.77G/5.87G/426.55M/2.19G/7.64G
+INFO  SAMToCompactMode     - 6,782,976 items, 1m 40s, 67,789.76 items/s, 14.75 ?s/item; used/avail/free/total/max mem: 1.70G/5.93G/324.26M/2.03G/7.64G
+INFO  SAMToCompactMode     - 7,481,344 items, 1m 50s, 67,974.52 items/s, 14.71 ?s/item; used/avail/free/total/max mem: 572.40M/7.06G/1.27G/1.84G/7.64G
+INFO  SAMToCompactMode     - 8,098,816 items, 2m 0s, 67,451.91 items/s, 14.83 ?s/item; used/avail/free/total/max mem: 764.73M/6.87G/963.32M/1.73G/7.64G
+INFO  SAMToCompactMode     - 8,752,128 items, 2m 10s, 67,286.28 items/s, 14.86 ?s/item; used/avail/free/total/max mem: 1.28G/6.36G/349.46M/1.63G/7.64G
+Total logical entries written: 10323480
+Total bytes written: 120907439
+Average bytes/logical entry: 11.711888
+Min query index: 0
+Max query index: 5230343
+Number of queries: 9251104
+Number of targets: 7
+Running Goby
+Maximum memory: 2172.2 MB
+Trying to set RJAVA_HOME environment variable
+
+RJAVA_HOME=
+java -ea -Xmx8g -Dlog4j.configuration=file:///scratch0/langmead-fs1/shared/goby/config/log4j-sample.properties -Djava.library.path= -jar /scratch0/langmead-fs1/shared/goby/goby.jar --mode sam-to-compact -i tophat_out/accepted_hits_fixed.bam -o compressed/compressed.goby
+Store read origin: true
+WARN  MessageChunksWriter  - Using chunk-size=10000
+INFO  SAMToCompactMode     - 600,064 items, 10s, 59,988.40 items/s, 16.67 ?s/item; used/avail/free/total/max mem: 721.35M/6.91G/633.41M/1.35G/7.64G
+INFO  SAMToCompactMode     - 1,321,984 items, 20s, 66,085.98 items/s, 15.13 ?s/item; used/avail/free/total/max mem: 1.37G/6.26G/771.82M/2.14G/7.64G
+INFO  SAMToCompactMode     - 2,023,424 items, 30s, 67,418.25 items/s, 14.83 ?s/item; used/avail/free/total/max mem: 394.01M/7.24G/2.82G/3.21G/7.64G
+INFO  SAMToCompactMode     - 2,753,536 items, 40s, 68,807.44 items/s, 14.53 ?s/item; used/avail/free/total/max mem: 905.19M/6.73G/2.15G/3.06G/7.64G
+INFO  SAMToCompactMode     - 3,445,760 items, 50s, 68,883.51 items/s, 14.52 ?s/item; used/avail/free/total/max mem: 1.45G/6.19G/1.53G/2.98G/7.64G
+INFO  SAMToCompactMode     - 4,185,088 items, 1m 0s, 69,714.29 items/s, 14.34 ?s/item; used/avail/free/total/max mem: 2.14G/5.50G/698.59M/2.83G/7.64G
+INFO  SAMToCompactMode     - 4,899,840 items, 1m 10s, 69,950.75 items/s, 14.30 ?s/item; used/avail/free/total/max mem: 1.21G/6.42G/1.43G/2.64G/7.64G
+INFO  SAMToCompactMode     - 5,610,496 items, 1m 20s, 70,054.14 items/s, 14.27 ?s/item; used/avail/free/total/max mem: 479.83M/7.16G/1.99G/2.47G/7.64G
+INFO  SAMToCompactMode     - 6,366,208 items, 1m 30s, 70,638.32 items/s, 14.16 ?s/item; used/avail/free/total/max mem: 1.76G/5.88G/615.96M/2.37G/7.64G
+INFO  SAMToCompactMode     - 7,113,728 items, 1m 40s, 71,042.08 items/s, 14.08 ?s/item; used/avail/free/total/max mem: 1.49G/6.14G/703.16M/2.20G/7.64G
+INFO  SAMToCompactMode     - 7,847,936 items, 1m 50s, 71,257.42 items/s, 14.03 ?s/item; used/avail/free/total/max mem: 1.60G/6.04G/452.61M/2.05G/7.64G
+INFO  SAMToCompactMode     - 8,552,448 items, 2m 0s, 71,184.98 items/s, 14.05 ?s/item; used/avail/free/total/max mem: 1.71G/5.93G/213.91M/1.92G/7.64G
+INFO  SAMToCompactMode     - 9,244,672 items, 2m 10s, 71,033.09 items/s, 14.08 ?s/item; used/avail/free/total/max mem: 703.37M/6.93G/2.07G/2.78G/7.64G
+Total logical entries written: 10323480
+Total bytes written: 120907439
+Average bytes/logical entry: 11.711888
+Min query index: 0
+Max query index: 5230343
+Number of queries: 9251104
+Number of targets: 7
+Running Goby
+Maximum memory: 2958.6 MB
+Trying to set RJAVA_HOME environment variable
+
+RJAVA_HOME=
+java -ea -Xmx8g -Dlog4j.configuration=file:///scratch0/langmead-fs1/shared/goby/config/log4j-sample.properties -Djava.library.path= -jar /scratch0/langmead-fs1/shared/goby/goby.jar --mode sam-to-compact -i tophat_out/accepted_hits_fixed.bam -o compressed/compressed.goby
+Store read origin: true
+WARN  MessageChunksWriter  - Using chunk-size=10000
+INFO  SAMToCompactMode     - 598,016 items, 10s, 59,765.74 items/s, 16.73 ?s/item; used/avail/free/total/max mem: 689.92M/6.95G/664.84M/1.35G/7.64G
+INFO  SAMToCompactMode     - 1,310,720 items, 20s, 65,499.98 items/s, 15.27 ?s/item; used/avail/free/total/max mem: 1.31G/6.32G/760.60M/2.07G/7.64G
+INFO  SAMToCompactMode     - 2,053,120 items, 30s, 68,328.01 items/s, 14.64 ?s/item; used/avail/free/total/max mem: 287.87M/7.35G/1.69G/1.98G/7.64G
+INFO  SAMToCompactMode     - 2,789,376 items, 40s, 69,628.22 items/s, 14.36 ?s/item; used/avail/free/total/max mem: 668.17M/6.97G/1.19G/1.86G/7.64G
+INFO  SAMToCompactMode     - 3,529,728 items, 50s, 70,504.31 items/s, 14.18 ?s/item; used/avail/free/total/max mem: 1.34G/6.30G/398.93M/1.74G/7.64G
+INFO  SAMToCompactMode     - 4,166,656 items, 1m 0s, 69,369.12 items/s, 14.42 ?s/item; used/avail/free/total/max mem: 567.52M/7.07G/1.02G/1.59G/7.64G
+INFO  SAMToCompactMode     - 4,882,432 items, 1m 10s, 69,656.48 items/s, 14.36 ?s/item; used/avail/free/total/max mem: 677.87M/6.96G/1.31G/1.98G/7.64G
+INFO  SAMToCompactMode     - 5,600,256 items, 1m 20s, 69,917.55 items/s, 14.30 ?s/item; used/avail/free/total/max mem: 1.16G/6.48G/1.39G/2.55G/7.64G
+INFO  SAMToCompactMode     - 6,327,296 items, 1m 30s, 70,225.26 items/s, 14.24 ?s/item; used/avail/free/total/max mem: 434.38M/7.20G/1.90G/2.34G/7.64G
+INFO  SAMToCompactMode     - 7,067,648 items, 1m 40s, 70,600.23 items/s, 14.16 ?s/item; used/avail/free/total/max mem: 1.86G/5.78G/407.07M/2.27G/7.64G
+INFO  SAMToCompactMode     - 7,794,688 items, 1m 50s, 70,789.37 items/s, 14.13 ?s/item; used/avail/free/total/max mem: 1.75G/5.88G/359.75M/2.11G/7.64G
+INFO  SAMToCompactMode     - 8,517,632 items, 2m 0s, 70,911.72 items/s, 14.10 ?s/item; used/avail/free/total/max mem: 429.98M/7.21G/1.49G/1.92G/7.64G
+INFO  SAMToCompactMode     - 9,212,928 items, 2m 10s, 70,794.07 items/s, 14.13 ?s/item; used/avail/free/total/max mem: 660.99M/6.97G/1.70G/2.36G/7.64G
+Total logical entries written: 10323480
+Total bytes written: 120907439
+Average bytes/logical entry: 11.711888
+Min query index: 0
+Max query index: 5230343
+Number of queries: 9251104
+Number of targets: 7
+Running Goby
+Maximum memory: 2372.9 MB
+Trying to set RJAVA_HOME environment variable
+
+RJAVA_HOME=
+java -ea -Xmx8g -Dlog4j.configuration=file:///scratch0/langmead-fs1/shared/goby/config/log4j-sample.properties -Djava.library.path= -jar /scratch0/langmead-fs1/shared/goby/goby.jar --mode sam-to-compact -i tophat_out/accepted_hits_fixed.bam -o compressed/compressed.goby
+Store read origin: true
+WARN  MessageChunksWriter  - Using chunk-size=10000
+INFO  SAMToCompactMode     - 593,920 items, 10s, 59,338.60 items/s, 16.85 ?s/item; used/avail/free/total/max mem: 687.85M/6.95G/658.00M/1.35G/7.64G
+INFO  SAMToCompactMode     - 1,301,504 items, 20s, 65,013.44 items/s, 15.38 ?s/item; used/avail/free/total/max mem: 552.64M/7.08G/1.59G/2.14G/7.64G
+INFO  SAMToCompactMode     - 2,041,856 items, 30s, 68,011.99 items/s, 14.70 ?s/item; used/avail/free/total/max mem: 974.74M/6.66G/1.01G/1.98G/7.64G
+INFO  SAMToCompactMode     - 2,762,752 items, 40s, 69,017.04 items/s, 14.49 ?s/item; used/avail/free/total/max mem: 1.30G/6.34G/572.39M/1.87G/7.64G
+INFO  SAMToCompactMode     - 3,401,728 items, 50s, 67,986.97 items/s, 14.71 ?s/item; used/avail/free/total/max mem: 353.72M/7.28G/2.12G/2.48G/7.64G
+INFO  SAMToCompactMode     - 4,119,552 items, 1m 0s, 68,612.31 items/s, 14.57 ?s/item; used/avail/free/total/max mem: 1.43G/6.20G/960.47M/2.40G/7.64G
+INFO  SAMToCompactMode     - 4,767,744 items, 1m 10s, 68,062.98 items/s, 14.69 ?s/item; used/avail/free/total/max mem: 1.06G/6.57G/1.18G/2.24G/7.64G
+INFO  SAMToCompactMode     - 5,512,192 items, 1m 20s, 68,849.04 items/s, 14.52 ?s/item; used/avail/free/total/max mem: 1.13G/6.50G/951.18M/2.08G/7.64G
+INFO  SAMToCompactMode     - 6,222,848 items, 1m 30s, 69,089.79 items/s, 14.47 ?s/item; used/avail/free/total/max mem: 1.21G/6.42G/737.83M/1.95G/7.64G
+INFO  SAMToCompactMode     - 6,909,952 items, 1m 40s, 69,050.49 items/s, 14.48 ?s/item; used/avail/free/total/max mem: 1.49G/6.14G/336.08M/1.83G/7.64G
+INFO  SAMToCompactMode     - 7,638,016 items, 1m 50s, 69,386.68 items/s, 14.41 ?s/item; used/avail/free/total/max mem: 1.08G/6.55G/584.03M/1.67G/7.64G
+INFO  SAMToCompactMode     - 8,361,984 items, 2m 0s, 69,619.96 items/s, 14.36 ?s/item; used/avail/free/total/max mem: 1.03G/6.60G/854.19M/1.89G/7.64G
+INFO  SAMToCompactMode     - 9,052,160 items, 2m 10s, 69,572.60 items/s, 14.37 ?s/item; used/avail/free/total/max mem: 1.07G/6.57G/1.61G/2.68G/7.64G
+Total logical entries written: 10323480
+Total bytes written: 120907439
+Average bytes/logical entry: 11.711888
+Min query index: 0
+Max query index: 5230343
+Number of queries: 9251104
+Number of targets: 7
+Running Goby
+Maximum memory: 2409.2 MB
+Trying to set RJAVA_HOME environment variable
+
+RJAVA_HOME=
+java -ea -Xmx8g -Dlog4j.configuration=file:///scratch0/langmead-fs1/shared/goby/config/log4j-sample.properties -Djava.library.path= -jar /scratch0/langmead-fs1/shared/goby/goby.jar --mode sam-to-compact -i tophat_out/accepted_hits_fixed.bam -o compressed/compressed.goby
+Store read origin: true
+WARN  MessageChunksWriter  - Using chunk-size=10000
+INFO  SAMToCompactMode     - 585,728 items, 10s, 58,561.09 items/s, 17.08 ?s/item; used/avail/free/total/max mem: 644.40M/6.99G/710.36M/1.35G/7.64G
+INFO  SAMToCompactMode     - 1,290,240 items, 20s, 64,482.98 items/s, 15.51 ?s/item; used/avail/free/total/max mem: 549.60M/7.09G/1.55G/2.10G/7.64G
+INFO  SAMToCompactMode     - 2,018,304 items, 30s, 67,223.02 items/s, 14.88 ?s/item; used/avail/free/total/max mem: 864.09M/6.77G/1.20G/2.06G/7.64G
+INFO  SAMToCompactMode     - 2,665,472 items, 40s, 66,538.66 items/s, 15.03 ?s/item; used/avail/free/total/max mem: 742.64M/6.89G/1.17G/1.91G/7.64G
+INFO  SAMToCompactMode     - 3,392,512 items, 50s, 67,728.33 items/s, 14.76 ?s/item; used/avail/free/total/max mem: 1.29G/6.34G/1.34G/2.63G/7.64G
+INFO  SAMToCompactMode     - 4,109,312 items, 1m 0s, 68,348.42 items/s, 14.63 ?s/item; used/avail/free/total/max mem: 2.17G/5.46G/370.83M/2.55G/7.64G
+INFO  SAMToCompactMode     - 4,789,248 items, 1m 10s, 68,290.03 items/s, 14.64 ?s/item; used/avail/free/total/max mem: 1.68G/5.95G/696.63M/2.38G/7.64G
+INFO  SAMToCompactMode     - 5,495,808 items, 1m 20s, 68,581.87 items/s, 14.58 ?s/item; used/avail/free/total/max mem: 1.28G/6.36G/929.77M/2.21G/7.64G
+INFO  SAMToCompactMode     - 6,132,736 items, 1m 30s, 68,033.41 items/s, 14.70 ?s/item; used/avail/free/total/max mem: 806.51M/6.83G/1.96G/2.77G/7.64G
+INFO  SAMToCompactMode     - 6,835,200 items, 1m 40s, 68,248.26 items/s, 14.65 ?s/item; used/avail/free/total/max mem: 1.66G/5.98G/1.02G/2.67G/7.64G
+INFO  SAMToCompactMode     - 7,518,208 items, 1m 50s, 68,251.79 items/s, 14.65 ?s/item; used/avail/free/total/max mem: 597.70M/7.04G/1.88G/2.48G/7.64G
+INFO  SAMToCompactMode     - 8,212,480 items, 2m 0s, 68,345.64 items/s, 14.63 ?s/item; used/avail/free/total/max mem: 1.71G/5.92G/675.55M/2.39G/7.64G
+INFO  SAMToCompactMode     - 8,856,576 items, 2m 10s, 68,040.10 items/s, 14.70 ?s/item; used/avail/free/total/max mem: 967.88M/6.67G/1.26G/2.23G/7.64G
+Total logical entries written: 10323480
+Total bytes written: 120907439
+Average bytes/logical entry: 11.711888
+Min query index: 0
+Max query index: 5230343
+Number of queries: 9251104
+Number of targets: 7
+Running Goby
+Maximum memory: 2621.7 MB
+Trying to set RJAVA_HOME environment variable
+
+RJAVA_HOME=
+java -ea -Xmx8g -Dlog4j.configuration=file:///scratch0/langmead-fs1/shared/goby/config/log4j-sample.properties -Djava.library.path= -jar /scratch0/langmead-fs1/shared/goby/goby.jar --mode sam-to-compact -i tophat_out/accepted_hits_fixed.bam -o compressed/compressed.goby
+Store read origin: true
+WARN  MessageChunksWriter  - Using chunk-size=10000
+INFO  SAMToCompactMode     - 625,664 items, 10s, 62,547.64 items/s, 15.99 ?s/item; used/avail/free/total/max mem: 54.96M/7.58G/2.09G/2.14G/7.64G
+INFO  SAMToCompactMode     - 1,372,160 items, 20s, 68,453.98 items/s, 14.61 ?s/item; used/avail/free/total/max mem: 148.28M/7.49G/1.95G/2.10G/7.64G
+INFO  SAMToCompactMode     - 2,143,232 items, 30s, 71,298.47 items/s, 14.03 ?s/item; used/avail/free/total/max mem: 719.49M/6.92G/1.26G/1.98G/7.64G
+INFO  SAMToCompactMode     - 2,884,608 items, 40s, 71,978.44 items/s, 13.89 ?s/item; used/avail/free/total/max mem: 1.20G/6.44G/662.15M/1.86G/7.64G
+INFO  SAMToCompactMode     - 3,576,832 items, 50s, 71,418.09 items/s, 14.00 ?s/item; used/avail/free/total/max mem: 446.58M/7.19G/1.24G/1.69G/7.64G
+INFO  SAMToCompactMode     - 4,320,256 items, 1m 0s, 71,903.60 items/s, 13.91 ?s/item; used/avail/free/total/max mem: 338.37M/7.30G/1.21G/1.55G/7.64G
+INFO  SAMToCompactMode     - 5,010,432 items, 1m 10s, 71,452.05 items/s, 14.00 ?s/item; used/avail/free/total/max mem: 1.38G/6.25G/600.87M/1.98G/7.64G
+INFO  SAMToCompactMode     - 5,697,536 items, 1m 20s, 71,101.88 items/s, 14.06 ?s/item; used/avail/free/total/max mem: 1.74G/5.89G/802.88M/2.55G/7.64G
+INFO  SAMToCompactMode     - 6,443,008 items, 1m 30s, 71,465.10 items/s, 13.99 ?s/item; used/avail/free/total/max mem: 1.05G/6.59G/2.29G/3.34G/7.64G
+INFO  SAMToCompactMode     - 7,186,432 items, 1m 40s, 71,745.94 items/s, 13.94 ?s/item; used/avail/free/total/max mem: 1.51G/6.12G/1.69G/3.20G/7.64G
+INFO  SAMToCompactMode     - 7,904,256 items, 1m 50s, 71,746.64 items/s, 13.94 ?s/item; used/avail/free/total/max mem: 2.13G/5.50G/935.14M/3.07G/7.64G
+INFO  SAMToCompactMode     - 8,637,440 items, 2m 0s, 71,872.65 items/s, 13.91 ?s/item; used/avail/free/total/max mem: 448.86M/7.19G/2.39G/2.84G/7.64G
+Total logical entries written: 10323480
+Total bytes written: 120907439
+Average bytes/logical entry: 11.711888
+Min query index: 0
+Max query index: 5230343
+Number of queries: 9251104
+Number of targets: 7
+Running Goby
+Maximum memory: 3186.1 MB
+Trying to set RJAVA_HOME environment variable
+
+RJAVA_HOME=
+java -ea -Xmx8g -Dlog4j.configuration=file:///scratch0/langmead-fs1/shared/goby/config/log4j-sample.properties -Djava.library.path= -jar /scratch0/langmead-fs1/shared/goby/goby.jar --mode sam-to-compact -i tophat_out/accepted_hits_fixed.bam -o compressed/compressed.goby
+Store read origin: true
+WARN  MessageChunksWriter  - Using chunk-size=10000
+INFO  SAMToCompactMode     - 592,896 items, 10s, 59,254.05 items/s, 16.88 ?s/item; used/avail/free/total/max mem: 674.09M/6.96G/680.67M/1.35G/7.64G
+INFO  SAMToCompactMode     - 1,304,576 items, 20s, 65,205.98 items/s, 15.34 ?s/item; used/avail/free/total/max mem: 1.31G/6.33G/834.94M/2.14G/7.64G
+INFO  SAMToCompactMode     - 2,038,784 items, 30s, 67,927.77 items/s, 14.72 ?s/item; used/avail/free/total/max mem: 1.72G/5.91G/1.28G/3.00G/7.64G
+INFO  SAMToCompactMode     - 2,736,128 items, 40s, 68,343.40 items/s, 14.63 ?s/item; used/avail/free/total/max mem: 2.31G/5.32G/542.07M/2.85G/7.64G
+INFO  SAMToCompactMode     - 3,401,728 items, 50s, 67,716.29 items/s, 14.77 ?s/item; used/avail/free/total/max mem: 745.25M/6.89G/1.93G/2.68G/7.64G
+INFO  SAMToCompactMode     - 4,083,712 items, 1m 0s, 67,781.70 items/s, 14.75 ?s/item; used/avail/free/total/max mem: 1.46G/6.18G/1.10G/2.55G/7.64G
+INFO  SAMToCompactMode     - 4,727,808 items, 1m 10s, 67,268.16 items/s, 14.87 ?s/item; used/avail/free/total/max mem: 730.80M/6.90G/1.66G/2.39G/7.64G
+INFO  SAMToCompactMode     - 5,430,272 items, 1m 20s, 67,639.13 items/s, 14.78 ?s/item; used/avail/free/total/max mem: 370.94M/7.26G/1.84G/2.21G/7.64G
+INFO  SAMToCompactMode     - 6,067,200 items, 1m 30s, 67,197.55 items/s, 14.88 ?s/item; used/avail/free/total/max mem: 1.48G/6.16G/705.50M/2.18G/7.64G
+INFO  SAMToCompactMode     - 6,759,424 items, 1m 40s, 67,396.10 items/s, 14.84 ?s/item; used/avail/free/total/max mem: 1.35G/6.29G/652.40M/2.00G/7.64G
+INFO  SAMToCompactMode     - 7,411,712 items, 1m 50s, 67,194.72 items/s, 14.88 ?s/item; used/avail/free/total/max mem: 1.42G/6.22G/456.98M/1.88G/7.64G
+INFO  SAMToCompactMode     - 8,097,792 items, 2m 0s, 67,312.20 items/s, 14.86 ?s/item; used/avail/free/total/max mem: 612.21M/7.02G/1.10G/1.71G/7.64G
+INFO  SAMToCompactMode     - 8,745,984 items, 2m 10s, 67,102.33 items/s, 14.90 ?s/item; used/avail/free/total/max mem: 1.16G/6.47G/448.05M/1.61G/7.64G
+Total logical entries written: 10323480
+Total bytes written: 120907439
+Average bytes/logical entry: 11.711888
+Min query index: 0
+Max query index: 5230343
+Number of queries: 9251104
+Number of targets: 7
+Running Goby
+Maximum memory: 2815.7 MB
+Trying to set RJAVA_HOME environment variable
+
+RJAVA_HOME=
+java -ea -Xmx8g -Dlog4j.configuration=file:///scratch0/langmead-fs1/shared/goby/config/log4j-sample.properties -Djava.library.path= -jar /scratch0/langmead-fs1/shared/goby/goby.jar --mode sam-to-compact -i tophat_out/accepted_hits_fixed.bam -o compressed/compressed.goby
+Store read origin: true
+WARN  MessageChunksWriter  - Using chunk-size=10000
+INFO  SAMToCompactMode     - 584,704 items, 10s, 58,429.50 items/s, 17.11 ?s/item; used/avail/free/total/max mem: 643.56M/6.99G/711.20M/1.35G/7.64G
+INFO  SAMToCompactMode     - 1,301,504 items, 20s, 64,990.71 items/s, 15.39 ?s/item; used/avail/free/total/max mem: 1.32G/6.32G/754.81M/2.07G/7.64G
+INFO  SAMToCompactMode     - 2,042,880 items, 30s, 68,003.06 items/s, 14.71 ?s/item; used/avail/free/total/max mem: 509.95M/7.13G/1.38G/1.89G/7.64G
+INFO  SAMToCompactMode     - 2,746,368 items, 40s, 68,236.14 items/s, 14.65 ?s/item; used/avail/free/total/max mem: 990.10M/6.65G/769.93M/1.76G/7.64G
+INFO  SAMToCompactMode     - 3,408,896 items, 50s, 67,799.60 items/s, 14.75 ?s/item; used/avail/free/total/max mem: 463.57M/7.17G/1.14G/1.60G/7.64G
+INFO  SAMToCompactMode     - 4,079,616 items, 1m 0s, 67,664.30 items/s, 14.78 ?s/item; used/avail/free/total/max mem: 206.37M/7.43G/1.27G/1.48G/7.64G
+INFO  SAMToCompactMode     - 4,724,736 items, 1m 10s, 67,209.15 items/s, 14.88 ?s/item; used/avail/free/total/max mem: 733.78M/6.90G/1.01G/1.74G/7.64G
+INFO  SAMToCompactMode     - 5,422,080 items, 1m 20s, 67,508.50 items/s, 14.81 ?s/item; used/avail/free/total/max mem: 1.46G/6.17G/378.02M/1.84G/7.64G
+INFO  SAMToCompactMode     - 6,042,624 items, 1m 30s, 66,897.95 items/s, 14.95 ?s/item; used/avail/free/total/max mem: 1.16G/6.47G/1.18G/2.34G/7.64G
+INFO  SAMToCompactMode     - 6,704,128 items, 1m 40s, 66,793.48 items/s, 14.97 ?s/item; used/avail/free/total/max mem: 565.25M/7.07G/1.60G/2.17G/7.64G
+INFO  SAMToCompactMode     - 7,397,376 items, 1m 50s, 67,017.97 items/s, 14.92 ?s/item; used/avail/free/total/max mem: 420.98M/7.21G/1.60G/2.02G/7.64G
+INFO  SAMToCompactMode     - 8,075,264 items, 2m 0s, 67,075.87 items/s, 14.91 ?s/item; used/avail/free/total/max mem: 626.91M/7.01G/1.27G/1.89G/7.64G
+INFO  SAMToCompactMode     - 8,736,768 items, 2m 10s, 66,986.91 items/s, 14.93 ?s/item; used/avail/free/total/max mem: 850.58M/6.79G/929.90M/1.78G/7.64G
+Total logical entries written: 10323480
+Total bytes written: 120907439
+Average bytes/logical entry: 11.711888
+Min query index: 0
+Max query index: 5230343
+Number of queries: 9251104
+Number of targets: 7
+Running Goby
+Maximum memory: 2327.7 MB
+Trying to set RJAVA_HOME environment variable
+
+RJAVA_HOME=
+java -ea -Xmx8g -Dlog4j.configuration=file:///scratch0/langmead-fs1/shared/goby/config/log4j-sample.properties -Djava.library.path= -jar /scratch0/langmead-fs1/shared/goby/goby.jar --mode sam-to-compact -i tophat_out/accepted_hits_fixed.bam -o compressed/compressed.goby
+Store read origin: true
+WARN  MessageChunksWriter  - Using chunk-size=10000
+INFO  SAMToCompactMode     - 580,608 items, 10s, 58,020.19 items/s, 17.24 ?s/item; used/avail/free/total/max mem: 626.30M/7.01G/728.46M/1.35G/7.64G
+INFO  SAMToCompactMode     - 1,273,856 items, 20s, 63,572.01 items/s, 15.73 ?s/item; used/avail/free/total/max mem: 1.15G/6.48G/993.74M/2.14G/7.64G
+INFO  SAMToCompactMode     - 1,995,776 items, 30s, 66,441.71 items/s, 15.05 ?s/item; used/avail/free/total/max mem: 1.46G/6.17G/560.26M/2.02G/7.64G
+INFO  SAMToCompactMode     - 2,694,144 items, 40s, 67,276.23 items/s, 14.86 ?s/item; used/avail/free/total/max mem: 362.97M/7.27G/1.45G/1.82G/7.64G
+INFO  SAMToCompactMode     - 3,407,872 items, 50s, 68,090.71 items/s, 14.69 ?s/item; used/avail/free/total/max mem: 1.04G/6.60G/662.91M/1.70G/7.64G
+INFO  SAMToCompactMode     - 4,125,696 items, 1m 0s, 68,703.20 items/s, 14.56 ?s/item; used/avail/free/total/max mem: 690.85M/6.94G/869.44M/1.56G/7.64G
+INFO  SAMToCompactMode     - 4,799,488 items, 1m 10s, 68,503.44 items/s, 14.60 ?s/item; used/avail/free/total/max mem: 1.14G/6.50G/711.97M/1.85G/7.64G
+INFO  SAMToCompactMode     - 5,529,600 items, 1m 20s, 69,028.54 items/s, 14.49 ?s/item; used/avail/free/total/max mem: 1.25G/6.38G/1.04G/2.30G/7.64G
+INFO  SAMToCompactMode     - 6,217,728 items, 1m 30s, 69,000.00 items/s, 14.49 ?s/item; used/avail/free/total/max mem: 824.96M/6.81G/1.32G/2.15G/7.64G
+INFO  SAMToCompactMode     - 6,938,624 items, 1m 40s, 69,306.54 items/s, 14.43 ?s/item; used/avail/free/total/max mem: 814.01M/6.82G/1.72G/2.53G/7.64G
+INFO  SAMToCompactMode     - 7,639,040 items, 1m 50s, 69,373.29 items/s, 14.41 ?s/item; used/avail/free/total/max mem: 1.99G/5.65G/457.35M/2.45G/7.64G
+INFO  SAMToCompactMode     - 8,345,600 items, 2m 0s, 69,473.72 items/s, 14.39 ?s/item; used/avail/free/total/max mem: 1.39G/6.25G/890.01M/2.28G/7.64G
+INFO  SAMToCompactMode     - 9,017,344 items, 2m 10s, 69,281.58 items/s, 14.43 ?s/item; used/avail/free/total/max mem: 1.03G/6.60G/1.68G/2.72G/7.64G
+Total logical entries written: 10323480
+Total bytes written: 120907439
+Average bytes/logical entry: 11.711888
+Min query index: 0
+Max query index: 5230343
+Number of queries: 9251104
+Number of targets: 7
+Running Goby
+Maximum memory: 2471.1 MB
+Trying to set RJAVA_HOME environment variable
+
+RJAVA_HOME=
+java -ea -Xmx8g -Dlog4j.configuration=file:///scratch0/langmead-fs1/shared/goby/config/log4j-sample.properties -Djava.library.path= -jar /scratch0/langmead-fs1/shared/goby/goby.jar --mode sam-to-compact -i tophat_out/accepted_hits_fixed.bam -o compressed/compressed.goby
+Store read origin: true
+WARN  MessageChunksWriter  - Using chunk-size=10000
+INFO  SAMToCompactMode     - 600,064 items, 10s, 59,898.58 items/s, 16.69 ?s/item; used/avail/free/total/max mem: 689.86M/6.95G/655.99M/1.35G/7.64G
+INFO  SAMToCompactMode     - 1,301,504 items, 20s, 64,984.22 items/s, 15.39 ?s/item; used/avail/free/total/max mem: 462.26M/7.17G/1.68G/2.14G/7.64G
+INFO  SAMToCompactMode     - 2,024,448 items, 30s, 67,409.70 items/s, 14.83 ?s/item; used/avail/free/total/max mem: 2.26G/5.38G/841.51M/3.10G/7.64G
+INFO  SAMToCompactMode     - 2,739,200 items, 40s, 68,415.01 items/s, 14.62 ?s/item; used/avail/free/total/max mem: 386.55M/7.25G/2.47G/2.86G/7.64G
+INFO  SAMToCompactMode     - 3,376,128 items, 50s, 67,453.76 items/s, 14.82 ?s/item; used/avail/free/total/max mem: 859.26M/6.78G/1.91G/2.77G/7.64G
+INFO  SAMToCompactMode     - 4,118,528 items, 1m 0s, 68,533.62 items/s, 14.59 ?s/item; used/avail/free/total/max mem: 1.73G/5.91G/916.43M/2.64G/7.64G
+INFO  SAMToCompactMode     - 4,818,944 items, 1m 10s, 68,719.34 items/s, 14.55 ?s/item; used/avail/free/total/max mem: 1.06G/6.58G/1.41G/2.47G/7.64G
+INFO  SAMToCompactMode     - 5,567,488 items, 1m 20s, 69,481.56 items/s, 14.39 ?s/item; used/avail/free/total/max mem: 659.91M/6.98G/1.63G/2.29G/7.64G
+INFO  SAMToCompactMode     - 6,242,304 items, 1m 30s, 69,229.70 items/s, 14.44 ?s/item; used/avail/free/total/max mem: 1.79G/5.84G/428.37M/2.22G/7.64G
+INFO  SAMToCompactMode     - 6,972,416 items, 1m 40s, 69,607.22 items/s, 14.37 ?s/item; used/avail/free/total/max mem: 1.73G/5.90G/329.15M/2.06G/7.64G
+INFO  SAMToCompactMode     - 7,614,464 items, 1m 50s, 69,114.33 items/s, 14.47 ?s/item; used/avail/free/total/max mem: 1.61G/6.03G/321.69M/1.93G/7.64G
+INFO  SAMToCompactMode     - 8,327,168 items, 2m 0s, 69,292.02 items/s, 14.43 ?s/item; used/avail/free/total/max mem: 723.20M/6.91G/1.03G/1.76G/7.64G
+INFO  SAMToCompactMode     - 9,009,152 items, 2m 10s, 69,187.81 items/s, 14.45 ?s/item; used/avail/free/total/max mem: 1.39G/6.24G/686.70M/2.08G/7.64G
+Total logical entries written: 10323480
+Total bytes written: 120907439
+Average bytes/logical entry: 11.711888
+Min query index: 0
+Max query index: 5230343
+Number of queries: 9251104
+Number of targets: 7
+Running Goby
+Maximum memory: 2747.6 MB

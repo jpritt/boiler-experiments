@@ -1,0 +1,16 @@
+#PBS -q batch
+#PBS -l walltime=1440:00
+#PBS -j n
+#PBS -l pmem=16gb
+#PBS -l vmem=16gb
+#PBS -l pvmem=16gb
+#PBS -m ae
+#PBS -M mpritt4@jhu.edu
+echo 'Testing peak mem for '$MODE' in '$DIR
+cd $DIR
+
+for (( i=0; i<10; i++ ))
+do
+    /scratch0/langmead-fs1/user/jacob/compress-alignments/testMem.py $MODE $PREFIX
+done
+

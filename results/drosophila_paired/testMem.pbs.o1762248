@@ -1,0 +1,161 @@
+Testing peak mem for boiler in /scratch0/langmead-fs1/user/jacob/compress-alignments-test/drosophila/tech_reps/paired50/sim0
+Compressing to compressed/compressed.bin
+Set fragment length cutoff to z=0.125000 (34928) based on length distribution
+0.43 % of pairs are longer than the cutoff
+Using fragment length cutoff of 34928
+Splitting mates on different strands
+Splitting discordant
+0 cross-bundle reads unmatched
+Minimum bundle length: 12
+Maximum bundle length: 342854
+Average bundle length: 4286
+3201 cross-bundle buckets
+Compressed size: 161925
+Compression time: 294.708 s
+
+Running Boiler
+Maximum memory: 316.9 MB
+Compressing to compressed/compressed.bin
+Set fragment length cutoff to z=0.125000 (34928) based on length distribution
+0.43 % of pairs are longer than the cutoff
+Using fragment length cutoff of 34928
+Splitting mates on different strands
+Splitting discordant
+0 cross-bundle reads unmatched
+Minimum bundle length: 12
+Maximum bundle length: 342854
+Average bundle length: 4286
+3201 cross-bundle buckets
+Compressed size: 161925
+Compression time: 291.454 s
+
+Running Boiler
+Maximum memory: 318.0 MB
+Compressing to compressed/compressed.bin
+Set fragment length cutoff to z=0.125000 (34928) based on length distribution
+0.43 % of pairs are longer than the cutoff
+Using fragment length cutoff of 34928
+Splitting mates on different strands
+Splitting discordant
+0 cross-bundle reads unmatched
+Minimum bundle length: 12
+Maximum bundle length: 342854
+Average bundle length: 4286
+3201 cross-bundle buckets
+Compressed size: 161925
+Compression time: 301.760 s
+
+Running Boiler
+Maximum memory: 319.9 MB
+Compressing to compressed/compressed.bin
+Set fragment length cutoff to z=0.125000 (34928) based on length distribution
+0.43 % of pairs are longer than the cutoff
+Using fragment length cutoff of 34928
+Splitting mates on different strands
+Splitting discordant
+0 cross-bundle reads unmatched
+Minimum bundle length: 12
+Maximum bundle length: 342854
+Average bundle length: 4286
+3201 cross-bundle buckets
+Compressed size: 161925
+Compression time: 301.011 s
+
+Running Boiler
+Maximum memory: 314.7 MB
+Compressing to compressed/compressed.bin
+Set fragment length cutoff to z=0.125000 (34928) based on length distribution
+0.43 % of pairs are longer than the cutoff
+Using fragment length cutoff of 34928
+Splitting mates on different strands
+Splitting discordant
+0 cross-bundle reads unmatched
+Minimum bundle length: 12
+Maximum bundle length: 342854
+Average bundle length: 4286
+3201 cross-bundle buckets
+Compressed size: 161925
+Compression time: 278.313 s
+
+Running Boiler
+Maximum memory: 317.7 MB
+Compressing to compressed/compressed.bin
+Set fragment length cutoff to z=0.125000 (34928) based on length distribution
+0.43 % of pairs are longer than the cutoff
+Using fragment length cutoff of 34928
+Splitting mates on different strands
+Splitting discordant
+0 cross-bundle reads unmatched
+Minimum bundle length: 12
+Maximum bundle length: 342854
+Average bundle length: 4286
+3201 cross-bundle buckets
+Compressed size: 161925
+Compression time: 303.241 s
+
+Running Boiler
+Maximum memory: 325.8 MB
+Compressing to compressed/compressed.bin
+Set fragment length cutoff to z=0.125000 (34928) based on length distribution
+0.43 % of pairs are longer than the cutoff
+Using fragment length cutoff of 34928
+Splitting mates on different strands
+Splitting discordant
+0 cross-bundle reads unmatched
+Minimum bundle length: 12
+Maximum bundle length: 342854
+Average bundle length: 4286
+3201 cross-bundle buckets
+Compressed size: 161925
+Compression time: 282.373 s
+
+Running Boiler
+Maximum memory: 343.9 MB
+Compressing to compressed/compressed.bin
+Set fragment length cutoff to z=0.125000 (34928) based on length distribution
+0.43 % of pairs are longer than the cutoff
+Using fragment length cutoff of 34928
+Splitting mates on different strands
+Splitting discordant
+0 cross-bundle reads unmatched
+Minimum bundle length: 12
+Maximum bundle length: 342854
+Average bundle length: 4286
+3201 cross-bundle buckets
+Compressed size: 161925
+Compression time: 302.936 s
+
+Running Boiler
+Maximum memory: 322.7 MB
+Compressing to compressed/compressed.bin
+Set fragment length cutoff to z=0.125000 (34928) based on length distribution
+0.43 % of pairs are longer than the cutoff
+Using fragment length cutoff of 34928
+Splitting mates on different strands
+Splitting discordant
+0 cross-bundle reads unmatched
+Minimum bundle length: 12
+Maximum bundle length: 342854
+Average bundle length: 4286
+3201 cross-bundle buckets
+Compressed size: 161925
+Compression time: 278.729 s
+
+Running Boiler
+Maximum memory: 321.9 MB
+Compressing to compressed/compressed.bin
+Set fragment length cutoff to z=0.125000 (34928) based on length distribution
+0.43 % of pairs are longer than the cutoff
+Using fragment length cutoff of 34928
+Splitting mates on different strands
+Splitting discordant
+0 cross-bundle reads unmatched
+Minimum bundle length: 12
+Maximum bundle length: 342854
+Average bundle length: 4286
+3201 cross-bundle buckets
+Compressed size: 161925
+Compression time: 304.922 s
+
+Running Boiler
+Maximum memory: 296.0 MB

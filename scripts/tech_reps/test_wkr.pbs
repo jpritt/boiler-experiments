@@ -1,0 +1,27 @@
+#PBS -q batch
+#PBS -l walltime=480:00
+#PBS -j n
+#PBS -l pmem=8gb
+#PBS -l vmem=8gb
+#PBS -l pvmem=8gb
+#PBS -l mem=8gb
+#PBS -m ae
+#PBS -M mpritt4@jhu.edu
+echo 'WKR Results for '$DIR
+echo $MODE
+cd $DIR
+
+echo 'Original:'
+for (( i=5; i<31; i++ ))
+do
+    echo "k = $i"
+    /scratch0/langmead-fs1/user/jacob/compress-alignments/kc.py --refGTF ../all_reps/genes_fixed_sorted.gtf --refPRO ../all_reps/simulation.pro --sequence /scratch0/langmead-fs1/user/jacob/genomes/Drosophila_melanogaster/Ensembl/BDGP5/Sequence/WholeGenomeFasta/genome.fa --assembly $MODE/orig/transcripts.gtf --data ../all_reps/simulation.fastq --kmer $i 
+done
+
+echo ''
+echo 'Compressed:'
+for (( i=5; i<31; i++ ))
+do
+    echo "k = $i"
+    /scratch0/langmead-fs1/user/jacob/compress-alignments/kc.py --refGTF ../all_reps/genes_fixed_sorted.gtf --refPRO ../all_reps/simulation.pro --sequence /scratch0/langmead-fs1/user/jacob/genomes/Drosophila_melanogaster/Ensembl/BDGP5/Sequence/WholeGenomeFasta/genome.fa --assembly $MODE/comp/transcripts.gtf --data ../all_reps/simulation.fastq --kmer $i
+done

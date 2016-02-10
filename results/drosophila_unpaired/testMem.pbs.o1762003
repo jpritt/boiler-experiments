@@ -1,0 +1,141 @@
+Testing peak mem for boiler in /scratch0/langmead-fs1/user/jacob/compress-alignments-test/drosophila/tech_reps/single100/sim0
+Compressing to compressed/compressed.bin
+Set fragment length cutoff to z=0.125000 (0) based on length distribution
+0.00 % of pairs are longer than the cutoff
+Using fragment length cutoff of 0
+Splitting mates on different strands
+Splitting discordant
+0 cross-bundle reads unmatched
+Minimum bundle length: 12
+Maximum bundle length: 395442
+Average bundle length: 2003
+Compression time: 217.230 s
+
+Running Boiler
+Maximum memory: 228.5 MB
+Compressing to compressed/compressed.bin
+Set fragment length cutoff to z=0.125000 (0) based on length distribution
+0.00 % of pairs are longer than the cutoff
+Using fragment length cutoff of 0
+Splitting mates on different strands
+Splitting discordant
+0 cross-bundle reads unmatched
+Minimum bundle length: 12
+Maximum bundle length: 395442
+Average bundle length: 2003
+Compression time: 217.694 s
+
+Running Boiler
+Maximum memory: 248.4 MB
+Compressing to compressed/compressed.bin
+Set fragment length cutoff to z=0.125000 (0) based on length distribution
+0.00 % of pairs are longer than the cutoff
+Using fragment length cutoff of 0
+Splitting mates on different strands
+Splitting discordant
+0 cross-bundle reads unmatched
+Minimum bundle length: 12
+Maximum bundle length: 395442
+Average bundle length: 2003
+Compression time: 211.103 s
+
+Running Boiler
+Maximum memory: 226.0 MB
+Compressing to compressed/compressed.bin
+Set fragment length cutoff to z=0.125000 (0) based on length distribution
+0.00 % of pairs are longer than the cutoff
+Using fragment length cutoff of 0
+Splitting mates on different strands
+Splitting discordant
+0 cross-bundle reads unmatched
+Minimum bundle length: 12
+Maximum bundle length: 395442
+Average bundle length: 2003
+Compression time: 211.425 s
+
+Running Boiler
+Maximum memory: 237.6 MB
+Compressing to compressed/compressed.bin
+Set fragment length cutoff to z=0.125000 (0) based on length distribution
+0.00 % of pairs are longer than the cutoff
+Using fragment length cutoff of 0
+Splitting mates on different strands
+Splitting discordant
+0 cross-bundle reads unmatched
+Minimum bundle length: 12
+Maximum bundle length: 395442
+Average bundle length: 2003
+Compression time: 231.229 s
+
+Running Boiler
+Maximum memory: 250.4 MB
+Compressing to compressed/compressed.bin
+Set fragment length cutoff to z=0.125000 (0) based on length distribution
+0.00 % of pairs are longer than the cutoff
+Using fragment length cutoff of 0
+Splitting mates on different strands
+Splitting discordant
+0 cross-bundle reads unmatched
+Minimum bundle length: 12
+Maximum bundle length: 395442
+Average bundle length: 2003
+Compression time: 215.032 s
+
+Running Boiler
+Maximum memory: 235.7 MB
+Compressing to compressed/compressed.bin
+Set fragment length cutoff to z=0.125000 (0) based on length distribution
+0.00 % of pairs are longer than the cutoff
+Using fragment length cutoff of 0
+Splitting mates on different strands
+Splitting discordant
+0 cross-bundle reads unmatched
+Minimum bundle length: 12
+Maximum bundle length: 395442
+Average bundle length: 2003
+Compression time: 212.129 s
+
+Running Boiler
+Maximum memory: 230.9 MB
+Compressing to compressed/compressed.bin
+Set fragment length cutoff to z=0.125000 (0) based on length distribution
+0.00 % of pairs are longer than the cutoff
+Using fragment length cutoff of 0
+Splitting mates on different strands
+Splitting discordant
+0 cross-bundle reads unmatched
+Minimum bundle length: 12
+Maximum bundle length: 395442
+Average bundle length: 2003
+Compression time: 221.656 s
+
+Running Boiler
+Maximum memory: 240.6 MB
+Compressing to compressed/compressed.bin
+Set fragment length cutoff to z=0.125000 (0) based on length distribution
+0.00 % of pairs are longer than the cutoff
+Using fragment length cutoff of 0
+Splitting mates on different strands
+Splitting discordant
+0 cross-bundle reads unmatched
+Minimum bundle length: 12
+Maximum bundle length: 395442
+Average bundle length: 2003
+Compression time: 203.748 s
+
+Running Boiler
+Maximum memory: 279.3 MB
+Compressing to compressed/compressed.bin
+Set fragment length cutoff to z=0.125000 (0) based on length distribution
+0.00 % of pairs are longer than the cutoff
+Using fragment length cutoff of 0
+Splitting mates on different strands
+Splitting discordant
+0 cross-bundle reads unmatched
+Minimum bundle length: 12
+Maximum bundle length: 395442
+Average bundle length: 2003
+Compression time: 212.993 s
+
+Running Boiler
+Maximum memory: 225.9 MB
