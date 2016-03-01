@@ -1,6 +1,16 @@
 The following commands were used to generate compressed files and results. 
 Timing results were tested using the default Linux 'time' command. Peak memory results were calculated using the `testMem.py` script in the [main Boiler repository].
 
+We used the following software versions
+* TopHat 2 v2.1.0
+* Boiler v1.0.0 (on PyPy 2.4)
+* CRAMTools v3.0 (on Java v1.7)
+* Goby v2.3.5 (on Java v1.7)
+* Cufflinks v2.2.1
+* StringTie v1.0.3
+* SAMtools v??
+* BEDtools v??
+
 ##### Tophat #####
 
 ```
@@ -108,15 +118,13 @@ path/to/boiler/compareTripartite.py ../all_reps/simulation.pro ../all_reps/genes
 
 ##### CRAMTools #####
 
-We used CRAMTools v3.0.
-
 ```
 java -Xmx16g -jar /scratch0/langmead-fs1/shared/cramtools/cramtools-3.0.jar cram -I tophat_out/accepted_hits_no_names.bam -R /scratch0/langmead-fs1/shared/references/hg19/fasta/hg19.fa -O compressed/compressed.cram
 ```
 
 ##### Goby #####
 
-These parameters enable the full "ACT H+T+D" approach as described in the "Goby parameter settings" section of the [Goby study](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0079871).  We used Goby v2.3.5.
+These parameters enable the full "ACT H+T+D" approach as described in the "Goby parameter settings" section of the [Goby study](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0079871).
 
 ```
 goby 16g sam-to-compact -i tophat_out/accepted_hits.bam -o compressed/compressed.goby -x MessageChunksWriter:codec=hybrid-1  -x MessageChunksWriter:template-compression=true -x AlignmentCollectionHandler:enable-domain-optimizations=true -x AlignmentWriterImpl:permutate-query-indices=false -x AlignmentCollectionHandler:ignore-read-origin=true
