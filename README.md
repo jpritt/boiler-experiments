@@ -60,17 +60,26 @@ mkdir -p stringtie/comp/
 stringtie expanded.bam > stringtie/comp/transcripts.gtf
 ```
 
-# Results direct comparison
+# Fidelity
+
+## Alignment-level precision and recall
+
+For table 5, "Precision and recall of SAM reads":
 
 ```
 path/to/boiler/compareSAMs.py --sam1 tophat_out/accepted_hits_fixed.sam --sam2 expanded.sam --out-frags results/fragments_comp.txt
+```
+
+## Non-reference-based precision and recall
+
+Tables 8 & 9, measuring the amount of shuffling caused by Boiler compared to technical-replicate suffling.
+
+```
 path/to/boiler/compareGTFs.py cufflinks/orig/transcripts.gtf cufflinks/comp/transcripts.gtf
 path/to/boiler/compareGTFs.py stringtie/orig/transcripts.gtf stringtie/comp/transcripts.gtf
 ```
 
-# Results comparison to reference
-
-# Precision & Recall
+## Isoform-level precision & recall
 
 (Set `MODE=cufflinks` or `MODE=stringtie` as appropriate)
 
@@ -79,14 +88,18 @@ path/to/boiler/compareToTruth.py ../all_reps/simulation.pro ../all_reps/genes_fi
 path/to/boiler/compareToTruth.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf $MODE/comp/transcripts.gtf
 ```
 
-# WKR
+## WKR
+
+In supplemental notes.
 
 ```
 path/to/boiler/kc.py --refGTF ../all_reps/genes_fixed_sorted.gtf --refPRO ../all_reps/simulation.pro --sequence path/to/WholeGenomeFasta/genome.fa --assembly $MODE/orig/transcripts.gtf --data ../all_reps/simulation.fastq --kmer 15 
 path/to/boiler/kc.py --refGTF ../all_reps/genes_fixed_sorted.gtf --refPRO ../all_reps/simulation.pro --sequence path/to/WholeGenomeFasta/genome.fa --assembly $MODE/comp/transcripts.gtf --data ../all_reps/simulation.fastq --kmer 15 
 ```
 
-# Tripartite score
+## Tripartite score
+
+In supplemental notes.
 
 ```
 path/to/boiler/compareTripartite.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf $MODE/orig/transcripts.gtf $MODE/comp/transcripts.gtf 1
