@@ -1,5 +1,5 @@
 The following commands were used to generate compressed files and results. 
-Timing results were tested using the default Linux 'time' command. Peak memory results were calculated using the `testMem.py` script in the [main Boiler repository](https://github.com/jpritt/boiler).
+Timing results were tested using the default Linux 'time' command. Peak memory results were calculated using the `testMem.py` script in the [main Boiler repository].
 
 ##### Tophat #####
 
@@ -70,3 +70,5 @@ java -Xmx16g -jar /scratch0/langmead-fs1/shared/cramtools/cramtools-3.0.jar cram
 
 ##### Goby #####
 goby 16g sam-to-compact -i tophat_out/accepted_hits.bam -o compressed/compressed.goby -x MessageChunksWriter:codec=hybrid-1  -x MessageChunksWriter:template-compression=true -x AlignmentCollectionHandler:enable-domain-optimizations=true -x AlignmentWriterImpl:permutate-query-indices=false -x AlignmentCollectionHandler:ignore-read-origin=true
+
+[main Boiler repository]: https://github.com/jpritt/boiler
