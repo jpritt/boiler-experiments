@@ -29,10 +29,15 @@ cd ../
 ```
 
 # Assemble original transcripts
+
+Note: use of the Cufflinks `--no-effective-length-correction` isto avoid variability due to an [issue (recently resolved)](https://github.com/cole-trapnell-lab/cufflinks/pull/32) in how Cufflinks performs effective transcript length correction.
+
+```
 mkdir -p cufflinks/orig
 cufflinks --no-effective-length-correction -o cufflinks/orig tophat_out/accepted_hits_fixed.bam
 mkdir -p stringtie/orig
 stringtie tophat_out/accepted_hits_fixed.bam > stringtie/orig/transcripts.gtf
+```
 
 ##### Boiler #####
 ./boiler.py compress --frag-len-z-cutoff 0.125 --split-discordant --split-diff-strands tophat_out/accepted_hits_fixed.sam compressed/compressed.bin
