@@ -21,6 +21,8 @@ samtools view -h -o accepted_hits_fixed.sam accepted_hits_fixed.bam
 
 # Remove read names for CRAMTools
 
+We compared Boiler's compression ratio to Goby and CRAMTools. Boiler and Goby remove read names by default, but CRAM doesn't. CRAMtools has an option `--preserve-read-names`, but we cannot find a working mechanism in version 3 to remove them.  [This CRAMTools issue](https://github.com/enasequence/cramtools/issues/48) seems to be related. For a fairer comparison, we stripped the read names before compressing.
+
 ```
 removeNames.py accepted_hits_fixed.sam accepted_hits_no_names.sam
 samtools view -bS accepted_hits_no_names.sam | samtools sort - accepted_hits_no_names
