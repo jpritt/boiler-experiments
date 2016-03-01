@@ -8,8 +8,8 @@ We used the following software versions
 * Goby v2.3.5 (on Java v1.7)
 * Cufflinks v2.2.1
 * StringTie v1.0.3
-* SAMtools v??
-* BEDtools v??
+* SAMtools v0.1.19
+* BEDtools v2.19.1
 
 ##### Tophat #####
 
@@ -32,7 +32,7 @@ samtools view -h -o accepted_hits_fixed.sam accepted_hits_fixed.bam
 We compared Boiler's compression ratio to Goby and CRAMTools. Boiler and Goby remove read names by default, but CRAM doesn't. CRAMtools has an option `--preserve-read-names`, but we cannot find a working mechanism in version 3 to remove them.  [This CRAMTools issue](https://github.com/enasequence/cramtools/issues/48) seems to be related. For a fairer comparison, we stripped the read names before compressing.
 
 ```
-???/removeNames.py accepted_hits_fixed.sam accepted_hits_no_names.sam
+path/to/boiler-experiments/scripts/removeNames.py accepted_hits_fixed.sam accepted_hits_no_names.sam
 samtools view -bS accepted_hits_no_names.sam | samtools sort - accepted_hits_no_names
 samtools view -h -o accepted_hits_no_names.sam accepted_hits_no_names.bam
 cd ../
