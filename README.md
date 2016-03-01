@@ -41,6 +41,8 @@ stringtie tophat_out/accepted_hits_fixed.bam > stringtie/orig/transcripts.gtf
 
 ##### Boiler #####
 
+We used Boiler v1.0.0.
+
 ```
 ./boiler.py compress --frag-len-z-cutoff 0.125 --split-discordant --split-diff-strands tophat_out/accepted_hits_fixed.sam compressed/compressed.bin
 ./boiler.py decompress --force-xs compressed/compressed.bin expanded.sam
@@ -76,6 +78,7 @@ path/to/boiler/compareToTruth.py ../all_reps/simulation.pro ../all_reps/genes_fi
 ```
 
 # WKR
+
 ```
 path/to/boiler/kc.py --refGTF ../all_reps/genes_fixed_sorted.gtf --refPRO ../all_reps/simulation.pro --sequence path/to/WholeGenomeFasta/genome.fa --assembly $MODE/orig/transcripts.gtf --data ../all_reps/simulation.fastq --kmer 15 
 path/to/boiler/kc.py --refGTF ../all_reps/genes_fixed_sorted.gtf --refPRO ../all_reps/simulation.pro --sequence path/to/WholeGenomeFasta/genome.fa --assembly $MODE/comp/transcripts.gtf --data ../all_reps/simulation.fastq --kmer 15 
@@ -90,13 +93,15 @@ path/to/boiler/compareTripartite.py ../all_reps/simulation.pro ../all_reps/genes
 
 ##### CRAMTools #####
 
+We used CRAMTools v3.0.
+
 ```
 java -Xmx16g -jar /scratch0/langmead-fs1/shared/cramtools/cramtools-3.0.jar cram -I tophat_out/accepted_hits_no_names.bam -R /scratch0/langmead-fs1/shared/references/hg19/fasta/hg19.fa -O compressed/compressed.cram
 ```
 
 ##### Goby #####
 
-These parameters enable the full "ACT H+T+D" approach as described in the "Goby parameter settings" section of the [Goby study](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0079871).
+These parameters enable the full "ACT H+T+D" approach as described in the "Goby parameter settings" section of the [Goby study](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0079871).  We used Goby v2.3.5.
 
 ```
 goby 16g sam-to-compact -i tophat_out/accepted_hits.bam -o compressed/compressed.goby -x MessageChunksWriter:codec=hybrid-1  -x MessageChunksWriter:template-compression=true -x AlignmentCollectionHandler:enable-domain-optimizations=true -x AlignmentWriterImpl:permutate-query-indices=false -x AlignmentCollectionHandler:ignore-read-origin=true
