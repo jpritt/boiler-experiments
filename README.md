@@ -21,10 +21,8 @@ samtools view -h -o accepted_hits.sam accepted_hits.bam
 
 # Add any inferred strand tags in pairs
 
-The `inferXStags.py` script is in the [main Boiler repository].
-
 ```
-inferXStags.py accepted_hits.sam > accepted_hits_fixed.sam
+$BOILER_HOME/inferXStags.py accepted_hits.sam > accepted_hits_fixed.sam
 samtools view -bS accepted_hits_fixed.sam | samtools sort - accepted_hits_fixed
 samtools view -h -o accepted_hits_fixed.sam accepted_hits_fixed.bam
 ```
@@ -34,7 +32,7 @@ samtools view -h -o accepted_hits_fixed.sam accepted_hits_fixed.bam
 We compared Boiler's compression ratio to Goby and CRAMTools. Boiler and Goby remove read names by default, but CRAM doesn't. CRAMtools has an option `--preserve-read-names`, but we cannot find a working mechanism in version 3 to remove them.  [This CRAMTools issue](https://github.com/enasequence/cramtools/issues/48) seems to be related. For a fairer comparison, we stripped the read names before compressing.
 
 ```
-removeNames.py accepted_hits_fixed.sam accepted_hits_no_names.sam
+???/removeNames.py accepted_hits_fixed.sam accepted_hits_no_names.sam
 samtools view -bS accepted_hits_no_names.sam | samtools sort - accepted_hits_no_names
 samtools view -h -o accepted_hits_no_names.sam accepted_hits_no_names.bam
 cd ../
@@ -56,8 +54,8 @@ stringtie tophat_out/accepted_hits_fixed.bam > stringtie/orig/transcripts.gtf
 We used Boiler v1.0.0.
 
 ```
-./boiler.py compress --frag-len-z-cutoff 0.125 --split-discordant --split-diff-strands tophat_out/accepted_hits_fixed.sam compressed/compressed.bin
-./boiler.py decompress --force-xs compressed/compressed.bin expanded.sam
+$BOILER_HOME/boiler.py compress --frag-len-z-cutoff 0.125 --split-discordant --split-diff-strands tophat_out/accepted_hits_fixed.sam compressed/compressed.bin
+$BOILER_HOME/boiler.py decompress --force-xs compressed/compressed.bin expanded.sam
 ```
 
 # Assemble compressed transcripts
@@ -77,7 +75,7 @@ stringtie expanded.bam > stringtie/comp/transcripts.gtf
 For table 5, "Precision and recall of SAM reads":
 
 ```
-path/to/boiler/compareSAMs.py --sam1 tophat_out/accepted_hits_fixed.sam --sam2 expanded.sam --out-frags results/fragments_comp.txt
+$BOILER_HOME/compareSAMs.py --sam1 tophat_out/accepted_hits_fixed.sam --sam2 expanded.sam --out-frags results/fragments_comp.txt
 ```
 
 ## Non-reference-based precision and recall
@@ -85,8 +83,8 @@ path/to/boiler/compareSAMs.py --sam1 tophat_out/accepted_hits_fixed.sam --sam2 e
 Tables 8 & 9, measuring the amount of shuffling caused by Boiler compared to technical-replicate suffling.
 
 ```
-path/to/boiler/compareGTFs.py cufflinks/orig/transcripts.gtf cufflinks/comp/transcripts.gtf
-path/to/boiler/compareGTFs.py stringtie/orig/transcripts.gtf stringtie/comp/transcripts.gtf
+$BOILER_HOME/compareGTFs.py cufflinks/orig/transcripts.gtf cufflinks/comp/transcripts.gtf
+$BOILER_HOME/compareGTFs.py stringtie/orig/transcripts.gtf stringtie/comp/transcripts.gtf
 ```
 
 ## Isoform-level precision & recall
@@ -94,8 +92,8 @@ path/to/boiler/compareGTFs.py stringtie/orig/transcripts.gtf stringtie/comp/tran
 (Set `MODE=cufflinks` or `MODE=stringtie` as appropriate)
 
 ```
-path/to/boiler/compareToTruth.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf $MODE/orig/transcripts.gtf
-path/to/boiler/compareToTruth.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf $MODE/comp/transcripts.gtf
+$BOILER_HOME/compareToTruth.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf $MODE/orig/transcripts.gtf
+$BOILER_HOME/compareToTruth.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf $MODE/comp/transcripts.gtf
 ```
 
 ## WKR
@@ -103,8 +101,8 @@ path/to/boiler/compareToTruth.py ../all_reps/simulation.pro ../all_reps/genes_fi
 In supplemental notes.
 
 ```
-path/to/boiler/kc.py --refGTF ../all_reps/genes_fixed_sorted.gtf --refPRO ../all_reps/simulation.pro --sequence path/to/WholeGenomeFasta/genome.fa --assembly $MODE/orig/transcripts.gtf --data ../all_reps/simulation.fastq --kmer 15 
-path/to/boiler/kc.py --refGTF ../all_reps/genes_fixed_sorted.gtf --refPRO ../all_reps/simulation.pro --sequence path/to/WholeGenomeFasta/genome.fa --assembly $MODE/comp/transcripts.gtf --data ../all_reps/simulation.fastq --kmer 15 
+$BOILER_HOME/kc.py --refGTF ../all_reps/genes_fixed_sorted.gtf --refPRO ../all_reps/simulation.pro --sequence path/to/WholeGenomeFasta/genome.fa --assembly $MODE/orig/transcripts.gtf --data ../all_reps/simulation.fastq --kmer 15 
+$BOILER_HOME/kc.py --refGTF ../all_reps/genes_fixed_sorted.gtf --refPRO ../all_reps/simulation.pro --sequence path/to/WholeGenomeFasta/genome.fa --assembly $MODE/comp/transcripts.gtf --data ../all_reps/simulation.fastq --kmer 15 
 ```
 
 ## Tripartite score
@@ -112,14 +110,14 @@ path/to/boiler/kc.py --refGTF ../all_reps/genes_fixed_sorted.gtf --refPRO ../all
 In supplemental notes.
 
 ```
-path/to/boiler/compareTripartite.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf $MODE/orig/transcripts.gtf $MODE/comp/transcripts.gtf 1
-path/to/boiler/compareTripartite.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf $MODE/orig/transcripts.gtf $MODE/comp/transcripts.gtf 0
+$BOILER_HOME/compareTripartite.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf $MODE/orig/transcripts.gtf $MODE/comp/transcripts.gtf 1
+$BOILER_HOME/compareTripartite.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf $MODE/orig/transcripts.gtf $MODE/comp/transcripts.gtf 0
 ```
 
 ##### CRAMTools #####
 
 ```
-java -Xmx16g -jar /scratch0/langmead-fs1/shared/cramtools/cramtools-3.0.jar cram -I tophat_out/accepted_hits_no_names.bam -R /scratch0/langmead-fs1/shared/references/hg19/fasta/hg19.fa -O compressed/compressed.cram
+java -Xmx16g -jar $CRAMTOOLS_HOME/cramtools-3.0.jar cram -I tophat_out/accepted_hits_no_names.bam -R $REFERENCE_HOME/hg19.fa -O compressed/compressed.cram
 ```
 
 ##### Goby #####
