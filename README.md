@@ -128,4 +128,11 @@ These parameters enable the full "ACT H+T+D" approach as described in the "Goby 
 goby 16g sam-to-compact -i tophat_out/accepted_hits.bam -o compressed/compressed.goby -x MessageChunksWriter:codec=hybrid-1  -x MessageChunksWriter:template-compression=true -x AlignmentCollectionHandler:enable-domain-optimizations=true -x AlignmentWriterImpl:permutate-query-indices=false -x AlignmentCollectionHandler:ignore-read-origin=true
 ```
 
+##### BigWig #####
+
+```
+bedtools genomecov -bg -split -ibam accepted_hits_no_names.bam -g ChromInfo.txt > accepted_hits.bedGraph
+bedGraphToBigWig accepted_hits.bedGraph ChromInfo.txt accepted_hits.bw
+```
+
 [main Boiler repository]: https://github.com/jpritt/boiler
