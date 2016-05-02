@@ -1,0 +1,30 @@
+#PBS -q batch
+#PBS -l walltime=120:00
+#PBS -j n
+#PBS -l pmem=8gb
+#PBS -l vmem=8gb
+#PBS -l pvmem=8gb
+#PBS -l mem=8gb
+#PBS -m ae
+#PBS -M mpritt4@jhu.edu
+echo 'Results for '$DIR
+echo $MODE
+cd $DIR
+
+#echo '=== Precision/Recall Compared to Truth ==='
+#echo 'Weighted by coverage'
+#echo 'Original:'
+#/scratch0/langmead-fs1/user/jacob/boiler/compareToTruth.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf stringtie/hisat/orig/transcripts.gtf 1
+#echo 'Compressed:'
+#/scratch0/langmead-fs1/user/jacob/boiler/compareToTruth.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf stringtie/hisat/comp/transcripts.gtf 1
+#echo ''
+#echo 'Not weighted by coverage'
+#echo 'Original:'
+#/scratch0/langmead-fs1/user/jacob/boiler/compareToTruth.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf stringtie/hisat/orig/transcripts.gtf 0
+#echo 'Compressed:'
+#/scratch0/langmead-fs1/user/jacob/boiler/compareToTruth.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf stringtie/hisat/comp/transcripts.gtf 0
+#echo ''
+
+echo '=== SAM Comparison ==='
+/scratch0/langmead-fs1/user/jacob/boiler/compareSAMs.py --sam1 hisat_out/accepted_hits_fixed.sam --sam2 expanded_hisat.sam --out-frags frag_lens.txt
+

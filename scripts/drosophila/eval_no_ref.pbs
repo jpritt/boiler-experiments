@@ -1,0 +1,27 @@
+#PBS -q batch
+#PBS -l walltime=240:00
+#PBS -j n
+#PBS -l pmem=8gb
+#PBS -l vmem=8gb
+#PBS -l pvmem=8gb
+#PBS -l mem=8gb
+#PBS -m ae
+#PBS -M mpritt4@jhu.edu
+echo 'Results for '$DIR
+cd $DIR
+mkdir -p results
+
+echo '=== SAM Comparison ==='
+/scratch0/langmead-fs1/user/jacob/boiler/compareSAMs.py --sam1 tophat_out/accepted_hits_fixed.sam --sam2 expanded.sam --out-frags results/fragments_comp.txt
+
+#echo '=== Weighted Precision/Recall ==='
+#echo 'Cufflinks'
+#/scratch0/langmead-fs1/user/jacob/boiler/compareGTFs.py cufflinks/orig/transcripts.gtf cufflinks/comp/transcripts.gtf 1
+#echo 'Stringtie'
+#/scratch0/langmead-fs1/user/jacob/boiler/compareGTFs.py stringtie/orig/transcripts.gtf stringtie/comp/transcripts.gtf 1
+
+#echo '=== Unweighted Precision/Recall ==='
+#echo 'Cufflinks'
+#/scratch0/langmead-fs1/user/jacob/boiler/compareGTFs.py cufflinks/orig/transcripts.gtf cufflinks/comp/transcripts.gtf 0
+#echo 'Stringtie'
+#/scratch0/langmead-fs1/user/jacob/boiler/compareGTFs.py stringtie/orig/transcripts.gtf stringtie/comp/transcripts.gtf 0

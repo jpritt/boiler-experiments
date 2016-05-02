@@ -1,0 +1,39 @@
+#PBS -q batch
+#PBS -l walltime=1440:00
+#PBS -j n
+#PBS -l pmem=16gb
+#PBS -l vmem=16gb
+#PBS -l pvmem=16gb
+#PBS -l mem=16gb
+#PBS -m ae
+#PBS -M mpritt4@jhu.edu
+cd $DIR
+echo $DIR
+
+echo "Comparing $MODE results"
+echo 'Weighted by coverage'
+for (( i=0; i<4; i++ ))
+do
+    for (( j=$i+1; j<5; j++ ))
+    do
+        #echo "Comparing simulations $i and $j"
+        /scratch0/langmead-fs1/user/jacob/boiler/compareGTFs.py sim$i/$MODE/orig/transcripts.gtf sim$j/$MODE/orig/transcripts.gtf 1
+    done
+done
+
+echo ''
+echo 'Unweighted'
+for (( i=0; i<4; i++ ))
+do
+    for (( j=$i+1; j<5; j++ ))
+    do
+        #echo "Comparing simulations $i and $j"
+        /scratch0/langmead-fs1/user/jacob/boiler/compareGTFs.py sim$i/$MODE/orig/transcripts.gtf sim$j/$MODE/orig/transcripts.gtf 0
+    done
+done
+
+#for (( i=0; i<5; i++ ))
+#do
+#    echo "Comparing simulation $i to truth"
+#    /scratch0/langmead-fs1/user/jacob/compress-alignments/compareToTruth.py all_reps/simulation.pro all_reps/genes_fixed_sorted.gtf sim$i/$MODE/orig/transcripts.gtf $WEIGHT
+#done

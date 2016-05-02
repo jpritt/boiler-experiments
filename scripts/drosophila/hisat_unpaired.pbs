@@ -1,0 +1,35 @@
+#PBS -q batch
+#PBS -l walltime=720:00
+#PBS -j n
+#PBS -l pmem=16gb
+#PBS -l vmem=16gb
+#PBS -l pvmem=16gb
+#PBS -m ae
+#PBS -M mpritt4@jhu.edu
+echo 'Compressing '$DIR
+cd $DIR
+
+mkdir -p hisat_out
+/scratch0/langmead-fs1/shared/hisat2-2.0.1-beta/hisat2 -x /scratch0/langmead-fs1/user/jacob/compress-alignments-test/drosophila/hisat_index/index -U reads.fastq > hisat_out/accepted_hits.sam
+
+samtools view -bS hisat_out/accepted_hits.sam | samtools sort - hisat_out/accepted_hits
+samtools view -h -o hisat_out/accepted_hits.sam hisat_out/accepted_hits.bam
+
+#/scratch0/langmead-fs1/user/jacob/boiler/processHISAT.py --input hisat_out/accepted_hits.sam --output hisat_out/accepted_hits_processed.sam
+#samtools view -bS hisat_out/accepted_hits_processed.sam | samtools sort - hisat_out/accepted_hits_processed
+#samtools view -h -o hisat_out/accepted_hits_processed.sam hisat_out/accepted_hits_processed.bam
+
+#/scratch0/langmead-fs1/user/jacob/boiler-experiments/scripts/filter_sam/inferXStags.py hisat_out/accepted_hits_processed.sam > hisat_out/accepted_hits_fixed.sam
+#samtools view -bS hisat_out/accepted_hits_fixed.sam | samtools sort - hisat_out/accepted_hits_fixed
+#samtools view -h -o hisat_out/accepted_hits_fixed.sam hisat_out/accepted_hits_fixed.bam
+
+mkdir -p compressed_hisat
+python3 /scratch0/langmead-fs1/user/jacob/boiler/boiler.py compress --split-discordant --split-diff-strands --frag-len-z-cutoff 0.125 hisat_out/accepted_hits.sam compressed_hisat/compressed.bin
+python3 /scratch0/langmead-fs1/user/jacob/boiler/boiler.py decompress compressed_hisat/compressed.bin expanded_hisat.sam
+
+samtools view -bS expanded_hisat.sam | samtools sort - expanded_hisat
+mkdir -p stringtie/hisat/comp/
+/scratch0/langmead-fs1/shared/stringtie-1.0.3/stringtie expanded_hisat.bam > stringtie/hisat/comp/transcripts.gtf
+mkdir -p stringtie/hisat/orig/
+/scratch0/langmead-fs1/shared/stringtie-1.0.3/stringtie hisat_out/accepted_hits.bam > stringtie/hisat/orig/transcripts.gtf
+

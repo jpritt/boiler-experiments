@@ -1,0 +1,42 @@
+#PBS -q batch
+#PBS -l walltime=720:00
+#PBS -j n
+#PBS -l pmem=32gb
+#PBS -l vmem=32gb
+#PBS -l pvmem=32gb
+#PBS -m ae
+#PBS -M mpritt4@jhu.edu
+echo 'Compressing '$DIR
+cd $DIR
+
+mkdir -p hisat_out
+#/data1/igm3/sw/bin/hisat -x /scratch0/langmead-fs1/user/jacob/compress-alignments-test/drosophila/hisat_index/index -1 reads1.fastq -2 reads2.fastq -S hisat_out/accepted_hits.sam
+/data1/igm3/sw/bin/hisat -x /scratch0/langmead-fs1/user/jacob/compress-alignments-test/drosophila/hisat_index/index -U reads.fastq -S hisat_out/accepted_hits.sam
+
+# Remove pairs that reportedly failed to align. This has no effect on Stringtie results
+#/scratch0/langmead-fs1/user/jacob/boiler-experiments/scripts/filter_sam/removeUp.py hisat_out/accepted_hits.sam hisat_out/accepted_hits_no_up.sam
+/scratch0/langmead-fs1/user/jacob/boiler-experiments/scripts/filter_sam/removeUp.py hisat_out/accepted_hits.sam hisat_out/accepted_hits_fixed.sam
+
+#/scratch0/langmead-fs1/user/jacob/boiler/processHISAT.py --input hisat_out/accepted_hits_no_up.sam --output hisat_out/accepted_hits_processed.sam
+
+#/scratch0/langmead-fs1/user/jacob/boiler-experiments/scripts/filter_sam/inferXStags.py hisat_out/accepted_hits_processed.sam > hisat_out/accepted_hits_fixed.sam
+samtools view -bS hisat_out/accepted_hits_fixed.sam | samtools sort - hisat_out/accepted_hits_fixed
+samtools view -h -o hisat_out/accepted_hits_fixed.sam hisat_out/accepted_hits_fixed.bam
+mkdir -p stringtie/hisat/orig/
+/scratch0/langmead-fs1/shared/stringtie-1.0.3/stringtie hisat_out/accepted_hits_fixed.bam > stringtie/hisat/orig/transcripts.gtf
+
+mkdir -p compressed_hisat
+/scratch0/langmead-fs1/shared/pypy3-2.4-linux_x86_64-portable/bin/pypy3 /scratch0/langmead-fs1/user/jacob/boiler/boiler.py compress --split-discordant --split-diff-strands --frag-len-z-cutoff 0.125 hisat_out/accepted_hits_fixed.sam compressed_hisat/compressed.bin
+/scratch0/langmead-fs1/shared/pypy3-2.4-linux_x86_64-portable/bin/pypy3 /scratch0/langmead-fs1/user/jacob/boiler/boiler.py decompress compressed_hisat/compressed.bin expanded_hisat.sam
+
+samtools view -bS expanded_hisat.sam | samtools sort - expanded_hisat
+samtools view -h -o expanded_hisat.sam expanded_hisat.bam
+mkdir -p stringtie/hisat/comp/
+/scratch0/langmead-fs1/shared/stringtie-1.0.3/stringtie expanded_hisat.bam > stringtie/hisat/comp/transcripts.gtf
+
+echo 'Weighted'
+/scratch0/langmead-fs1/user/jacob/boiler/compareToTruth.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf stringtie/hisat/orig/transcripts.gtf 1
+/scratch0/langmead-fs1/user/jacob/boiler/compareToTruth.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf stringtie/hisat/comp/transcripts.gtf 1
+
+echo '=== SAM Comparison ==='
+/scratch0/langmead-fs1/user/jacob/boiler/compareSAMs.py --sam1 hisat_out/accepted_hits_fixed.sam --sam2 expanded_hisat.sam

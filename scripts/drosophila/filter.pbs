@@ -1,0 +1,20 @@
+#PBS -q batch
+#PBS -l walltime=1440:00
+#PBS -j n
+#PBS -l pmem=16gb
+#PBS -l vmem=16gb
+#PBS -l pvmem=16gb
+#PBS -l mem=16gb
+#PBS -m ae
+#PBS -M mpritt4@jhu.edu
+cd $DIR
+echo $DIR
+
+/scratch0/langmead-fs1/user/jacob/compress-alignments/inferXStags.py tophat_out/accepted_hits.sam > tophat_out/accepted_hits_sm.sam
+samtools view -bS tophat_out/accepted_hits_sm.sam | samtools sort - tophat_out/accepted_hits_sm
+samtools view -h -o tophat_out/accepted_hits_sm.sam tophat_out/accepted_hits_sm.bam
+
+#mkdir -p cufflinks/orig/
+#cufflinks --no-effective-length-correction -o cufflinks/orig tophat_out/accepted_hits_fixed.bam
+#mkdir -p stringtie/orig/
+#/scratch0/langmead-fs1/shared/stringtie-1.0.3/stringtie tophat_out/accepted_hits_fixed.bam > stringtie/orig/transcripts.gtf

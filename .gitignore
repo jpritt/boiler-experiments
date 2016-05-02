@@ -4,7 +4,7 @@ paper/boiler.out
 paper/boiler.synctex.gz
 paper/boiler.aux
 scripts/qsub/*/*.pbs.*
-scripts/tech_reps/*.pbs.*
-scripts/tech_reps/*/*.pbs.*
+scripts/drosophila/*.pbs.*
+scripts/drosophila/*/*.pbs.*
 *.pyc
 __pycache__/

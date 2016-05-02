@@ -1,0 +1,33 @@
+#PBS -q batch
+#PBS -l walltime=720:00
+#PBS -j n
+#PBS -l pmem=16gb
+#PBS -l vmem=16gb
+#PBS -l pvmem=16gb
+#PBS -m ae
+#PBS -M mpritt4@jhu.edu
+echo 'Compressing '$DIR
+cd $DIR
+mkdir -p compressed
+
+/scratch0/langmead-fs1/user/jacob/filter_sam/inferXStags.py hisat_out/accepted_hits_mapped.sam > hisat_out/accepted_hits_fixed.sam
+samtools view -bS hisat_out/accepted_hits_fixed.sam | samtools sort - hisat_out/accepted_hits_fixed
+samtools view -h -o hisat_out/accepted_hits_fixed.sam hisat_out/accepted_hits_fixed.bam
+
+/scratch0/langmead-fs1/shared/pypy3-2.4-linux_x86_64-portable/bin/pypy3 /scratch0/langmead-fs1/user/jacob/boiler/boiler.py compress --split-discordant --split-diff-strands --frag-len-z-cutoff 0.125 hisat_out/accepted_hits_fixed.sam compressed_hisat/compressed.bin
+/scratch0/langmead-fs1/shared/pypy3-2.4-linux_x86_64-portable/bin/pypy3 /scratch0/langmead-fs1/user/jacob/boiler/boiler.py decompress --force-xs compressed_hisat/compressed.bin expanded.sam
+
+#samtools view -bS intermediate.sam | samtools sort - intermediate
+#mkdir -p cufflinks/hisat/inter/
+#cufflinks --no-effective-length-correction -o cufflinks/hisat/inter intermediate.bam
+
+samtools view -bS expanded.sam | samtools sort - expanded
+#mkdir -p cufflinks/hisat/comp/
+#cufflinks --no-effective-length-correction -o cufflinks/hisat/comp expanded.bam
+mkdir -p stringtie/hisat/comp/
+/scratch0/langmead-fs1/shared/stringtie-1.0.3/stringtie expanded.bam > stringtie/hisat/comp/transcripts.gtf
+
+#mkdir -p cufflinks/hisat/orig/
+#cufflinks --no-effective-length-correction -o cufflinks/hisat/orig hisat_out/accepted_hits_fixed.bam
+mkdir -p stringtie/hisat/orig/
+/scratch0/langmead-fs1/shared/stringtie-1.0.3/stringtie hisat_out/accepted_hits_fixed.bam > stringtie/hisat/orig/transcripts.gtf

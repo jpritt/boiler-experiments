@@ -1,0 +1,17 @@
+#PBS -q batch
+#PBS -l walltime=1440:00
+#PBS -j n
+#PBS -l pmem=16gb
+#PBS -l vmem=16gb
+#PBS -l pvmem=16gb
+#PBS -l mem=16gb
+#PBS -m ae
+#PBS -M mpritt4@jhu.edu
+cd $DIR
+echo $DIR
+
+time java -Xmx4g -jar /scratch0/langmead-fs1/shared/cramtools/cramtools-3.0.jar bam -I compressed/compressed.cram -R /scratch0/langmead-fs1/user/jacob/genomes/Drosophila_melanogaster/Ensembl/BDGP5/Sequence/WholeGenomeFasta/genome.fa -O expanded_cram.bam
+samtools view -h -o expanded_cram.sam expanded_cram.bam
+
+time goby 4g compact-to-sam compressed/compressed.goby -g /scratch0/langmead-fs1/user/jacob/genomes/Drosophila_melanogaster/Ensembl/BDGP5/Sequence/WholeGenomeFasta/genome.fa -o expanded_goby.bam
+samtools view -h -o expanded_goby.sam expanded_goby.bam

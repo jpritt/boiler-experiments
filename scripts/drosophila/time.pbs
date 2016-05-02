@@ -1,0 +1,34 @@
+#PBS -q batch
+#PBS -l walltime=480:00
+#PBS -j n
+#PBS -l pmem=32gb
+#PBS -l vmem=32gb
+#PBS -l pvmem=32gb
+#PBS -l mem=32gb
+#PBS -m ae
+#PBS -M mpritt4@jhu.edu
+echo 'Timing results for '$DIR
+cd $DIR
+mkdir -p compressed
+#echo 'Boiler Compression'
+#time /scratch0/langmead-fs1/shared/pypy3-2.4-linux_x86_64-portable/bin/pypy3 /scratch0/langmead-fs1/user/jacob/compress-alignments/boiler.py compress --split-discordant --split-diff-strands --frag-len-z-cutoff 0.125 tophat_out/accepted_hits_fixed.sam compressed/compressed.bin
+#/usr/bin/time -v /scratch0/langmead-fs1/shared/pypy3-2.4-linux_x86_64-portable/bin/pypy3 /scratch0/langmead-fs1/user/jacob/compress-alignments/boiler.py --compress --alignments tophat_out/accepted_hits.sam --output compressed/compressed.bin --frag-len-z-cutoff 0.125 --split-discordant --split-diff-strands
+
+#echo 'CRAM Compression'
+#time java -Xmx4g -jar /scratch0/langmead-fs1/shared/cramtools/cramtools-3.0.jar cram -I tophat_out/accepted_hits_fixed.bam -R /scratch0/langmead-fs1/user/jacob/genomes/Drosophila_melanogaster/Ensembl/BDGP5/Sequence/WholeGenomeFasta/genome.fa -O compressed/compressed.cram
+#/usr/bin/time -v java -Xmx4g -jar /scratch0/langmead-fs1/shared/cramtools/cramtools-3.0.jar cram -I tophat_out/accepted_hits.bam -R /scratch0/langmead-fs1/user/jacob/genomes/Drosophila_melanogaster/Ensembl/BDGP5/Sequence/WholeGenomeFasta/genome.fa -O compressed/compressed.cram
+
+#echo 'Goby Compression'
+#time goby 4g sam-to-compact -i tophat_out/accepted_hits_fixed.bam -g /scratch0/langmead-fs1/user/jacob/genomes/Drosophila_melanogaster/Ensembl/BDGP5/Sequence/WholeGenomeFasta/genome.fa -o compressed/compressed.goby
+#/usr/bin/time -v goby 4g sam-to-compact -i tophat_out/accepted_hits.bam -o compressed/compressed.goby
+
+
+echo 'Boiler Decompression'
+time /scratch0/langmead-fs1/shared/pypy3-2.4-linux_x86_64-portable/bin/pypy3 /scratch0/langmead-fs1/user/jacob/boiler/boiler.py decompress compressed/compressed.bin expanded.sam
+
+echo 'CRAM Decompression'
+time java -Xmx4g -jar /scratch0/langmead-fs1/shared/cramtools/cramtools-3.0.jar bam -I compressed/compressed.cram -R /scratch0/langmead-fs1/user/jacob/genomes/Drosophila_melanogaster/Ensembl/BDGP5/Sequence/WholeGenomeFasta/genome.fa -O expanded_cram.bam
+
+echo 'Goby Decompression'
+time goby 4g compact-to-sam compressed/compressed.goby -g /scratch0/langmead-fs1/user/jacob/genomes/Drosophila_melanogaster/Ensembl/BDGP5/Sequence/WholeGenomeFasta/genome.fa -o expanded_goby.bam
+

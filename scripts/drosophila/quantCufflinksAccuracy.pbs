@@ -1,0 +1,31 @@
+#PBS -q batch
+#PBS -l walltime=1440:00
+#PBS -j n
+#PBS -l pmem=16gb
+#PBS -l vmem=16gb
+#PBS -l pvmem=16gb
+#PBS -l mem=16gb
+#PBS -m ae
+#PBS -M mpritt4@jhu.edu
+echo $DIR
+cd $DIR
+
+for (( i=0; i<5; i++ ))
+do
+    cd sim$i
+    mkdir -p quant/cufflinks/orig
+    cufflinks  -G ../all_reps/genes_fixed_sorted.gtf --no-effective-length-correction -o quant/cufflinks/orig/ tophat_out/accepted_hits_fixed.bam
+    cd ../
+done
+
+for (( i=0; i<4; i++ ))
+do
+    for (( j=$i+1; j<5; j++ ))
+    do
+        #echo "Comparing simulations $i and $j"
+        /scratch0/langmead-fs1/user/jacob/boiler/compareQuantification.py sim$i/quant/cufflinks/orig/isoforms.fpkm_tracking sim$j/quant/cufflinks/orig/isoforms.fpkm_tracking
+        echo ""
+    done
+done
+
+
