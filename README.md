@@ -3,6 +3,7 @@ Timing results were tested using the default Linux 'time' command. Peak memory r
 
 We used the following software versions
 * TopHat 2 v2.1.0
+* HISAT v0.1.6
 * Boiler v1.0.0 (on PyPy 2.4)
 * CRAMTools v3.0 (on Java v1.7)
 * Goby v2.3.5 (on Java v1.7)
@@ -17,6 +18,24 @@ We used the following software versions
 tophat path/to/Bowtie2Index/genome reads1.fastq reads2.fastq
 cd tophat_out
 samtools view -h -o accepted_hits.sam accepted_hits.bam
+```
+
+# Running HISAT
+
+```
+hisat -x path/to/HisatIndex/genome -1 reads1.fastq -2 reads2.fastq -S hisat_out/alignments.sam
+```
+
+# Removing unmapped reads
+
+```
+$BOILER_EXPERIMENTS/scripts/filter_sam/removeUp.py hisat_out/alignmentss.sam hisat_out/alignments_no_up.sam
+```
+
+# Expanding HISAT pairs
+
+```
+$BOILER_HOME/processHISAT.py --input hisat_out/alignments_no_up.sam --output hisat_out/alignments_processed.sam
 ```
 
 # Adding inferred strand tags in pairs
@@ -49,6 +68,15 @@ mkdir -p stringtie/orig
 stringtie tophat_out/accepted_hits_fixed.bam > stringtie/orig/transcripts.gtf
 ```
 
+# Quantitating original transcripts
+
+```
+mkdir -p quant/cufflinks/orig
+cufflinks -G path/to/reference.gtf --no-effective-length-correction -o quant/cufflinks/orig tophat_out/accepted_hits_fixed.bam
+mkdir -p quant/stringtie/orig
+stringtie tophat_out/accepted_hits_fixed.bam -G path/to/reference.gtf -e > quant/stringtie/orig/transcripts.gtf
+```
+
 # Running Boiler
 
 ```
@@ -64,6 +92,16 @@ mkdir -p cufflinks/comp/
 cufflinks --no-effective-length-correction -o cufflinks/comp expanded.bam
 mkdir -p stringtie/comp/
 stringtie expanded.bam > stringtie/comp/transcripts.gtf
+```
+
+# Quantitate compressed transcripts
+
+```
+samtools view -bS expanded.sam | samtools sort - expanded
+mkdir -p quant/cufflinks/comp
+cufflinks -G path/to/reference.gtf --no-effective-length-correction -o quant/cufflinks/comp expanded.bam
+mkdir -p quant/stringtie/comp
+stringtie expanded.bam -G path/to/reference.gtf -e > quant/stringtie/comp/transcripts.gtf
 ```
 
 # Fidelity experiments
@@ -110,6 +148,13 @@ Experiments described in supplemental note.  This measurement captures how close
 ```
 $BOILER_HOME/compareTripartite.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf $MODE/orig/transcripts.gtf $MODE/comp/transcripts.gtf 1
 $BOILER_HOME/compareTripartite.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf $MODE/orig/transcripts.gtf $MODE/comp/transcripts.gtf 0
+```
+
+## Comparing quantitation results
+
+```
+$BOILER_HOME/compareCufflinksQuantification.py quant/cufflinks/orig/isoforms.fpkm_tracking quant/cufflinks/comp/isoforms.fpkm_tracking
+$BOILER_HOME/compareStringtieQuantification.py quant/stringtie/orig/transcripts.gtf quant/stringtie/comp/transcripts.gtf
 ```
 
 # Running CRAMTools
