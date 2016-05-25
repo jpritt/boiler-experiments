@@ -8,7 +8,7 @@ We used the following software versions
 * CRAMTools v3.0 (on Java v1.7)
 * Goby v2.3.5 (on Java v1.7)
 * Cufflinks v2.2.1
-* StringTie v1.0.3
+* StringTie v1.2.2
 * SAMtools v0.1.19
 * BEDtools v2.19.1
 
