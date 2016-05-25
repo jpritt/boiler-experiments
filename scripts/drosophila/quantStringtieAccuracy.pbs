@@ -1,0 +1,36 @@
+#PBS -q batch
+#PBS -l walltime=1440:00
+#PBS -j n
+#PBS -l pmem=16gb
+#PBS -l vmem=16gb
+#PBS -l pvmem=16gb
+#PBS -l mem=16gb
+#PBS -m ae
+#PBS -M mpritt4@jhu.edu
+echo $DIR
+cd $DIR
+
+for (( i=0; i<5; i++ ))
+do
+    cd sim$i
+    /scratch0/langmead-fs1/user/jacob/boiler-experiments/scripts/filter_sam/inferXStags.py tophat_out/accepted_hits.sam > tophat_out/accepted_hits_fixed.sam
+    samtools view -bS tophat_out/accepted_hits_fixed.sam | samtools sort - tophat_out/accepted_hits_fixed
+    samtools view -h -o tophat_out/accepted_hits_fixed.sam tophat_out/accepted_hits_fixed.bam
+
+    mkdir -p quant/stringtie/orig
+    stringtie tophat_out/accepted_hits_fixed.bam -G ../all_reps/genes_fixed_sorted.gtf -e > quant/stringtie/orig/transcripts.gtf
+
+    cd ../
+done
+
+for (( i=0; i<4; i++ ))
+do
+    for (( j=$i+1; j<5; j++ ))
+    do
+        #echo "Comparing simulations $i and $j"
+        /scratch0/langmead-fs1/user/jacob/boiler/compareStringtieQuantification.py sim$i/quant/stringtie/orig/transcripts.gtf sim$j/quant/stringtie/orig/transcripts.gtf
+        echo ""
+    done
+done
+
+

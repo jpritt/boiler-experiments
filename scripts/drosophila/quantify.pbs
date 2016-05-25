@@ -1,0 +1,23 @@
+#PBS -q batch
+#PBS -l walltime=720:00
+#PBS -j n
+#PBS -l pmem=16gb
+#PBS -l vmem=16gb
+#PBS -l pvmem=16gb
+#PBS -m ae
+#PBS -M mpritt4@jhu.edu
+echo 'Compressing '$DIR
+cd $DIR
+
+/scratch0/langmead-fs1/shared/pypy3-2.4-linux_x86_64-portable/bin/pypy3 /scratch0/langmead-fs1/user/jacob/boiler/boiler.py compress --split-discordant --split-diff-strands --frag-len-z-cutoff 0.125 tophat_out/accepted_hits_fixed.sam compressed/compressed.bin
+/scratch0/langmead-fs1/shared/pypy3-2.4-linux_x86_64-portable/bin/pypy3 /scratch0/langmead-fs1/user/jacob/boiler/boiler.py decompress compressed/compressed.bin expanded_boiler.sam
+
+samtools view -bS expanded_boiler.sam | samtools sort - expanded_boiler
+
+mkdir -p quant/cufflinks/orig
+mkdir -p quant/cufflinks/comp
+cufflinks -G ../all_reps/genes_fixed_sorted.gtf --no-effective-length-correction -o quant/cufflinks/orig/ tophat_out/accepted_hits_fixed.bam
+cufflinks -G ../all_reps/genes_fixed_sorted.gtf --no-effective-length-correction -o quant/cufflinks/comp/ expanded_boiler.bam
+/scratch0/langmead-fs1/user/jacob/boiler/compareQuantification.py quant/cufflinks/orig/isoforms.fpkm_tracking quant/cufflinks/comp/isoforms.fpkm_tracking
+
+

@@ -1,0 +1,24 @@
+#PBS -q batch
+#PBS -l walltime=1440:00
+#PBS -j n
+#PBS -l pmem=16gb
+#PBS -l vmem=16gb
+#PBS -l pvmem=16gb
+#PBS -l mem=16gb
+#PBS -m ae
+#PBS -M mpritt4@jhu.edu
+cd $DIR
+echo $DIR
+
+#/scratch0/langmead-fs1/user/jacob/filter_sam/inferXStags.py tophat_out/accepted_hits.sam > tophat_out/accepted_hits_filtered.sam
+#samtools view -bS tophat_out/accepted_hits_filtered.sam | samtools sort - tophat_out/accepted_hits_filtered
+#samtools view -h -o tophat_out/accepted_hits_filtered.sam tophat_out/accepted_hits_filtered.bam
+/scratch0/langmead-fs1/user/jacob/filter_sam/removeSeq.py tophat_out/accepted_hits_filtered.sam tophat_out/accepted_hits_sm.sam
+samtools view -bS tophat_out/accepted_hits_sm.sam | samtools sort - tophat_out/accepted_hits_sm
+samtools view -h -o tophat_out/accepted_hits_sm.sam tophat_out/accepted_hits_sm.bam
+
+#time java -Xmx4g -jar /scratch0/langmead-fs1/shared/cramtools/cramtools-3.0.jar cram -I tophat_out/accepted_hits_sm.bam -R /scratch0/langmead-fs1/user/jacob/genomes/Drosophila_melanogaster/Ensembl/BDGP5/Sequence/WholeGenomeFasta/genome.fa -O compressed/compressed.cram
+#time java -Xmx4g -jar /scratch0/langmead-fs1/shared/cramtools/cramtools-3.0.jar cram -I tophat_out/accepted_hits_sm.bam -O compressed/compressed.cram
+
+time goby 4g sam-to-compact -i tophat_out/accepted_hits_sm.bam -g /scratch0/langmead-fs1/user/jacob/genomes/Drosophila_melanogaster/Ensembl/BDGP5/Sequence/WholeGenomeFasta/genome.fa -o compressed/compressed.goby -x MessageChunksWriter:codec=hybrid-1 -x MessageChunksWriter:template-compression=true -x AlignmentCollectionHandler:enable-domain-optimizations=true -x AlignmentWriterImpl:permutate-query-indices=false -x AlignmentCollectionHandler:ignore-read-origin=true
+#time goby 4g sam-to-compact -i tophat_out/accepted_hits_sm.bam -o compressed/compressed.goby -x MessageChunksWriter:codec=hybrid-1 -x MessageChunksWriter:template-compression=true -x AlignmentCollectionHandler:enable-domain-optimizations=true -x AlignmentWriterImpl:permutate-query-indices=false -x AlignmentCollectionHandler:ignore-read-origin=true

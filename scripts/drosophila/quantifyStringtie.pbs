@@ -1,0 +1,18 @@
+#PBS -q batch
+#PBS -l walltime=720:00
+#PBS -j n
+#PBS -l pmem=16gb
+#PBS -l vmem=16gb
+#PBS -l pvmem=16gb
+#PBS -m ae
+#PBS -M mpritt4@jhu.edu
+echo 'Compressing '$DIR
+cd $DIR
+
+#mkdir -p quant/stringtie/orig
+#mkdir -p quant/stringtie/comp
+#stringtie tophat_out/accepted_hits_fixed.bam -G ../all_reps/genes_fixed_sorted.gtf -e > quant/stringtie/orig/transcripts.gtf
+#stringtie expanded_boiler.bam -G ../all_reps/genes_fixed_sorted.gtf -e > quant/stringtie/comp/transcripts.gtf
+/scratch0/langmead-fs1/user/jacob/boiler/compareStringtieQuantification.py quant/stringtie/orig/transcripts.gtf quant/stringtie/comp/transcripts.gtf
+
+

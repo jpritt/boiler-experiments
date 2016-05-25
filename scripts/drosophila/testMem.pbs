@@ -1,9 +1,10 @@
 #PBS -q batch
 #PBS -l walltime=1440:00
 #PBS -j n
-#PBS -l pmem=16gb
-#PBS -l vmem=16gb
-#PBS -l pvmem=16gb
+#PBS -l nodes=1:ppn=2
+#PBS -l pmem=32gb
+#PBS -l vmem=32gb
+#PBS -l pvmem=32gb
 #PBS -m ae
 #PBS -M mpritt4@jhu.edu
 echo 'Testing peak mem for '$MODE' in '$DIR
@@ -11,6 +12,6 @@ cd $DIR
 
 for (( i=0; i<10; i++ ))
 do
-    /scratch0/langmead-fs1/user/jacob/compress-alignments/testMem.py $MODE $PREFIX
+    /scratch0/langmead-fs1/user/jacob/boiler/testMem.py $MODE $PREFIX
 done
 

@@ -1,0 +1,29 @@
+#PBS -q batch
+#PBS -l walltime=120:00
+#PBS -j n
+#PBS -l pmem=8gb
+#PBS -l vmem=8gb
+#PBS -l pvmem=8gb
+#PBS -l mem=8gb
+#PBS -m ae
+#PBS -M mpritt4@jhu.edu
+echo 'Results for '$DIR
+echo $MODE
+cd $DIR
+mkdir -p results
+
+echo 'Weighted by coverage'
+echo 'Original:'
+for i in $(seq 0 10)
+do
+    /scratch0/langmead-fs1/user/jacob/boiler/compareToTruth.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf $MODE/orig/transcripts.gtf 1 $i
+done
+
+
+echo ''
+echo 'Compressed:'
+for i in $(seq 0 10)
+do
+    /scratch0/langmead-fs1/user/jacob/boiler/compareToTruth.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf $MODE/comp/transcripts.gtf 1 $i
+done
+

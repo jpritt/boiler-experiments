@@ -1,0 +1,28 @@
+#PBS -q batch
+#PBS -l walltime=480:00
+#PBS -j n
+#PBS -l pmem=16gb
+#PBS -l vmem=16gb
+#PBS -l pvmem=16gb
+#PBS -l mem=16gb
+#PBS -m ae
+#PBS -M mpritt4@jhu.edu
+echo 'Goby size results for '$DIR
+cd $DIR
+mkdir -p compressed
+
+echo 'Normal'
+goby 8g sam-to-compact -i tophat_out/accepted_hits_fixed.bam -g /scratch0/langmead-fs1/user/jacob/genomes/Drosophila_melanogaster/Ensembl/BDGP5/Sequence/WholeGenomeFasta/genome.fa -o compressed/compressed.goby -x MessageChunksWriter:codec=hybrid-1  -x MessageChunksWriter:template-compression=true -x AlignmentCollectionHandler:enable-domain-optimizations=true -x AlignmentWriterImpl:permutate-query-indices=false -x AlignmentCollectionHandler:ignore-read-origin=true
+ls -ltr compressed/compressed.goby.*
+
+echo 'No orphans'
+/scratch0/langmead-fs1/user/jacob/boiler-experiments/scripts/filter_sam/orphansToUnpaired.py tophat_out/accepted_hits_fixed.sam tophat_out/accepted_hits_no_orphans.sam
+samtools view -bS tophat_out/accepted_hits_no_orphans.sam | samtools sort - tophat_out/accepted_hits_no_orphans
+goby 8g sam-to-compact -i tophat_out/accepted_hits_no_orphans.bam -g /scratch0/langmead-fs1/user/jacob/genomes/Drosophila_melanogaster/Ensembl/BDGP5/Sequence/WholeGenomeFasta/genome.fa -o compressed/compressed.goby -x MessageChunksWriter:codec=hybrid-1  -x MessageChunksWriter:template-compression=true -x AlignmentCollectionHandler:enable-domain-optimizations=true -x AlignmentWriterImpl:permutate-query-indices=false -x AlignmentCollectionHandler:ignore-read-origin=true
+ls -ltr compressed/compressed.goby.*
+
+echo 'No quality scores'
+/scratch0/langmead-fs1/user/jacob/boiler-experiments/scripts/filter_sam/removeQualities.py tophat_out/accepted_hits_fixed.sam tophat_out/accepted_hits_no_quals.sam
+samtools view -bS tophat_out/accepted_hits_no_quals.sam | samtools sort - tophat_out/accepted_hits_no_quals
+goby 8g sam-to-compact -i tophat_out/accepted_hits_no_quals.bam -g /scratch0/langmead-fs1/user/jacob/genomes/Drosophila_melanogaster/Ensembl/BDGP5/Sequence/WholeGenomeFasta/genome.fa -o compressed/compressed.goby -x MessageChunksWriter:codec=hybrid-1  -x MessageChunksWriter:template-compression=true -x AlignmentCollectionHandler:enable-domain-optimizations=true -x AlignmentWriterImpl:permutate-query-indices=false -x AlignmentCollectionHandler:ignore-read-origin=true
+ls -ltr compressed/compressed.goby.*
