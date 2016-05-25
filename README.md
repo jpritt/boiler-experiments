@@ -4,7 +4,7 @@ Timing results were tested using the default Linux 'time' command. Peak memory r
 We used the following software versions
 * TopHat 2 v2.1.0
 * HISAT v0.1.6
-* Boiler v1.0.0 (on PyPy 2.4)
+* Boiler v1.0.1 (on PyPy 2.4)
 * CRAMTools v3.0 (on Java v1.7)
 * Goby v2.3.5 (on Java v1.7)
 * Cufflinks v2.2.1
