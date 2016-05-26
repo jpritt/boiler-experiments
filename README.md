@@ -33,35 +33,35 @@ samtools view -h -o accepted_hits.sam accepted_hits.bam
 hisat -x path/to/HisatIndex/genome -1 reads1.fastq -2 reads2.fastq -S hisat_out/alignments.sam
 ```
 
-### Removing unmapped reads
-
-```
-$BOILER_EX_HOME/scripts/filter_sam/removeUp.py hisat_out/alignmentss.sam hisat_out/alignments_no_up.sam
-```
-
-### Expanding HISAT pairs
-
-```
-$BOILER_HOME/processHISAT.py --input hisat_out/alignments_no_up.sam --output hisat_out/alignments_processed.sam
-```
-
-### Adding inferred strand tags in pairs
-
-```
-$BOILER_EX_HOME/inferXStags.py accepted_hits.sam > accepted_hits_fixed.sam
-samtools view -bS accepted_hits_fixed.sam | samtools sort - accepted_hits_fixed
-samtools view -h -o accepted_hits_fixed.sam accepted_hits_fixed.bam
-```
-
 ### Removing read names for CRAMTools
 
 We compared Boiler's compression ratio to Goby and CRAMTools. Boiler and Goby remove read names by default, but CRAM doesn't. CRAMtools has an option `--preserve-read-names`, but we cannot find a working mechanism in version 3 to remove them.  [This CRAMTools issue](https://github.com/enasequence/cramtools/issues/48) seems to be related. For a fairer comparison, we stripped the read names before compressing.
 
 ```
-$BOILER_EX_HOME/removeNames.py accepted_hits_fixed.sam accepted_hits_no_names.sam
+$BOILER_EX_HOME/removeNames.py accepted_hits.sam accepted_hits_no_names.sam
 samtools view -bS accepted_hits_no_names.sam | samtools sort - accepted_hits_no_names
 samtools view -h -o accepted_hits_no_names.sam accepted_hits_no_names.bam
 cd ..
+```
+
+### Running Boiler
+
+#### Compressing TopHat alignments
+
+```
+$BOILER_HOME/boiler.py compress --frag-len-z-cutoff 0.125 --split-discordant --split-diff-strands --preprocess tophat tophat_out/accepted_hits.sam compressed/compressed.bin
+```
+
+#### Compressing HISAT alignments
+
+```
+$BOILER_HOME/boiler.py compress --frag-len-z-cutoff 0.125 --split-discordant --split-diff-strands --preprocess hisat tophat_out/accepted_hits.sam compressed/compressed.bin
+```
+
+#### Decompressing
+
+```
+$BOILER_HOME/boiler.py decompress --force-xs compressed/compressed.bin expanded.sam
 ```
 
 ### Assembling original transcripts
@@ -70,25 +70,18 @@ Note: use of the Cufflinks `--no-effective-length-correction` is to avoid variab
 
 ```
 mkdir -p cufflinks/orig
-cufflinks --no-effective-length-correction -o cufflinks/orig tophat_out/accepted_hits_fixed.bam
+cufflinks --no-effective-length-correction -o cufflinks/orig tophat_out/accepted_hits.processed.bam
 mkdir -p stringtie/orig
-stringtie tophat_out/accepted_hits_fixed.bam > stringtie/orig/transcripts.gtf
+stringtie tophat_out/accepted_hits.processed.bam > stringtie/orig/transcripts.gtf
 ```
 
 ### Quantitating original transcripts
 
 ```
 mkdir -p quant/cufflinks/orig
-cufflinks -G path/to/reference.gtf --no-effective-length-correction -o quant/cufflinks/orig tophat_out/accepted_hits_fixed.bam
+cufflinks -G path/to/reference.gtf --no-effective-length-correction -o quant/cufflinks/orig tophat_out/accepted_hits.processed.bam
 mkdir -p quant/stringtie/orig
-stringtie tophat_out/accepted_hits_fixed.bam -G path/to/reference.gtf -e > quant/stringtie/orig/transcripts.gtf
-```
-
-### Running Boiler
-
-```
-$BOILER_HOME/boiler.py compress --frag-len-z-cutoff 0.125 --split-discordant --split-diff-strands tophat_out/accepted_hits_fixed.sam compressed/compressed.bin
-$BOILER_HOME/boiler.py decompress --force-xs compressed/compressed.bin expanded.sam
+stringtie tophat_out/accepted_hits.processed.bam -G path/to/reference.gtf -e > quant/stringtie/orig/transcripts.gtf
 ```
 
 ### Assemble compressed transcripts
@@ -118,7 +111,7 @@ stringtie expanded.bam -G path/to/reference.gtf -e > quant/stringtie/comp/transc
 For table 5, "Precision and recall of SAM reads":
 
 ```
-$BOILER_HOME/compareSAMs.py --sam1 tophat_out/accepted_hits_fixed.sam --sam2 expanded.sam --out-frags results/fragments_comp.txt
+$BOILER_HOME/compareSAMs.py --sam1 tophat_out/accepted_hits.processed.sam --sam2 expanded.sam --out-frags results/fragments_comp.txt
 ```
 
 #### Measuring non-reference-based precision and recall
