@@ -186,30 +186,19 @@ bedGraphToBigWig accepted_hits.bedGraph ChromInfo.txt accepted_hits.bw
 
 ### Repository Structure
 
-#### results
-
-  qsub output files for experiments.
-
-#### scripts
-
-  ##### analysis
-
-    Python scripts for comparing and evaluating Boiler output.
-
-  ##### filter_sam
-
-    Utility scripts for removing/modifying SAM files.
-
-  ##### flux
-
-    Scripts for simulating and processing alignments with Flux Simulator.
-
-  ##### old
-
-    Outdated script files.
-
-  ##### qsub
-
-    Contains qsub scripts used to run all of the experiments on a high-performance compute cluster.
+.
++-- results
+|   qsub output files for experiments.
++-- scripts
+|   +-- analysis
+|       Python scripts for comparing and evaluating Boiler output.
+|   +-- filter_sam
+|       Utility scripts for removing/modifying SAM files.
+|   +-- flux
+|       Scripts for simulating and processing alignments with Flux Simulator.
+|   +-- old
+|       Outdated script files.
+|   +-- qsub
+|       Contains qsub scripts used to run all of the experiments on a high-performance compute cluster.
 
 [main Boiler repository]: https://github.com/jpritt/boiler
