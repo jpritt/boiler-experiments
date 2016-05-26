@@ -161,7 +161,9 @@ $BOILER_EX_HOME/scripts/analysis/compareStringtieQuantification.py quant/stringt
 
 (Set `MODE=cov` or `MODE=reads` as appropriate)
 
+```
 $BOILER_HOME/testQueries.py --alignments tophat_out/accepted_hits.sam --compressed compressed/compressed.bl --bedtools-path /scratch0/langmead-fs1/user/jacob/bedtools2 --output times.txt --mode $MODE --chrom all --chroms chroms.all
+```
 
 ### Running CRAMTools
 
