@@ -157,6 +157,12 @@ $BOILER_HOME/compareCufflinksQuantification.py quant/cufflinks/orig/isoforms.fpk
 $BOILER_HOME/compareStringtieQuantification.py quant/stringtie/orig/transcripts.gtf quant/stringtie/comp/transcripts.gtf
 ```
 
+### Running Queries
+
+(Set `MODE=cov` or `MODE=reads` as appropriate)
+
+$BOILER_HOME/testQueries.py --alignments tophat_out/accepted_hits.sam --compressed compressed/compressed.bl --bedtools-path /scratch0/langmead-fs1/user/jacob/bedtools2 --output times.txt --mode $MODE --chrom all --chroms chroms.all
+
 ### Running CRAMTools
 
 ```
