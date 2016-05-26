@@ -188,28 +188,28 @@ bedGraphToBigWig accepted_hits.bedGraph ChromInfo.txt accepted_hits.bw
 
 #### results
 
-qsub output files for experiments.
+  qsub output files for experiments.
 
 #### scripts
 
-##### analysis
+  ##### analysis
 
-Python scripts for comparing and evaluating Boiler output.
+    Python scripts for comparing and evaluating Boiler output.
 
-##### filter_sam
+  ##### filter_sam
 
-Utility scripts for removing/modifying SAM files.
+    Utility scripts for removing/modifying SAM files.
 
-##### flux
+  ##### flux
 
-Scripts for simulating and processing alignments with Flux Simulator.
+    Scripts for simulating and processing alignments with Flux Simulator.
 
-##### old
+  ##### old
 
-Outdated script files.
+    Outdated script files.
 
-##### qsub
+  ##### qsub
 
-Contains qsub scripts used to run all of the experiments on a high-performance compute cluster.
+    Contains qsub scripts used to run all of the experiments on a high-performance compute cluster.
 
 [main Boiler repository]: https://github.com/jpritt/boiler
