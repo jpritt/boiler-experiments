@@ -38,7 +38,7 @@ hisat -x path/to/HisatIndex/genome -1 reads1.fastq -2 reads2.fastq -S hisat_out/
 We compared Boiler's compression ratio to Goby and CRAMTools. Boiler and Goby remove read names by default, but CRAM doesn't. CRAMtools has an option `--preserve-read-names`, but we cannot find a working mechanism in version 3 to remove them.  [This CRAMTools issue](https://github.com/enasequence/cramtools/issues/48) seems to be related. For a fairer comparison, we stripped the read names before compressing.
 
 ```
-$BOILER_EX_HOME/removeNames.py accepted_hits.sam accepted_hits_no_names.sam
+$BOILER_EX_HOME/scripts/filter_sam/removeNames.py accepted_hits.sam accepted_hits_no_names.sam
 samtools view -bS accepted_hits_no_names.sam | samtools sort - accepted_hits_no_names
 samtools view -h -o accepted_hits_no_names.sam accepted_hits_no_names.bam
 cd ..
@@ -111,7 +111,7 @@ stringtie expanded.bam -G path/to/reference.gtf -e > quant/stringtie/comp/transc
 For table 5, "Precision and recall of SAM reads":
 
 ```
-$BOILER_HOME/compareSAMs.py --sam1 tophat_out/accepted_hits.processed.sam --sam2 expanded.sam --out-frags results/fragments_comp.txt
+$BOILER_EX_HOME/scripts/analysis/compareSAMs.py --sam1 tophat_out/accepted_hits.processed.sam --sam2 expanded.sam --out-frags results/fragments_comp.txt
 ```
 
 #### Measuring non-reference-based precision and recall
@@ -119,8 +119,8 @@ $BOILER_HOME/compareSAMs.py --sam1 tophat_out/accepted_hits.processed.sam --sam2
 Tables 8 & 9, measuring the amount of shuffling caused by Boiler compared to technical-replicate suffling.
 
 ```
-$BOILER_HOME/compareGTFs.py cufflinks/orig/transcripts.gtf cufflinks/comp/transcripts.gtf
-$BOILER_HOME/compareGTFs.py stringtie/orig/transcripts.gtf stringtie/comp/transcripts.gtf
+$BOILER_EX_HOME/scripts/analysis/compareGTFs.py cufflinks/orig/transcripts.gtf cufflinks/comp/transcripts.gtf
+$BOILER_EX_HOME/scripts/analysis/compareGTFs.py stringtie/orig/transcripts.gtf stringtie/comp/transcripts.gtf
 ```
 
 #### Measuring isoform-level precision & recall
@@ -128,8 +128,8 @@ $BOILER_HOME/compareGTFs.py stringtie/orig/transcripts.gtf stringtie/comp/transc
 (Set `MODE=cufflinks` or `MODE=stringtie` as appropriate)
 
 ```
-$BOILER_HOME/compareToTruth.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf $MODE/orig/transcripts.gtf
-$BOILER_HOME/compareToTruth.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf $MODE/comp/transcripts.gtf
+$BOILER_EX_HOME/scripts/analysis/compareToTruth.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf $MODE/orig/transcripts.gtf
+$BOILER_EX_HOME/scripts/analysis/compareToTruth.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf $MODE/comp/transcripts.gtf
 ```
 
 #### WKR
@@ -137,8 +137,8 @@ $BOILER_HOME/compareToTruth.py ../all_reps/simulation.pro ../all_reps/genes_fixe
 In supplemental notes.  Measures weighted k-mer recall.
 
 ```
-$BOILER_HOME/kc.py --refGTF ../all_reps/genes_fixed_sorted.gtf --refPRO ../all_reps/simulation.pro --sequence path/to/WholeGenomeFasta/genome.fa --assembly $MODE/orig/transcripts.gtf --data ../all_reps/simulation.fastq --kmer 15 
-$BOILER_HOME/kc.py --refGTF ../all_reps/genes_fixed_sorted.gtf --refPRO ../all_reps/simulation.pro --sequence path/to/WholeGenomeFasta/genome.fa --assembly $MODE/comp/transcripts.gtf --data ../all_reps/simulation.fastq --kmer 15 
+$BOILER_EX_HOME/scripts/analysis/kc.py --refGTF ../all_reps/genes_fixed_sorted.gtf --refPRO ../all_reps/simulation.pro --sequence path/to/WholeGenomeFasta/genome.fa --assembly $MODE/orig/transcripts.gtf --data ../all_reps/simulation.fastq --kmer 15 
+$BOILER_EX_HOME/scripts/analysis/kc.py --refGTF ../all_reps/genes_fixed_sorted.gtf --refPRO ../all_reps/simulation.pro --sequence path/to/WholeGenomeFasta/genome.fa --assembly $MODE/comp/transcripts.gtf --data ../all_reps/simulation.fastq --kmer 15 
 ```
 
 #### Tripartite score
@@ -146,15 +146,15 @@ $BOILER_HOME/kc.py --refGTF ../all_reps/genes_fixed_sorted.gtf --refPRO ../all_r
 Experiments described in supplemental note.  This measurement captures how closely the before- and after-compression alignment files compare to the true simulated transcriptome.
 
 ```
-$BOILER_HOME/compareTripartite.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf $MODE/orig/transcripts.gtf $MODE/comp/transcripts.gtf 1
-$BOILER_HOME/compareTripartite.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf $MODE/orig/transcripts.gtf $MODE/comp/transcripts.gtf 0
+$BOILER_EX_HOME/scripts/analysis/compareTripartite.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf $MODE/orig/transcripts.gtf $MODE/comp/transcripts.gtf 1
+$BOILER_EX_HOME/scripts/analysis/compareTripartite.py ../all_reps/simulation.pro ../all_reps/genes_fixed_sorted.gtf $MODE/orig/transcripts.gtf $MODE/comp/transcripts.gtf 0
 ```
 
 #### Comparing quantitation results
 
 ```
-$BOILER_HOME/compareCufflinksQuantification.py quant/cufflinks/orig/isoforms.fpkm_tracking quant/cufflinks/comp/isoforms.fpkm_tracking
-$BOILER_HOME/compareStringtieQuantification.py quant/stringtie/orig/transcripts.gtf quant/stringtie/comp/transcripts.gtf
+$BOILER_EX_HOME/scripts/analysis/compareCufflinksQuantification.py quant/cufflinks/orig/isoforms.fpkm_tracking quant/cufflinks/comp/isoforms.fpkm_tracking
+$BOILER_EX_HOME/scripts/analysis/compareStringtieQuantification.py quant/stringtie/orig/transcripts.gtf quant/stringtie/comp/transcripts.gtf
 ```
 
 ### Running Queries
@@ -183,5 +183,33 @@ goby 16g sam-to-compact -i tophat_out/accepted_hits.bam -o compressed/compressed
 bedtools genomecov -bg -split -ibam accepted_hits_no_names.bam -g ChromInfo.txt > accepted_hits.bedGraph
 bedGraphToBigWig accepted_hits.bedGraph ChromInfo.txt accepted_hits.bw
 ```
+
+### Repository Structure
+
+#### results
+
+qsub output files for experiments.
+
+#### scripts
+
+##### analysis
+
+Python scripts for comparing and evaluating Boiler output.
+
+##### filter_sam
+
+Utility scripts for removing/modifying SAM files.
+
+##### flux
+
+Scripts for simulating and processing alignments with Flux Simulator.
+
+##### old
+
+Outdated script files.
+
+##### qsub
+
+Contains qsub scripts used to run all of the experiments on a high-performance compute cluster.
 
 [main Boiler repository]: https://github.com/jpritt/boiler
