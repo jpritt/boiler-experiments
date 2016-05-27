@@ -1,10 +1,5 @@
 .DS_Store
-paper/boiler.log
-paper/boiler.out
-paper/boiler.synctex.gz
-paper/boiler.aux
+scripts/qsub/*.pbs.*
 scripts/qsub/*/*.pbs.*
-scripts/drosophila/*.pbs.*
-scripts/drosophila/*/*.pbs.*
 *.pyc
 __pycache__/

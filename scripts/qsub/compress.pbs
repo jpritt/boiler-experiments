@@ -10,20 +10,16 @@ echo 'Compressing '$DIR
 cd $DIR
 mkdir -p compressed
 
-#/scratch0/langmead-fs1/user/jacob/filter_sam/inferXStags.py tophat_out/accepted_hits.sam > tophat_out/accepted_hits_fixed.sam
-#samtools view -bS tophat_out/accepted_hits_fixed.sam | samtools sort - tophat_out/accepted_hits_fixed
-#samtools view -h -o tophat_out/accepted_hits_fixed.sam tophat_out/accepted_hits_fixed.bam
+#/scratch0/langmead-fs1/shared/pypy3-2.4-linux_x86_64-portable/bin/pypy3 /scratch0/langmead-fs1/user/jacob/boiler/boiler.py compress --split-discordant --split-diff-strands --frag-len-z-cutoff 0.125 tophat_out/accepted_hits_fixed.sam compressed/compressed.bin
+#/scratch0/langmead-fs1/shared/pypy3-2.4-linux_x86_64-portable/bin/pypy3 /scratch0/langmead-fs1/user/jacob/boiler/boiler.py decompress compressed/compressed.bin expanded.sam
 
-/scratch0/langmead-fs1/shared/pypy3-2.4-linux_x86_64-portable/bin/pypy3 /scratch0/langmead-fs1/user/jacob/boiler/boiler.py compress --split-discordant --split-diff-strands --frag-len-z-cutoff 0.125 tophat_out/accepted_hits_fixed.sam compressed/compressed.bin
-/scratch0/langmead-fs1/shared/pypy3-2.4-linux_x86_64-portable/bin/pypy3 /scratch0/langmead-fs1/user/jacob/boiler/boiler.py decompress compressed/compressed.bin expanded.sam
-
-samtools view -bS expanded.sam | samtools sort - expanded
+#samtools view -bS expanded.sam | samtools sort - expanded
 #mkdir -p cufflinks/comp/
 #cufflinks --no-effective-length-correction -o cufflinks/comp expanded.bam
 #mkdir -p stringtie/comp/
-#stringtie expanded.bam > stringtie/comp/transcripts.gtf
+/scratch0/langmead-fs1/shared/stringtie-1.2.2.Linux_x86_64/stringtie expanded.bam > stringtie/comp/transcripts.gtf
 
 #mkdir -p cufflinks/orig/
 #cufflinks --no-effective-length-correction -o cufflinks/orig tophat_out/accepted_hits_fixed.bam
 #mkdir -p stringtie/orig/
-#/scratch0/langmead-fs1/shared/stringtie-1.0.3/stringtie tophat_out/accepted_hits_fixed.bam > stringtie/orig/transcripts.gtf
+/scratch0/langmead-fs1/shared/stringtie-1.2.2.Linux_x86_64/stringtie tophat_out/accepted_hits_fixed.bam > stringtie/orig/transcripts.gtf
