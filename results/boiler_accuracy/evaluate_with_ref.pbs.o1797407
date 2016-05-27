@@ -1,0 +1,28 @@
+cufflinks
+=== Weighted Kmer Recall ===
+Original:
+WKR = 0.881803
+Compressed:
+WKR = 0.883056
+=== Precision/Recall Compared to Truth ===
+Weighted by coverage
+Original:
+Recall    = 0.761956267336
+Precision = 0.551550882863
+Compressed:
+Recall    = 0.761992732116
+Precision = 0.553980157086
+Unweighted
+Original:
+Recall    = 0.748310953276
+Precision = 0.203958117828
+Compressed:
+Recall    = 0.746877792198
+Precision = 0.203079375679
+=== Tripartite Score ===
+2356 / 14000  = 0.1683 transcripts from file 1
+2356 / 13965  = 0.1687 transcripts from file 2
+Score: 0.975926
+3163 / 14000  = 0.2259 transcripts from file 1
+3163 / 13965  = 0.2265 transcripts from file 2
+Score: 0.972258

@@ -1,0 +1,28 @@
+stringtie
+=== Weighted Kmer Recall ===
+Original:
+WKR = 0.932934
+Compressed:
+WKR = 0.933209
+=== Precision/Recall Compared to Truth ===
+Weighted by coverage
+Original:
+Recall    = 0.793696661005
+Precision = 0.569628815814
+Compressed:
+Recall    = 0.792388426697
+Precision = 0.567630766747
+Unweighted
+Original:
+Recall    = 0.777053327916
+Precision = 0.213539444174
+Compressed:
+Recall    = 0.774968512367
+Precision = 0.212911884167
+=== Tripartite Score ===
+2386 / 14331  = 0.1665 transcripts from file 1
+2386 / 14337  = 0.1664 transcripts from file 2
+Score: 0.985402
+3216 / 14331  = 0.2244 transcripts from file 1
+3216 / 14337  = 0.2243 transcripts from file 2
+Score: 0.984916

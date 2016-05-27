@@ -1,0 +1,30 @@
+=== SAM Comparison ===
+No pairing:
+Recall    = TP / TP+FN = 0.976019
+Precision = TP / TP+FP = 0.972701
+
+Pairing:
+Recall    = TP / TP+FN = 0.328297
+Precision = TP / TP+FP = 0.327181
+
+File 1: 6054800 unpaired, 37517508 paired, 877738 discordant
+File 2: 7208467 unpaired, 36512484 paired, 0 discordant
+
+249005
+249005
+
+=== Cufflinks Direct Comparison ===
+Weighted by coverage
+0.967396896282
+0.968865440221
+Unweighted
+0.968286181518
+0.96933199879
+
+=== Stringtie Direct Comparison ===
+Weighted by coverage
+0.980936604652
+0.981314314052
+Unweighted
+0.991600310381
+0.991208080065

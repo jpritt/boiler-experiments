@@ -1,0 +1,45 @@
+/scratch0/langmead-fs1/user/jacob/compress-alignments-test/drosophila/tech_reps/single100
+Comparing cufflinks results
+Weighted by coverage
+Recall    = TP/T = 0.816474801711
+Precision    = TP/P = 0.819181048885
+Recall    = TP/T = 0.818315121516
+Precision    = TP/P = 0.817738097537
+Recall    = TP/T = 0.814311152714
+Precision    = TP/P = 0.818507455681
+Recall    = TP/T = 0.819481272093
+Precision    = TP/P = 0.821141087154
+Recall    = TP/T = 0.819199685927
+Precision    = TP/P = 0.816073320384
+Recall    = TP/T = 0.819582529134
+Precision    = TP/P = 0.821057566896
+Recall    = TP/T = 0.818946322571
+Precision    = TP/P = 0.818014217574
+Recall    = TP/T = 0.816286838231
+Precision    = TP/P = 0.819879986343
+Recall    = TP/T = 0.820801486728
+Precision    = TP/P = 0.823303578103
+Recall    = TP/T = 0.82437108357
+Precision    = TP/P = 0.822409832028
+
+Unweighted
+Recall    = TP/T = 0.575120600763
+Precision    = TP/P = 0.573891009762
+Recall    = TP/T = 0.574139414351
+Precision    = TP/P = 0.571953406705
+Recall    = TP/T = 0.575064445252
+Precision    = TP/P = 0.577120301223
+Recall    = TP/T = 0.572685818057
+Precision    = TP/P = 0.573873079254
+Recall    = TP/T = 0.571407178825
+Precision    = TP/P = 0.570128464527
+Recall    = TP/T = 0.572465885917
+Precision    = TP/P = 0.574658858398
+Recall    = TP/T = 0.572710759929
+Precision    = TP/P = 0.574654064573
+Recall    = TP/T = 0.571816809096
+Precision    = TP/P = 0.575292378918
+Recall    = TP/T = 0.571442421464
+Precision    = TP/P = 0.575049862526
+Recall    = TP/T = 0.576994753539
+Precision    = TP/P = 0.576067013572

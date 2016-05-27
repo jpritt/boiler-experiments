@@ -1,0 +1,110 @@
+INFO	2016-02-29 16:27:54	ReferenceSource	Sequence not found: 1
+Exception in thread "main" java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at net.sf.cram.CramTools.invoke(CramTools.java:91)
+	at net.sf.cram.CramTools.main(CramTools.java:121)
+Caused by: java.lang.NullPointerException
+	at net.sf.cram.Bam2Cram.main(Bam2Cram.java:372)
+	... 6 more
+INFO	2016-02-29 16:27:54	ReferenceSource	Sequence not found: 1
+Exception in thread "main" java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at net.sf.cram.CramTools.invoke(CramTools.java:91)
+	at net.sf.cram.CramTools.main(CramTools.java:121)
+Caused by: java.lang.NullPointerException
+	at net.sf.cram.Bam2Cram.main(Bam2Cram.java:372)
+	... 6 more
+INFO	2016-02-29 16:27:54	ReferenceSource	Sequence not found: 1
+Exception in thread "main" java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at net.sf.cram.CramTools.invoke(CramTools.java:91)
+	at net.sf.cram.CramTools.main(CramTools.java:121)
+Caused by: java.lang.NullPointerException
+	at net.sf.cram.Bam2Cram.main(Bam2Cram.java:372)
+	... 6 more
+INFO	2016-02-29 16:27:55	ReferenceSource	Sequence not found: 1
+Exception in thread "main" java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at net.sf.cram.CramTools.invoke(CramTools.java:91)
+	at net.sf.cram.CramTools.main(CramTools.java:121)
+Caused by: java.lang.NullPointerException
+	at net.sf.cram.Bam2Cram.main(Bam2Cram.java:372)
+	... 6 more
+INFO	2016-02-29 16:27:55	ReferenceSource	Sequence not found: 1
+Exception in thread "main" java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at net.sf.cram.CramTools.invoke(CramTools.java:91)
+	at net.sf.cram.CramTools.main(CramTools.java:121)
+Caused by: java.lang.NullPointerException
+	at net.sf.cram.Bam2Cram.main(Bam2Cram.java:372)
+	... 6 more
+INFO	2016-02-29 16:27:55	ReferenceSource	Sequence not found: 1
+Exception in thread "main" java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at net.sf.cram.CramTools.invoke(CramTools.java:91)
+	at net.sf.cram.CramTools.main(CramTools.java:121)
+Caused by: java.lang.NullPointerException
+	at net.sf.cram.Bam2Cram.main(Bam2Cram.java:372)
+	... 6 more
+INFO	2016-02-29 16:27:56	ReferenceSource	Sequence not found: 1
+Exception in thread "main" java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at net.sf.cram.CramTools.invoke(CramTools.java:91)
+	at net.sf.cram.CramTools.main(CramTools.java:121)
+Caused by: java.lang.NullPointerException
+	at net.sf.cram.Bam2Cram.main(Bam2Cram.java:372)
+	... 6 more
+INFO	2016-02-29 16:27:56	ReferenceSource	Sequence not found: 1
+Exception in thread "main" java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at net.sf.cram.CramTools.invoke(CramTools.java:91)
+	at net.sf.cram.CramTools.main(CramTools.java:121)
+Caused by: java.lang.NullPointerException
+	at net.sf.cram.Bam2Cram.main(Bam2Cram.java:372)
+	... 6 more
+INFO	2016-02-29 16:27:56	ReferenceSource	Sequence not found: 1
+Exception in thread "main" java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at net.sf.cram.CramTools.invoke(CramTools.java:91)
+	at net.sf.cram.CramTools.main(CramTools.java:121)
+Caused by: java.lang.NullPointerException
+	at net.sf.cram.Bam2Cram.main(Bam2Cram.java:372)
+	... 6 more
+INFO	2016-02-29 16:27:56	ReferenceSource	Sequence not found: 1
+Exception in thread "main" java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at net.sf.cram.CramTools.invoke(CramTools.java:91)
+	at net.sf.cram.CramTools.main(CramTools.java:121)
+Caused by: java.lang.NullPointerException
+	at net.sf.cram.Bam2Cram.main(Bam2Cram.java:372)
+	... 6 more

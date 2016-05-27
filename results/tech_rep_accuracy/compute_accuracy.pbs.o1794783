@@ -1,0 +1,43 @@
+Comparing cufflinks results
+Weighted by coverage
+Recall    = TP/T = 0.9090029165
+Precision    = TP/P = 0.911377198884
+Recall    = TP/T = 0.901424728454
+Precision    = TP/P = 0.900868458372
+Recall    = TP/T = 0.897279822587
+Precision    = TP/P = 0.899155982475
+Recall    = TP/T = 0.910136380811
+Precision    = TP/P = 0.908994907824
+Recall    = TP/T = 0.911895188391
+Precision    = TP/P = 0.908817127743
+Recall    = TP/T = 0.902479103464
+Precision    = TP/P = 0.901773402545
+Recall    = TP/T = 0.902273419058
+Precision    = TP/P = 0.898822050422
+Recall    = TP/T = 0.905454864023
+Precision    = TP/P = 0.907971226829
+Recall    = TP/T = 0.897511942149
+Precision    = TP/P = 0.897090866996
+Recall    = TP/T = 0.908167916378
+Precision    = TP/P = 0.905252383364
+Unweighted
+Recall    = TP/T = 0.783932152602
+Precision    = TP/P = 0.782805887264
+Recall    = TP/T = 0.762697753153
+Precision    = TP/P = 0.762864888677
+Recall    = TP/T = 0.761672079142
+Precision    = TP/P = 0.76132303331
+Recall    = TP/T = 0.782302458685
+Precision    = TP/P = 0.782974499986
+Recall    = TP/T = 0.78406374811
+Precision    = TP/P = 0.785524761685
+Recall    = TP/T = 0.762561441865
+Precision    = TP/P = 0.763208891272
+Recall    = TP/T = 0.762150582456
+Precision    = TP/P = 0.763891322389
+Recall    = TP/T = 0.783855671784
+Precision    = TP/P = 0.783517732008
+Recall    = TP/T = 0.760898765414
+Precision    = TP/P = 0.761348438581
+Recall    = TP/T = 0.779515809741
+Precision    = TP/P = 0.780373013556
